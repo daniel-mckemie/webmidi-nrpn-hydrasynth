@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body>
+  <div>
+    <select id="midi-outputs">
+      <option value="" selected disabled hidden>Choose MIDI Output</option>
+    </select>
+
+    <input id="sample-slider" type="range" min="0" max="218" value="0">
+
+    <!-- OSC -->
+    <div id="osc">
+      <input id="all-osc-cent" type="number" placeholder="All OSC Cent" min="0" max="8192">
+      <input id="osc-mode" type="number" min="0" max="" placeholder="OSC Mode" value="">
+      <input id="semi" type="number" placeholder="OSC Mode" value="">
+    </div>
+
+    <!-- OSC 1 -->
+    <div id="osc1">
+      <input id="osc1-type" type="number" placeholder="OSC1 Type">
+      <input id="osc1-cent" type="number" placeholder="OSC1 Cent">
+      <input id="osc1-keytrack" min="0" max="200" type="number" placeholder="OSC1 Keytrack">
+      <input id="osc1-wavescan" type="number" placeholder="OSC1 WaveScan" min="0" max="8192">
+      <input id="solo-osc1-wavescan" type="number" placeholder="solo OSC1 wavescan">
+      <input id="osc1-wavescan-wav1" type="number" placeholder="OSC1 WaveScan Wav1" min="0" max="218">
+      <input id="osc1-wavescan-wav2" type="number" placeholder="OSC1 WaveScan Wav2" min="0" max="218">
+      <input id="osc1-wavescan-wav3" type="number" placeholder="OSC1 WaveScan Wav3" min="0" max="218">
+      <input id="osc1-wavescan-wav4" type="number" placeholder="OSC1 WaveScan Wav4" min="0" max="218">
+      <input id="osc1-wavescan-wav5" type="number" placeholder="OSC1 WaveScan Wav5" min="0" max="218">
+      <input id="osc1-wavescan-wav6" type="number" placeholder="OSC1 WaveScan Wav6" min="0" max="218">
+      <input id="osc1-wavescan-wav7" type="number" placeholder="OSC1 WaveScan Wav7" min="0" max="218">
+      <input id="osc1-wavescan-wav8" type="number" placeholder="OSC1 WaveScan Wav8" min="0" max="218">
+    </div>
+    <br />
+
+    <!-- OSC 2 -->
+    <div id="osc2">
+      <input id="osc2-type" type="number" placeholder="OSC2 Type">
+      <input id="osc2-cent" type="number" placeholder="OSC2 Cent">
+      <input id="osc2-keytrack" min="0" max="200" type="number" placeholder="OSC2 Keytrack">
+      <input id="osc2-wavescan" type="number" min="0" max="8192" placeholder="OSC2 WaveScan">
+      <input id="solo-osc2-wavescan" type="number" placeholder="solo OSC2 wavescan">
+      <input id="osc2-wavescan-wav1" type="number" placeholder="OSC2 WaveScan Wav1" min="0" max="208">
+      <input id="osc2-wavescan-wav2" type="number" placeholder="OSC2 WaveScan Wav2" min="0" max="208">
+      <input id="osc2-wavescan-wav3" type="number" placeholder="OSC2 WaveScan Wav3" min="0" max="208">
+      <input id="osc2-wavescan-wav4" type="number" placeholder="OSC2 WaveScan Wav4" min="0" max="208">
+      <input id="osc2-wavescan-wav5" type="number" placeholder="OSC2 WaveScan Wav5" min="0" max="208">
+      <input id="osc2-wavescan-wav6" type="number" placeholder="OSC2 WaveScan Wav6" min="0" max="208">
+      <input id="osc2-wavescan-wav7" type="number" placeholder="OSC2 WaveScan Wav7" min="0" max="208">
+      <input id="osc2-wavescan-wav8" type="number" placeholder="OSC2 WaveScan Wav8" min="0" max="208">
+    </div>
+    <br />
+
+    <!-- OSC 3 -->
+    <div id="osc3">
+      <input id="osc3-type" type="number" placeholder="OSC3 Type" min="0" max="218">
+      <input id="osc3-cent" type="number" placeholder="OSC3 Cent">
+      <input id="osc3-keytrack" min="0" max="200" type="number" placeholder="OSC3 Keytrack">      
+    </div>
+    <br />
+
+
+    <!-- MUTATOR ALL -->
+    <div id="mutator">
+      <input id="mutator-mode" type="number" placeholder="Mutator Mode">
+      <input id="mutator-sources-fm-lin" type="number" placeholder="Mutator Sources (FM-Lin)">
+      <input id="mutator-sources-osc-sync" type="number" placeholder="Mutator Sources (OSC Sync)">      
+    </div>
+    <br />
+
+    <!-- MUTATOR 1 -->
+    <div id="mutator1">
+      <input id="mutator1-ratio" type="number" placeholder="Mutator1 Ratio" min="0" max="8192">
+      <input id="mutator1-depth" type="number" placeholder="Mutator1 Depth" min="0" max="8192">
+      <input id="mutator1-dry-wet" type="number" placeholder="Mutator1 Dry/Wet" min="0" max="8192">
+      <input id="mutator1-feedback" type="number" placeholder="Mutator1 Feedback" min="0" max="8192">
+      <input id="mutator1-window" type="number" placeholder="Mutator1 Window" min="0" max="8192">
+      <input id="mutator1-warp1" type="number" placeholder="Mutator1 Warp1" min="0" max="8192">
+      <input id="mutator1-warp2" type="number" placeholder="Mutator1 Warp2" min="0" max="8192">
+      <input id="mutator1-warp3" type="number" placeholder="Mutator1 Warp3" min="0" max="8192">
+      <input id="mutator1-warp4" type="number" placeholder="Mutator1 Warp4" min="0" max="8192">
+      <input id="mutator1-warp5" type="number" placeholder="Mutator1 Warp5" min="0" max="8192">
+      <input id="mutator1-warp6" type="number" placeholder="Mutator1 Warp6" min="0" max="8192">
+      <input id="mutator1-warp7" type="number" placeholder="Mutator1 Warp7" min="0" max="8192">
+      <input id="mutator1-warp8" type="number" placeholder="Mutator1 Warp8" min="0" max="8192">
+    </div>
+    <br />
+
+    <!-- MUTATOR 2 -->
+    <div id="mutator2">
+      <input id="mutator2-ratio" type="number" placeholder="Mutator2 Ratio" min="0" max="8192">
+      <input id="mutator2-depth" type="number" placeholder="Mutator2 Depth" min="0" max="8192">
+      <input id="mutator2-dry-wet" type="number" placeholder="Mutator2 Dry/Wet" min="0" max="8192">
+      <input id="mutator2-feedback" type="number" placeholder="Mutator2 Feedback" min="0" max="8192">
+      <input id="mutator2-window" type="number" placeholder="Mutator2 Window" min="0" max="8192">
+      <input id="mutator2-warp1" type="number" placeholder="Mutator2 Warp1" min="0" max="8192">
+      <input id="mutator2-warp2" type="number" placeholder="Mutator2 Warp2" min="0" max="8192">
+      <input id="mutator2-warp3" type="number" placeholder="Mutator2 Warp3" min="0" max="8192">
+      <input id="mutator2-warp4" type="number" placeholder="Mutator2 Warp4" min="0" max="8192">
+      <input id="mutator2-warp5" type="number" placeholder="Mutator2 Warp5" min="0" max="8192">
+      <input id="mutator2-warp6" type="number" placeholder="Mutator2 Warp6" min="0" max="8192">
+      <input id="mutator2-warp7" type="number" placeholder="Mutator2 Warp7" min="0" max="8192">
+      <input id="mutator2-warp8" type="number" placeholder="Mutator2 Warp8" min="0" max="8192">
+    </div>
+    <br />
+
+    <!-- MUTATOR 3 -->
+    <div id="mutator-3">
+      <input id="mutator3-ratio" type="number" placeholder="Mutator3 Ratio" min="0" max="8192">
+      <input id="mutator3-depth" type="number" placeholder="Mutator3 Depth" min="0" max="8192">
+      <input id="mutator3-dry-wet" type="number" placeholder="Mutator3 Dry/Wet" min="0" max="8192">
+      <input id="mutator3-feedback" type="number" placeholder="Mutator3 Feedback" min="0" max="8192">
+      <input id="mutator3-window" type="number" placeholder="Mutator3 Window" min="0" max="8192">
+      <input id="mutator3-warp1" type="number" placeholder="Mutator3 Warp1" min="0" max="8192">
+      <input id="mutator3-warp2" type="number" placeholder="Mutator3 Warp2" min="0" max="8192">
+      <input id="mutator3-warp3" type="number" placeholder="Mutator3 Warp3" min="0" max="8192">
+      <input id="mutator3-warp4" type="number" placeholder="Mutator3 Warp4" min="0" max="8192">
+      <input id="mutator3-warp5" type="number" placeholder="Mutator3 Warp5" min="0" max="8192">
+      <input id="mutator3-warp6" type="number" placeholder="Mutator3 Warp6" min="0" max="8192">
+      <input id="mutator3-warp7" type="number" placeholder="Mutator3 Warp7" min="0" max="8192">
+      <input id="mutator3-warp8" type="number" placeholder="Mutator3 Warp8" min="0" max="8192">
+    </div>
+    <br />
+
+    <!-- MUTATOR 4 -->
+    <div id="mutator-4">
+      <input id="mutator4-ratio" type="number" placeholder="Mutator4 Ratio" min="0" max="8192">
+      <input id="mutator4-depth" type="number" placeholder="Mutator4 Depth" min="0" max="8192">
+      <input id="mutator4-dry-wet" type="number" placeholder="Mutator4 Dry/Wet" min="0" max="8192">
+      <input id="mutator4-feedback" type="number" placeholder="Mutator4 Feedback" min="0" max="8192">
+      <input id="mutator4-window" type="number" placeholder="Mutator4 Window" min="0" max="8192">
+      <input id="mutator4-warp1" type="number" placeholder="Mutator4 Warp1" min="0" max="8192">
+      <input id="mutator4-warp2" type="number" placeholder="Mutator4 Warp2" min="0" max="8192">
+      <input id="mutator4-warp3" type="number" placeholder="Mutator4 Warp3" min="0" max="8192">
+      <input id="mutator4-warp4" type="number" placeholder="Mutator4 Warp4" min="0" max="8192">
+      <input id="mutator4-warp5" type="number" placeholder="Mutator4 Warp5" min="0" max="8192">
+      <input id="mutator4-warp6" type="number" placeholder="Mutator4 Warp6" min="0" max="8192">
+      <input id="mutator4-warp7" type="number" placeholder="Mutator4 Warp7" min="0" max="8192">
+      <input id="mutator4-warp8" type="number" placeholder="Mutator4 Warp8" min="0" max="8192">
+    </div>
+    <br />
+
+
+
+
+    <div class="flex-grid">
+      <div class="row" id="info"></div>
+    </div>
+
+  </div>
+  <script src="./libs/webmidi.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>
