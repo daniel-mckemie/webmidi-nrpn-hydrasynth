@@ -137,6 +137,114 @@ WebMidi.enable(function (err) {
     const mutator4Warp7 = document.getElementById('mutator4-warp7');
     const mutator4Warp8 = document.getElementById('mutator4-warp8');
 
+    // RING-NOISE
+    const typeOfNoise = document.getElementById('type-of-noise');
+    const rm12Depth = document.getElementById('rm12-depth');
+    const signalSourceForRM = document.getElementById('signal-source-for-rm');
+
+    
+    // MIX
+    const mixerSolo = document.getElementById('mixer-solo');
+    const osc1Vol = document.getElementById('osc1-vol');
+    const osc1Pan = document.getElementById('osc1-pan');
+    const osc1Filter = document.getElementById('osc1-filter');
+    const osc2Vol = document.getElementById('osc2-vol');
+    const osc2Pan = document.getElementById('osc2-pan');
+    const osc2Filter = document.getElementById('osc2-filter');
+    const osc3Vol = document.getElementById('osc3-vol');
+    const osc3Pan = document.getElementById('osc3-pan');
+    const osc3Filter = document.getElementById('osc3-filter');
+    const noiseVol = document.getElementById('noise-vol');
+    const noisePan = document.getElementById('noise-pan');
+    const noiseFilter = document.getElementById('noise-filter');
+    const rm12Vol = document.getElementById('rm12-vol');
+    const rm12Pan = document.getElementById('rm12-pan');
+    const rm12Filter = document.getElementById('rm12-filter');
+    const filterRouting = document.getElementById('filter-routing');
+
+
+    // FILTER 1    
+    const filter1PositionOfDrive = document.getElementById('filter1-position-of-drive');
+    const filter1Cutoff = document.getElementById('filter1-cutoff'); 
+    const filter1Drive =  document.getElementById('filter1-drive');
+    const filter1Res = document.getElementById('filter1-res');
+    const filter1Special = document.getElementById('filter1-special');
+    const filter1Keytrack = document.getElementById('filter1-keytrack');
+    const filter1LFO1Amt = document.getElementById('filter1-lfo1-amt');
+    const filter1VowelOrder = document.getElementById('filter1-vowel-order');
+    const filter1Model = document.getElementById('filter1-model');
+    const filter1VelEnv = document.getElementById('filter1-vel-env');
+    const filter1EnvAmt = document.getElementById('filter1-env1-amt');
+
+    // FILTER 2  
+    const filter2PositionOfDrive = document.getElementById('filter2-position-of-drive');
+    const filter2Cutoff = document.getElementById('filter2-cutoff');    
+    const filter2Res = document.getElementById('filter2-res');
+    const filter2Morph = document.getElementById('filter2-morph');
+    const filter2Keytrack = document.getElementById('filter2-keytrack');
+    const filter2LFO1Amt = document.getElementById('filter2-lfo1-amt');    
+    const filter2VelEnv = document.getElementById('filter2-vel-env');
+    const filter2EnvAmt = document.getElementById('filter2-env1-amt');
+    const filter2Type = document.getElementById('filter2-type');
+
+    // AMP                    
+    const ampLevel = document.getElementById('amp-level');
+    const ampVelEnv = document.getElementById('amp-vel-env');
+    const ampLFO2Amt = document.getElementById('amp-lfo2-amt');
+
+    // PRE-FX
+    const preFXType = document.getElementById('pre-fx-type');
+    const preFXPreset = document.getElementById('pre-fx-preset');
+    const preFXMix = document.getElementById('pre-fx-mix');
+    const preFXParam1 = document.getElementById('pre-fx-param1');
+    const preFXParam2 = document.getElementById('pre-fx-param2');
+    const preFXParam3 = document.getElementById('pre-fx-param3');
+    const preFXParam4 = document.getElementById('pre-fx-param4');
+    const preFXParam5 = document.getElementById('pre-fx-param5');
+    const preFXSelectionType = document.getElementById('pre-fx-selection-type');
+
+    // DELAY    
+    const delayBPMSync = document.getElementById('delay-bpm-sync');
+    const delayDryWet = document.getElementById('delay-dry-wet');
+    const delayFeedback = document.getElementById('delay-feedback');
+    const delayFeedtone = document.getElementById('delay-feedtone');
+    const delayTime = document.getElementById('delay-time');
+    const delayType = document.getElementById('delay-type');
+    const delayWetTone = document.getElementById('delay-wet-tone');
+
+    // REVERB
+    const reverbDryWet = document.getElementById('reverb-dry-wet');
+    const reverbHiDamp = document.getElementById('reverb-hi-damp');
+    const reverbLoDamp = document.getElementById('reverb-lo-damp');
+    const reverbPreDelay = document.getElementById('reverb-predelay');
+    const reverbTime = document.getElementById('reverb-time');
+    const reverbTone = document.getElementById('reverb-tone');
+    const reverbType = document.getElementById('reverb-type');
+        
+    // POST-FX    
+    const postFXType = document.getElementById('post-fx-type');
+    const postFXPreset = document.getElementById('post-fx-preset');
+    const postFXMix = document.getElementById('post-fx-mix');
+    const postFXParam1 = document.getElementById('post-fx-param1');
+    const postFXParam2 = document.getElementById('post-fx-param2');
+    const postFXParam3 = document.getElementById('post-fx-param3');
+    const postFXParam4 = document.getElementById('post-fx-param4');
+    const postFXParam5 = document.getElementById('post-fx-param5');
+    const postFXSidechainType = document.getElementById('post-fx-sidechain-type');
+    
+    
+    
+
+
+    
+    
+    
+    
+               
+    
+    
+    
+
 
     ////////////////
 
@@ -249,6 +357,99 @@ WebMidi.enable(function (err) {
     mutator4Warp6.addEventListener('input', function(){changeItDefault(64, 125, mutator4Warp6.value)}); 
     mutator4Warp7.addEventListener('input', function(){changeItDefault(64, 126, mutator4Warp7.value)}); 
     mutator4Warp8.addEventListener('input', function(){changeItDefault(64, 127, mutator4Warp8.value)});
-            
+
+    // RING-NOISE
+    // typeOfNoise.addEventListener('input', function(){changeItDefault(63, 39, typeOfNoise.value)});
+    rm12Depth.addEventListener('input', function(){changeItDefault(64, 03, rm12Depth.value)});
+    // signalSourceForRM.addEventListener('input', function(){changeItDefault(63, 38, signalSourceForRM.value)});
+    
+    // MIX
+    // mixerSolo.addEventListener('input', function(){changeItDefault(63, 37, mixerSolo.value)});
+    osc1Vol.addEventListener('input', function(){changeItDefault(64, 07, osc1Vol.value)});
+    osc1Pan.addEventListener('input', function(){changeItDefault(64, 08, osc1Pan.value)});
+    osc1Filter.addEventListener('input', function(){changeItDefault(64, 49, osc1Filter.value)});
+    osc2Vol.addEventListener('input', function(){changeItDefault(64, 09, osc2Vol.value)});
+    osc2Pan.addEventListener('input', function(){changeItDefault(64, 10, osc2Pan.value)});
+    osc2Filter.addEventListener('input', function(){changeItDefault(64, 50, osc2Filter.value)});
+    osc3Vol.addEventListener('input', function(){changeItDefault(64, 11, osc3Vol.value)});
+    osc3Pan.addEventListener('input', function(){changeItDefault(64, 12, osc3Pan.value)});
+    osc3Filter.addEventListener('input', function(){changeItDefault(64, 51, osc3Filter.value)});
+    noiseVol.addEventListener('input', function(){changeItDefault(64, 13, noiseVol.value)});
+    noisePan.addEventListener('input', function(){changeItDefault(64, 14, noisePan.value)});
+    noiseFilter.addEventListener('input', function(){changeItDefault(64, 52, noiseFilter.value)});
+    rm12Vol.addEventListener('input', function(){changeItDefault(64, 61, rm12Vol.value)});
+    rm12Pan.addEventListener('input', function(){changeItDefault(64, 04, rm12Pan.value)});
+    rm12Filter.addEventListener('input', function(){changeItDefault(64, 53, rm12Filter.value)});
+    // filterRouting.addEventListener('input', function(){changeItDefault(64, 44, filterRouting.value)});
+
+    // FILTER 1    
+    // filter1PositionOfDrive.addEventListener('input', function(){changeItDefault(63, 41, filter1PositionOfDrive.value)});
+    filter1Cutoff.addEventListener('input', function(){changeItDefault(64, 40, filter1Cutoff.value)});
+    filter1Drive.addEventListener('input', function(){changeItDefault(64, 43, filter1Drive.value)});
+    filter1Res.addEventListener('input', function(){changeItDefault(64, 41, filter1Res.value)});
+    filter1Special.addEventListener('input', function(){changeItDefault(64, 42, filter1Special.value)});
+    filter1Keytrack.addEventListener('input', function(){changeItDefault(65, 102, filter1Keytrack.value)});
+    filter1LFO1Amt.addEventListener('input', function(){changeItDefault(65, 96, filter1LFO1Amt.value)});
+    // filter1VowelOrder.addEventListener('input', function(){changeItDefault(63, 46, filter1VowelOrder.value)});
+    // filter1Model.addEventListener('input', function(){changeItDefault(63, 40, filter1Model.value)});
+    filter1VelEnv.addEventListener('input', function(){changeItDefault(65, 105, filter1VelEnv.value)});
+    filter1EnvAmt.addEventListener('input', function(){changeItDefault(65, 97, filter1EnvAmt.value)});
+
+    // FILTER 2  
+    // filter2PositionOfDrive.addEventListener('input', function(){changeItDefault(63, 43, filter2PositionOfDrive.value)});
+    filter2Cutoff.addEventListener('input', function(){changeItDefault(64, 44, filter2Cutoff.value)});
+    filter2Res.addEventListener('input', function(){changeItDefault(64, 45, filter2Res.value)});
+    filter2Morph.addEventListener('input', function(){changeItDefault(64, 46, filter2Morph.value)});
+    filter2Keytrack.addEventListener('input', function(){changeItDefault(65, 103, filter2Keytrack.value)});
+    filter2LFO1Amt.addEventListener('input', function(){changeItDefault(65, 98, filter2LFO1Amt.value)});
+    filter2VelEnv.addEventListener('input', function(){changeItDefault(65, 106, filter2VelEnv.value)});
+    filter2EnvAmt.addEventListener('input', function(){changeItDefault(65, 99, filter2EnvAmt.value)});
+    // filter2Type.addEventListener('input', function(){changeItDefault(63, 35, filter2Type.value)});
+    
+    // AMP                    
+    ampLevel.addEventListener('input', function(){changeItDefault(64, 02, ampLevel.value)});
+    ampVelEnv.addEventListener('input', function(){changeItDefault(65, 107, ampVelEnv.value)});
+    ampLFO2Amt.addEventListener('input', function(){changeItDefault(65, 100, ampLFO2Amt.value)});
+
+    // PRE-FX
+    preFXType.addEventListener('input', function(){changeItDefault(59, 127, preFXType.value)});
+    preFXPreset.addEventListener('input', function(){changeItDefault(59, 0, preFXPreset.value)});
+    preFXMix.addEventListener('input', function(){changeItDefault(65, 110, preFXMix.value)});
+    preFXParam1.addEventListener('input', function(){changeItDefault(65, 11, preFXParam1.value)});
+    preFXParam2.addEventListener('input', function(){changeItDefault(65, 112, preFXParam2.value)});
+    preFXParam3.addEventListener('input', function(){changeItDefault(59, 48, preFXParam3.value)});
+    preFXParam4.addEventListener('input', function(){changeItDefault(59, 64, preFXParam4.value)});
+    preFXParam5.addEventListener('input', function(){changeItDefault(59, 80, preFXParam5.value)});
+    preFXSelectionType.addEventListener('input', function(){changeItDefault(59, 115, preFXSelectionType.value)});
+
+    // DELAY    
+    // delayBPMSync.addEventListener('input', function(){changeItDefault(59, 112, delayBPMSync.value)});
+    delayDryWet.addEventListener('input', function(){changeItDefault(65, 120, delayDryWet.value)});
+    delayFeedback.addEventListener('input', function(){changeItDefault(65, 117, delayFeedback.value)});
+    delayFeedtone.addEventListener('input', function(){changeItDefault(65, 118, delayFeedtone.value)});
+    delayTime.addEventListener('input', function(){changeItDefault(65, 116, delayTime.value)});
+    // delayType.addEventListener('input', function(){changeItDefault(59, 113, delayType.value)});
+    delayWetTone.addEventListener('input', function(){changeItDefault(65, 119, delayWetTone.value)});
+
+    // REVERB
+    reverbDryWet.addEventListener('input', function(){changeItDefault(65, 126, reverbDryWet.value)});
+    reverbHiDamp.addEventListener('input', function(){changeItDefault(65, 123, reverbHiDamp.value)});
+    reverbLoDamp.addEventListener('input', function(){changeItDefault(65, 124, reverbLoDamp.value)});
+    reverbPreDelay.addEventListener('input', function(){changeItDefault(65, 125, reverbPreDelay.value)});
+    reverbTime.addEventListener('input', function(){changeItDefault(65, 121, reverbTime.value)});
+    reverbTone.addEventListener('input', function(){changeItDefault(65, 122, reverbTone.value)});
+    reverbType.addEventListener('input', function(){changeItDefault(60, 114, reverbType.value)});
+
+    // POST-FX    
+    postFXType.addEventListener('input', function(){changeItDefault(60, 127, postFXType.value)});
+    postFXPreset.addEventListener('input', function(){changeItDefault(60, 0, postFXPreset.value)});
+    postFXMix.addEventListener('input', function(){changeItDefault(65, 113, postFXMix.value)});
+    postFXParam1.addEventListener('input', function(){changeItDefault(65, 114, postFXParam1.value)});
+    postFXParam2.addEventListener('input', function(){changeItDefault(65, 115, postFXParam2.value)});
+    postFXParam3.addEventListener('input', function(){changeItDefault(60, 48, postFXParam3.value)});
+    postFXParam4.addEventListener('input', function(){changeItDefault(60, 64, postFXParam4.value)});
+    postFXParam5.addEventListener('input', function(){changeItDefault(60, 80, postFXParam5.value)});
+    postFXSidechainType.addEventListener('input', function(){changeItDefault(60, 115, postFXSidechainType.value)});
+        
   }
 });

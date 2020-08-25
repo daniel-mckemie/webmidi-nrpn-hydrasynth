@@ -18,10 +18,10 @@
     <input id="sample-slider" type="range" min="0" max="218" value="0">
 
     <!-- OSC -->
-    <div id="osc">
+    <div id="osc">      
       <input id="all-osc-cent" type="number" placeholder="All OSC Cent" min="0" max="8192">
-      <input id="osc-mode" type="number" min="0" max="" placeholder="OSC Mode" value="">
-      <input id="semi" type="number" placeholder="OSC Mode" value="">
+      <input id="osc-mode" type="number" placeholder="OSC Mode">
+      <input id="semi" type="number" placeholder="OSC Mode">
     </div>
 
     <!-- OSC 1 -->
@@ -148,6 +148,144 @@
       <input id="mutator4-warp8" type="number" placeholder="Mutator4 Warp8" min="0" max="8192">
     </div>
     <br />
+
+    <!-- RING-NOISE -->
+    <div id="ring-noise">
+      <input id="type-of-noise" type="number" placeholder="Type of Noise" min="0" max="6">
+      <input id="rm12-depth" type="number" placeholder="RM12 Depth" min="0" max="8192">
+      <input id="signal-source-for-rm" type="number" placeholder="Signal Source for RM">
+    </div>
+    <br />
+
+    <!-- MIX -->
+    <div id="mix">
+      <input id="mixer-solo" type="number" placeholder="Mixer Solo (off/on)" min="0" max="1">
+      <input id="osc1-vol" type="number" placeholder="Osc1 Volume" min="0" max="8192">
+      <input id="osc1-pan" type="number" placeholder="Osc1 Pan" min="0" max="8192">
+      <input id="osc1-filter" type="number" placeholder="Osc1 Filter" min="0" max="8192">
+      <input id="osc2-vol" type="number" placeholder="Osc2 Volume" min="0" max="8192">
+      <input id="osc2-pan" type="number" placeholder="Osc2 Pan" min="0" max="8192">
+      <input id="osc2-filter" type="number" placeholder="Osc2 Filter" min="0" max="8192">
+      <input id="osc3-vol" type="number" placeholder="Osc3 Volume" min="0" max="8192">
+      <input id="osc3-pan" type="number" placeholder="Osc3 Pan" min="0" max="8192">
+      <input id="osc3-filter" type="number" placeholder="Osc3 Filter" min="0" max="8192">
+      <input id="noise-vol" type="number" placeholder="Noise Volume" min="0" max="8192">
+      <input id="noise-pan" type="number" placeholder="Noise Pan" min="0" max="8192">
+      <input id="noise-filter" type="number" placeholder="Noise Filter" min="0" max="8192">
+      <input id="rm12-vol" type="number" placeholder="RM12 Volume" min="0" max="8192">
+      <input id="rm12-pan" type="number" placeholder="RM12 Pan" min="0" max="8192">
+      <input id="rm12-filter" type="number" placeholder="RM12 Filter" min="0" max="8192">
+      <input id="filter-routing" type="number" placeholder="Filter Router (series/parallel)" min="0" max="1">
+    </div>
+    <br />
+
+    <!-- FILTER 1 -->
+    <div id="filter1">
+      <input id="filter1-position-of-drive" type="number" placeholder="Filter1 Drive Position" min="0" max="1">
+      <input id="filter1-cutoff" type="number" placeholder="Filter1 Cutoff" min="0" max="8192">
+      <input id="filter1-drive" type="number" placeholder="Filter1 Drive" min="0" max="8192">
+      <input id="filter1-res" type="number" placeholder="Filter1 Resonance" min="0" max="8192">
+      <input id="filter1-special" type="number" placeholder="Filter1 Special" min="0" max="8192">
+      <input id="filter1-keytrack" type="number" placeholder="Filter1 Keytrack" min="0" max="8192">
+      <input id="filter1-lfo1-amt" type="number" placeholder="Filter1 LFO1 Amount" min="0" max="8192">
+      <input id="filter1-vowel-order" type="number" placeholder="Filter1 Vowel Order (formant)" min="0" max="7">
+      <input id="filter1-model" type="number" placeholder="Filter1 Model/Type" min="0" max="10">
+      <input id="filter1-vel-env" type="number" placeholder="Filter1 Velocity Env" min="0" max="8192">
+      <input id="filter1-env1-amt" type="number" placeholder="Filter1 Env1 Amount" min="0" max="8192">            
+    </div>
+    <br />
+
+    <!-- FILTER 2 -->
+    <div id="filter2">
+      <input id="filter2-position-of-drive" type="number" placeholder="Filter2 Drive Position" min="0" max="1">
+      <input id="filter2-cutoff" type="number" placeholder="Filter2 Cutoff" min="0" max="8192">      
+      <input id="filter2-res" type="number" placeholder="Filter2 Resonance" min="0" max="8192">
+      <input id="filter2-morph" type="number" placeholder="Filter2 Morph" min="0" max="8192">
+      <input id="filter2-keytrack" type="number" placeholder="Filter2 Keytrack" min="0" max="8192">
+      <input id="filter2-lfo1-amt" type="number" placeholder="Filter2 LFO1 Amount" min="0" max="8192">            
+      <input id="filter2-vel-env" type="number" placeholder="Filter2 Velocity Env" min="0" max="8192">
+      <input id="filter2-env1-amt" type="number" placeholder="Filter2 Env1 Amount" min="0" max="8192">
+      <input id="filter2-type" type="number" placeholder="Filter2 Type" min="0" max="1">
+    </div>
+    <br />
+
+    <!-- FILTER 2 -->
+    <div id="filter2">
+      <input id="filter2-position-of-drive" type="number" placeholder="Filter2 Drive Position" min="0" max="1">
+      <input id="filter2-cutoff" type="number" placeholder="Filter2 Cutoff" min="0" max="8192">      
+      <input id="filter2-res" type="number" placeholder="Filter2 Resonance" min="0" max="8192">
+      <input id="filter2-morph" type="number" placeholder="Filter2 Morph" min="0" max="8192">
+      <input id="filter2-keytrack" type="number" placeholder="Filter2 Keytrack" min="0" max="8192">
+      <input id="filter2-lfo1-amt" type="number" placeholder="Filter2 LFO1 Amount" min="0" max="8192">            
+      <input id="filter2-vel-env" type="number" placeholder="Filter2 Velocity Env" min="0" max="8192">
+      <input id="filter2-env1-amt" type="number" placeholder="Filter2 Env1 Amount" min="0" max="8192">
+      <input id="filter2-type" type="number" placeholder="Filter2 Type" min="0" max="1">
+    </div>
+    <br />
+
+    <!-- AMP -->
+    <div id="amp">                 
+      <input id="amp-level" type="number" placeholder="Amp Level" min="0" max="8192">
+      <input id="amp-vel-env" type="number" placeholder="Amp Vel Env" min="0" max="8192">
+      <input id="amp-lfo2-amt" type="number" placeholder="Amp LFO2 Amount" min="0" max="8192">
+    </div>
+    <br />
+
+    <!-- PRE-FX -->
+    <div id="pre-fx">
+      <input id="pre-fx-type" type="number" placeholder="Pre FX Type" min="0" max="8192">
+      <input id="pre-fx-preset" type="number" placeholder="Pre FX Preset" min="0" max="8192">      
+      <input id="pre-fx-mix" type="number" placeholder="Pre FX Mix" min="0" max="8192">
+      <input id="pre-fx-param1" type="number" placeholder="Pre FX Param1" min="0" max="8192">
+      <input id="pre-fx-param2" type="number" placeholder="Pre FX Param1" min="0" max="8192">
+      <input id="pre-fx-param3" type="number" placeholder="Pre FX Param1" min="0" max="8192">            
+      <input id="pre-fx-param4" type="number" placeholder="Pre FX Param1" min="0" max="8192">
+      <input id="pre-fx-param5" type="number" placeholder="Pre FX Param1" min="0" max="8192">
+      <input id="pre-fx-selection-type" type="number" placeholder="Pre FX Selection Type" min="0" max="8192">
+    </div>
+    <br />
+
+    <!-- DELAY -->
+    <div id="delay">
+      <input id="delay-bpm-sync" type="number" placeholder="Delay BPM Sync" min="0" max="1">
+      <input id="delay-dry-wet" type="number" placeholder="Delay Dry/Wet" min="0" max="8192">      
+      <input id="delay-feedback" type="number" placeholder="Delay Feedback" min="0" max="8192">
+      <input id="delay-feedtone" type="number" placeholder="Delay FeedTone" min="0" max="8192">
+      <input id="delay-time" type="number" placeholder="Delay Time" min="0" max="8192">
+      <input id="delay-type" type="number" placeholder="Delay Type" min="0" max="4">            
+      <input id="delay-wet-tone" type="number" placeholder="Delay Wet Tone" min="0" max="8192">            
+    </div>
+    <br />
+
+    <!-- REVERB -->
+    <div id="reverb">      
+      <input id="reverb-dry-wet" type="number" placeholder="Reverb Dry/Wet" min="0" max="8192">      
+      <input id="reverb-hi-damp" type="number" placeholder="Reverb HiDamp" min="0" max="8192">
+      <input id="reverb-lo-damp" type="number" placeholder="Reverb LoDamp" min="0" max="8192">
+      <input id="reverb-predelay" type="number" placeholder="Reverb Time" min="0" max="8192">
+      <input id="reverb-time" type="number" placeholder="Reverb Type" min="0" max="4">            
+      <input id="reverb-tone" type="number" placeholder="Reverb Wet Tone" min="0" max="8192">
+      <input id="reverb-type" type="number" placeholder="Reverb Wet Tone" min="0" max="3">            
+    </div>
+    <br />
+
+    <!-- POST-FX -->
+    <div id="post-fx">
+      <input id="post-fx-type" type="number" placeholder="Post FX Type" min="0" max="8192">
+      <input id="post-fx-preset" type="number" placeholder="Post FX Preset" min="0" max="8192">      
+      <input id="post-fx-mix" type="number" placeholder="Post FX Mix" min="0" max="8192">
+      <input id="post-fx-param1" type="number" placeholder="Post FX Param1" min="0" max="8192">
+      <input id="post-fx-param2" type="number" placeholder="Post FX Param1" min="0" max="8192">
+      <input id="post-fx-param3" type="number" placeholder="Post FX Param1" min="0" max="8192">            
+      <input id="post-fx-param4" type="number" placeholder="Post FX Param1" min="0" max="8192">
+      <input id="post-fx-param5" type="number" placeholder="Post FX Param1" min="0" max="8192">
+      <input id="post-fx-sidechain-type" type="number" placeholder="Post FX Sidechain Type (compress only)" min="0" max="8192">
+    </div>
+    <br />
+
+    
+
+
 
 
 
