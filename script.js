@@ -24,11 +24,17 @@ WebMidi.enable(function (err) {
       console.log(val1, val2)
       output.setNonRegisteredParameter([x, y], [val2, val1], 1);      
       // let a = Math.floor(Math.random() * 64);      
-      // let b = Math.floor(Math.random() * 127);
-           
+      // let b = Math.floor(Math.random() * 127);           
     }
 
-    
+    functio
+
+
+
+
+
+
+    /////////////////////
 
     // All OSC
     const allOscCent = document.getElementById('all-osc-cent');
@@ -231,8 +237,109 @@ WebMidi.enable(function (err) {
     const postFXParam4 = document.getElementById('post-fx-param4');
     const postFXParam5 = document.getElementById('post-fx-param5');
     const postFXSidechainType = document.getElementById('post-fx-sidechain-type');
+
+    // LFOs    
+    const lfo1Gain = document.getElementById('lfo1-gain');
+    const lfo1Rate = document.getElementById('lfo1-rate');
+    const lfo1Phase = document.getElementById('lfo1-phase')
+    const lfo2Gain = document.getElementById('lfo2-gain');
+    const lfo2Rate = document.getElementById('lfo2-rate');
+    const lfo2Phase = document.getElementById('lfo2-phase')
+    const lfo3Gain = document.getElementById('lfo3-gain');
+    const lfo3Rate = document.getElementById('lfo3-rate');
+    const lfo3Phase = document.getElementById('lfo3-phase')
+    const lfo4Gain = document.getElementById('lfo4-gain');
+    const lfo4Rate = document.getElementById('lfo4-rate');
+    const lfo4Phase = document.getElementById('lfo4-phase')
+    const lfo5Gain = document.getElementById('lfo5-gain');
+    const lfo5Rate = document.getElementById('lfo5-rate');
+    const lfo5Phase = document.getElementById('lfo5-phase')
+
+    // ENVELOPE 1
+    const env1Att = document.getElementById('env1-att');
+    const env1Hold = document.getElementById('env1-hold');
+    const env1Dec = document.getElementById('env1-dec');
+    const env1Sus = document.getElementById('env1-sus');
+    const env1Rel = document.getElementById('env1-rel');
+    const env1AttCurve = document.getElementById('env1-att-curve');
+    const env1DecCurve = document.getElementById('env1-dec-curve');
+    const env1RelCurve = document.getElementById('env1-rel-curve');
+
+    // ENVELOPE 2
+    const env2Att = document.getElementById('env2-att');
+    const env2Hold = document.getElementById('env2-hold');
+    const env2Dec = document.getElementById('env2-dec');
+    const env2Sus = document.getElementById('env2-sus');
+    const env2Rel = document.getElementById('env2-rel');
+    const env2AttCurve = document.getElementById('env2-att-curve');
+    const env2DecCurve = document.getElementById('env2-dec-curve');
+    const env2RelCurve = document.getElementById('env2-rel-curve');
+
+    // ENVELOPE 3
+    const env3Att = document.getElementById('env3-att');
+    const env3Hold = document.getElementById('env3-hold');
+    const env3Dec = document.getElementById('env3-dec');
+    const env3Sus = document.getElementById('env3-sus');
+    const env3Rel = document.getElementById('env3-rel');
+    const env3AttCurve = document.getElementById('env3-att-curve');
+    const env3DecCurve = document.getElementById('env3-dec-curve');
+    const env3RelCurve = document.getElementById('env3-rel-curve');
+
+    // ENVELOPE 4
+    const env4Att = document.getElementById('env4-att');
+    const env4Hold = document.getElementById('env4-hold');
+    const env4Dec = document.getElementById('env4-dec');
+    const env4Sus = document.getElementById('env4-sus');
+    const env4Rel = document.getElementById('env4-rel');
+    const env4AttCurve = document.getElementById('env4-att-curve');
+    const env4DecCurve = document.getElementById('env4-dec-curve');
+    const env4RelCurve = document.getElementById('env4-rel-curve');
+
+    // ENVELOPE 5
+    const env5Att = document.getElementById('env5-att');
+    const env5Hold = document.getElementById('env5-hold');
+    const env5Dec = document.getElementById('env5-dec');
+    const env5Sus = document.getElementById('env5-sus');
+    const env5Rel = document.getElementById('env5-rel');
+    const env5AttCurve = document.getElementById('env5-att-curve');
+    const env5DecCurve = document.getElementById('env5-dec-curve');
+    const env5RelCurve = document.getElementById('env5-rel-curve');
     
-    
+    // INSERT MACROS HERE //
+
+    // MOD MATRIX
+    const modMatrix1Depth = document.getElementById('mod-matrix1-depth');
+    const modMatrix2Depth = document.getElementById('mod-matrix2-depth');
+    const modMatrix3Depth = document.getElementById('mod-matrix3-depth');
+    const modMatrix4Depth = document.getElementById('mod-matrix4-depth');
+    const modMatrix5Depth = document.getElementById('mod-matrix5-depth');
+    const modMatrix6Depth = document.getElementById('mod-matrix6-depth');
+    const modMatrix7Depth = document.getElementById('mod-matrix7-depth');
+    const modMatrix8Depth = document.getElementById('mod-matrix8-depth');
+    const modMatrix9Depth = document.getElementById('mod-matrix9-depth');
+    const modMatrix10Depth = document.getElementById('mod-matrix10-depth');
+    const modMatrix11Depth = document.getElementById('mod-matrix11-depth');
+    const modMatrix12Depth = document.getElementById('mod-matrix12-depth');
+    const modMatrix13Depth = document.getElementById('mod-matrix13-depth');
+    const modMatrix14Depth = document.getElementById('mod-matrix14-depth');
+    const modMatrix15Depth = document.getElementById('mod-matrix15-depth');
+    const modMatrix16Depth = document.getElementById('mod-matrix16-depth');
+    const modMatrix17Depth = document.getElementById('mod-matrix17-depth');
+    const modMatrix18Depth = document.getElementById('mod-matrix18-depth');
+    const modMatrix19Depth = document.getElementById('mod-matrix19-depth');
+    const modMatrix20Depth = document.getElementById('mod-matrix20-depth');
+    const modMatrix21Depth = document.getElementById('mod-matrix21-depth');
+    const modMatrix22Depth = document.getElementById('mod-matrix22-depth');
+    const modMatrix23Depth = document.getElementById('mod-matrix23-depth');
+    const modMatrix24Depth = document.getElementById('mod-matrix24-depth');
+    const modMatrix25Depth = document.getElementById('mod-matrix25-depth');
+    const modMatrix26Depth = document.getElementById('mod-matrix26-depth');
+    const modMatrix27Depth = document.getElementById('mod-matrix27-depth');
+    const modMatrix28Depth = document.getElementById('mod-matrix28-depth');
+    const modMatrix29Depth = document.getElementById('mod-matrix29-depth');
+    const modMatrix30Depth = document.getElementById('mod-matrix30-depth');
+    const modMatrix31Depth = document.getElementById('mod-matrix31-depth');
+    const modMatrix32Depth = document.getElementById('mod-matrix32-depth');
     
 
 
@@ -251,15 +358,15 @@ WebMidi.enable(function (err) {
     
     // // All OSC
     allOscCent.addEventListener('input', function(){changeItDefault(65, 4, allOscCent.value)}); // [0, 0] = 8192
-    // oscMode.addEventListener('input', function(){changeIt(63, 24, oscMode.value)}); // Check manual
-    // semi.addEventListener('input', function(){changeIt(63, 17, 64, 0)}, false); // Check manual
+    // oscMode.addEventListener('input', function(){changeItDefault(63, 24, oscMode.value)}); // Check manual
+    // semi.addEventListener('input', function(){changeItDefault(63, 17, 64, 0)}, false); // Check manual
     
     // // OSC 1
-    osc1Type.addEventListener('input', function(){changeIt(63, 25, osc1Type.value)}); // 0-218 / 1, 90
-    // osc1Cent.addEventListener('input', function(){changeIt(65, 01, 64, 0)}, false); // Check manual
-    // osc1Keytrack.addEventListener('input', function(){changeIt(63, 84, 1, 0)}, false); // 0-200 / 1, 72
+    osc1Type.addEventListener('input', function(){changeItDefault(63, 25, osc1Type.value)}); // 0-218 / 1, 90
+    osc1Cent.addEventListener('input', function(){changeItDefault(65, 01, osc1Cent.value)});
+    osc1Keytrack.addEventListener('input', function(){changeItDefault(63, 84, osc1Keytrack.value)});
     osc1WaveScan.addEventListener('input', function(){changeItDefault(65, 42, osc1WaveScan.value)});
-    // soloOsc1WaveScan.addEventListener('input', function(){changeIt(63, 27, 0, 0)}, false); // Check manual
+    // soloOsc1WaveScan.addEventListener('input', function(){changeItDefault(63, 27, 0, 0)}, false); // Check manual
     osc1WaveScanWav1.addEventListener('input', function(){changeItDefault(63, 96, osc1WaveScanWav1.value)}); // 0-218 / 1, 90
     osc1WaveScanWav2.addEventListener('input', function(){changeItDefault(63, 97, osc1WaveScanWav2.value)}); // 0-218 / 1, 90
     osc1WaveScanWav3.addEventListener('input', function(){changeItDefault(63, 98, osc1WaveScanWav3.value)}); // 0-218 / 1, 90
@@ -270,11 +377,11 @@ WebMidi.enable(function (err) {
     osc1WaveScanWav8.addEventListener('input', function(){changeItDefault(63, 103, osc1WaveScanWav8.value)}); // 0-218 / 1, 90
 
     // // OSC 2
-    osc2Type.addEventListener('input', function(){changeIt(63, 26, osc2Type.value)}); // 0-218 / 1, 90
-    // osc2Cent.addEventListener('input', function(){changeIt(65, 02, 64, 0)}, false); // Check manual
-    // osc2Keytrack.addEventListener('input', function(){changeIt(63, 85, 1, 0)}, false); // 0-200 / 1, 72
+    osc2Type.addEventListener('input', function(){changeItDefault(63, 26, osc2Type.value)}); // 0-218 / 1, 90
+    osc2Cent.addEventListener('input', function(){changeItDefault(65, 02, osc2Cent.value)});
+    osc2Keytrack.addEventListener('input', function(){changeItDefault(63, 85, osc2Keytrack.value)}); // 0-200 / 1, 72
     osc2WaveScan.addEventListener('input', function(){changeItDefault(65, 43, osc2WaveScan.value)});
-    // soloOsc2WaveScan.addEventListener('input', function(){changeIt(63, 28, 0, 0)}, false); // Check manual
+    // soloOsc2WaveScan.addEventListener('input', function(){changeItDefault(63, 28, 0, 0)}, false); // Check manual
     osc2WaveScanWav1.addEventListener('input', function(){changeItDefault(63, 104, osc2WaveScanWav1.value)}); // 0-218 / 1, 90
     osc2WaveScanWav2.addEventListener('input', function(){changeItDefault(63, 105, osc2WaveScanWav2.value)}); // 0-218 / 1, 90
     osc2WaveScanWav3.addEventListener('input', function(){changeItDefault(63, 106, osc2WaveScanWav3.value)}); // 0-218 / 1, 90
@@ -286,17 +393,17 @@ WebMidi.enable(function (err) {
 
     
     // // OSC 3
-    // osc3Type.addEventListener('input', function(){changeIt(63,  13, 0, 0)}, false); // 0-218 / 1, 90
-    // osc3Cent.addEventListener('input', function(){changeIt(65, 03, 0, 0)}, false); // Check manual
-    // osc3Keytrack.addEventListener('input', function(){changeIt(63, 86, 0, 0)}, false); // 0-200 / 1, 72
+    osc3Type.addEventListener('input', function(){changeItDefault(63,  13, osc3Type.value)});
+    osc3Cent.addEventListener('input', function(){changeItDefault(65, 03, osc3Cent.value)});
+    osc3Keytrack.addEventListener('input', function(){changeItDefault(63, 86, osc3Keytrack.value)});
 
 
     ////////////////////////
 
     // All MUTATORS      
-    // mutatorMode.addEventListener('input', function(){changeIt(63, 33, mutatorMode.value)});
-    // mutatorSourcesFMLin.addEventListener('input', function(){changeIt(63, 36, mutatorMode.value)});
-    // mutatorSourcesOscSync.addEventListener('input', function(){changeIt(63, 34, mutatorMode.value)});
+    // mutatorMode.addEventListener('input', function(){changeItDefault(63, 33, mutatorMode.value)});
+    // mutatorSourcesFMLin.addEventListener('input', function(){changeItDefault(63, 36, mutatorMode.value)});
+    // mutatorSourcesOscSync.addEventListener('input', function(){changeItDefault(63, 34, mutatorMode.value)});
 
     // // MUTATOR 1
     mutator1Ratio.addEventListener('input', function(){changeItDefault(65, 44, mutator1Ratio.value)}); 
@@ -450,6 +557,143 @@ WebMidi.enable(function (err) {
     postFXParam4.addEventListener('input', function(){changeItDefault(60, 64, postFXParam4.value)});
     postFXParam5.addEventListener('input', function(){changeItDefault(60, 80, postFXParam5.value)});
     postFXSidechainType.addEventListener('input', function(){changeItDefault(60, 115, postFXSidechainType.value)});
+
+    // LFOs    
+    lfo1Gain.addEventListener('input', function(){changeItDefault(65, 11, lfo1Gain.value)});
+    lfo1Rate.addEventListener('input', function(){changeItDefault(65, 05, lfo1Rate.value)});
+    lfo1Phase.addEventListener('input', function(){changeItDefault(63, 48, lfo1Phase.value)});
+    lfo2Gain.addEventListener('input', function(){changeItDefault(65, 12, lfo2Gain.value)});
+    lfo2Rate.addEventListener('input', function(){changeItDefault(65, 06, lfo2Gain.value)});
+    lfo2Phase.addEventListener('input', function(){changeItDefault(63, 49, lfo2Gain.value)});
+    lfo3Gain.addEventListener('input', function(){changeItDefault(65, 13, lfo3Gain.value)});
+    lfo3Rate.addEventListener('input', function(){changeItDefault(65, 07, lfo3Gain.value)});
+    lfo3Phase.addEventListener('input', function(){changeItDefault(63, 50, lfo3Gain.value)});
+    lfo4Gain.addEventListener('input', function(){changeItDefault(65, 14, lfo4Gain.value)});
+    lfo4Rate.addEventListener('input', function(){changeItDefault(65, 08, lfo4Gain.value)});
+    lfo4Phase.addEventListener('input', function(){changeItDefault(63, 51, lfo4Gain.value)});
+    lfo5Gain.addEventListener('input', function(){changeItDefault(65, 15, lfo5Gain.value)});
+    lfo5Rate.addEventListener('input', function(){changeItDefault(65, 09, lfo5Gain.value)});
+    lfo5Phase.addEventListener('input', function(){changeItDefault(63, 52, lfo5Gain.value)});
+
+    // ENVELOPE 1
+    env1Att.addEventListener('input', function(){changeItDefault(65, 17, env1Att.value)});
+    env1Hold.addEventListener('input', function(){changeItDefault(65, 22, env1Hold.value)});
+    env1Dec.addEventListener('input', function(){changeItDefault(65, 27, env1Dec.value)});
+    env1Sus.addEventListener('input', function(){changeItDefault(65, 32, env1Sus.value)});
+    env1Rel.addEventListener('input', function(){changeItDefault(65, 37, env1Rel.value)});
+    env1AttCurve.addEventListener('input', function(){changeItDefault(63, 112, env1AttCurve.value)});
+    env1DecCurve.addEventListener('input', function(){changeItDefault(63, 117, env1DecCurve.value)});
+    env1RelCurve.addEventListener('input', function(){changeItDefault(63, 122, env1RelCurve.value)});
+
+    // ENVELOPE 2
+    env2Att.addEventListener('input', function(){changeItDefault(65, 18, env2Att.value)});
+    env2Hold.addEventListener('input', function(){changeItDefault(65, 23, env2Hold.value)});
+    env2Dec.addEventListener('input', function(){changeItDefault(65, 28, env2Dec.value)});
+    env2Sus.addEventListener('input', function(){changeItDefault(65, 33, env2Sus.value)});
+    env2Rel.addEventListener('input', function(){changeItDefault(65, 38, env2Rel.value)});
+    env2AttCurve.addEventListener('input', function(){changeItDefault(63, 113, env2AttCurve.value)});
+    env2DecCurve.addEventListener('input', function(){changeItDefault(63, 118, env2DecCurve.value)});
+    env2RelCurve.addEventListener('input', function(){changeItDefault(63, 123, env2RelCurve.value)});
+
+    // ENVELOPE 3
+    env3Att.addEventListener('input', function(){changeItDefault(65, 19, env3Att.value)});
+    env3Hold.addEventListener('input', function(){changeItDefault(65, 24, env3Hold.value)});
+    env3Dec.addEventListener('input', function(){changeItDefault(65, 29, env3Dec.value)});
+    env3Sus.addEventListener('input', function(){changeItDefault(65, 34, env3Sus.value)});
+    env3Rel.addEventListener('input', function(){changeItDefault(65, 39, env3Rel.value)});
+    env3AttCurve.addEventListener('input', function(){changeItDefault(63, 114, env3AttCurve.value)});
+    env3DecCurve.addEventListener('input', function(){changeItDefault(63, 119, env3DecCurve.value)});
+    env3RelCurve.addEventListener('input', function(){changeItDefault(63, 124, env3RelCurve.value)});
+
+    // ENVELOPE 4
+    env4Att.addEventListener('input', function(){changeItDefault(65, 20, env4Att.value)});
+    env4Hold.addEventListener('input', function(){changeItDefault(65, 25, env4Hold.value)});
+    env4Dec.addEventListener('input', function(){changeItDefault(65, 30, env4Dec.value)});
+    env4Sus.addEventListener('input', function(){changeItDefault(65, 35, env4Sus.value)});
+    env4Rel.addEventListener('input', function(){changeItDefault(65, 40, env4Rel.value)});
+    env4AttCurve.addEventListener('input', function(){changeItDefault(63, 115, env4AttCurve.value)});
+    env4DecCurve.addEventListener('input', function(){changeItDefault(63, 120, env4DecCurve.value)});
+    env4RelCurve.addEventListener('input', function(){changeItDefault(63, 125, env4RelCurve.value)});
+
+    // ENVELOPE 5
+    env5Att.addEventListener('input', function(){changeItDefault(65, 21, env5Att.value)});
+    env5Hold.addEventListener('input', function(){changeItDefault(65, 26, env5Hold.value)});
+    env5Dec.addEventListener('input', function(){changeItDefault(65, 31, env5Dec.value)});
+    env5Sus.addEventListener('input', function(){changeItDefault(65, 36, env5Sus.value)});
+    env5Rel.addEventListener('input', function(){changeItDefault(65, 41, env5Rel.value)});
+    env5AttCurve.addEventListener('input', function(){changeItDefault(63, 116, env5AttCurve.value)});
+    env5DecCurve.addEventListener('input', function(){changeItDefault(63, 121, env5DecCurve.value)});
+    env5RelCurve.addEventListener('input', function(){changeItDefault(63, 126, env5RelCurve.value)});
+
+    // MOD MATRIX
+    modMatrix1Depth.addEventListener('input', function(){changeItDefault(65, 64, modMatrix1Depth.value)});
+    modMatrix2Depth.addEventListener('input', function(){changeItDefault(65, 65, modMatrix2Depth.value)});
+    modMatrix3Depth.addEventListener('input', function(){changeItDefault(65, 66, modMatrix3Depth.value)});
+    modMatrix4Depth.addEventListener('input', function(){changeItDefault(65, 67, modMatrix4Depth.value)});
+    modMatrix5Depth.addEventListener('input', function(){changeItDefault(65, 68, modMatrix5Depth.value)});
+    modMatrix6Depth.addEventListener('input', function(){changeItDefault(65, 69, modMatrix6Depth.value)});
+    modMatrix7Depth.addEventListener('input', function(){changeItDefault(65, 70, modMatrix7Depth.value)});
+    modMatrix8Depth.addEventListener('input', function(){changeItDefault(65, 71, modMatrix8Depth.value)});
+    modMatrix9Depth.addEventListener('input', function(){changeItDefault(65, 72, modMatrix9Depth.value)});
+    modMatrix10Depth.addEventListener('input', function(){changeItDefault(65, 73, modMatrix10Depth.value)});
+    modMatrix11Depth.addEventListener('input', function(){changeItDefault(65, 74, modMatrix11Depth.value)});
+    modMatrix12Depth.addEventListener('input', function(){changeItDefault(65, 75, modMatrix12Depth.value)});
+    modMatrix13Depth.addEventListener('input', function(){changeItDefault(65, 76, modMatrix13Depth.value)});
+    modMatrix14Depth.addEventListener('input', function(){changeItDefault(65, 77, modMatrix14Depth.value)});
+    modMatrix15Depth.addEventListener('input', function(){changeItDefault(65, 78, modMatrix15Depth.value)});
+    modMatrix16Depth.addEventListener('input', function(){changeItDefault(65, 79, modMatrix16Depth.value)});
+    modMatrix17Depth.addEventListener('input', function(){changeItDefault(65, 80, modMatrix17Depth.value)});
+    modMatrix18Depth.addEventListener('input', function(){changeItDefault(65, 81, modMatrix18Depth.value)});
+    modMatrix19Depth.addEventListener('input', function(){changeItDefault(65, 82, modMatrix19Depth.value)});
+    modMatrix20Depth.addEventListener('input', function(){changeItDefault(65, 83, modMatrix20Depth.value)});
+    modMatrix21Depth.addEventListener('input', function(){changeItDefault(65, 84, modMatrix21Depth.value)});
+    modMatrix22Depth.addEventListener('input', function(){changeItDefault(65, 85, modMatrix22Depth.value)});
+    modMatrix23Depth.addEventListener('input', function(){changeItDefault(65, 86, modMatrix23Depth.value)});
+    modMatrix24Depth.addEventListener('input', function(){changeItDefault(65, 87, modMatrix24Depth.value)});
+    modMatrix25Depth.addEventListener('input', function(){changeItDefault(65, 88, modMatrix25Depth.value)});
+    modMatrix26Depth.addEventListener('input', function(){changeItDefault(65, 89, modMatrix26Depth.value)});
+    modMatrix27Depth.addEventListener('input', function(){changeItDefault(65, 90, modMatrix27Depth.value)});
+    modMatrix28Depth.addEventListener('input', function(){changeItDefault(65, 91, modMatrix28Depth.value)});
+    modMatrix29Depth.addEventListener('input', function(){changeItDefault(65, 92, modMatrix29Depth.value)});
+    modMatrix30Depth.addEventListener('input', function(){changeItDefault(65, 93, modMatrix30Depth.value)});
+    modMatrix31Depth.addEventListener('input', function(){changeItDefault(65, 94, modMatrix31Depth.value)});
+    modMatrix32Depth.addEventListener('input', function(){changeItDefault(65, 95, modMatrix32Depth.value)});
+    
+
+    function slowRandom() {
+
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
         
   }
 });

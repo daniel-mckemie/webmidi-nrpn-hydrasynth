@@ -1,0 +1,30 @@
+.row {
+   width:100%;
+}
+.column-2 {
+  width:50%;
+  height:200px;
+  float:left;
+}
+.column-3 {
+  width:33%;
+  height:200px;
+  float:left;
+}
+.column-4 {
+  width:25%;
+  height:200px;
+  float:left;
+}
+.column-5 {
+  width:20%;
+  height:200px;
+  float:left;
+}
+.row:after {
+   clear:both;
+}
+
+input[type=number] {
+  width: 100px;
+}

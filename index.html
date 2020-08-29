@@ -11,282 +11,457 @@
 
 <body>
   <div>
+
+    <h1>ASM HydraSynth NRPN Map</h1>
     <select id="midi-outputs">
       <option value="" selected disabled hidden>Choose MIDI Output</option>
     </select>
+    <br /><br />
 
-    <input id="sample-slider" type="range" min="0" max="218" value="0">
+    <!-- ALL OSC -->
+    <div class="row">
+      <div class="column-4" id="all-osc">
+        <h3>All Oscillators</h3>
+        <input id="all-osc-cent" type="number" placeholder="All OSC Cent" min="0" max="8192">
+        <input id="osc-mode" type="number" placeholder="OSC Mode">
+        <input id="semi" type="number" placeholder="OSC Mode">
+      </div>
 
-    <!-- OSC -->
-    <div id="osc">      
-      <input id="all-osc-cent" type="number" placeholder="All OSC Cent" min="0" max="8192">
-      <input id="osc-mode" type="number" placeholder="OSC Mode">
-      <input id="semi" type="number" placeholder="OSC Mode">
+      <!-- OSC 1 -->
+      <div class="column-4" id="osc1">
+        <h3>Oscillator 1</h3>
+        <input id="osc1-type" type="number" placeholder="Type" min="0" max="8192">
+        <input id="osc1-cent" type="number" placeholder="Cent" min="0" max="8192">
+        <input id="osc1-keytrack" type="number" placeholder="Keytrack" min="0" max="200">
+        <input id="osc1-wavescan" type="number" placeholder="WaveScan" min="0" max="8192">
+        <input id="solo-osc1-wavescan" type="number" placeholder="solo wavescan">
+        <input id="osc1-wavescan-wav1" type="number" placeholder="WaveScan Wav1" min="0" max="218">
+        <input id="osc1-wavescan-wav2" type="number" placeholder="WaveScan Wav2" min="0" max="218">
+        <input id="osc1-wavescan-wav3" type="number" placeholder="WaveScan Wav3" min="0" max="218">
+        <input id="osc1-wavescan-wav4" type="number" placeholder="WaveScan Wav4" min="0" max="218">
+        <input id="osc1-wavescan-wav5" type="number" placeholder="WaveScan Wav5" min="0" max="218">
+        <input id="osc1-wavescan-wav6" type="number" placeholder="WaveScan Wav6" min="0" max="218">
+        <input id="osc1-wavescan-wav7" type="number" placeholder="WaveScan Wav7" min="0" max="218">
+        <input id="osc1-wavescan-wav8" type="number" placeholder="WaveScan Wav8" min="0" max="218">
+      </div>
+      <br />
+
+      <!-- OSC 2 -->
+      <div class="column-4" id="osc2">
+        <h3>Oscillator 2</h3>
+        <input id="osc2-type" type="number" placeholder="Type" min="0" max="218">
+        <input id="osc2-cent" type="number" placeholder="Cent" min="0" max="8192">
+        <input id="osc2-keytrack" type="number" placeholder="Keytrack" min="0" max="200">
+        <input id="osc2-wavescan" type="number" min="0" max="8192" placeholder="WaveScan">
+        <input id="solo-osc2-wavescan" type="number" placeholder="solo wavescan">
+        <input id="osc2-wavescan-wav1" type="number" placeholder="WaveScan Wav1" min="0" max="208">
+        <input id="osc2-wavescan-wav2" type="number" placeholder="WaveScan Wav2" min="0" max="208">
+        <input id="osc2-wavescan-wav3" type="number" placeholder="WaveScan Wav3" min="0" max="208">
+        <input id="osc2-wavescan-wav4" type="number" placeholder="WaveScan Wav4" min="0" max="208">
+        <input id="osc2-wavescan-wav5" type="number" placeholder="WaveScan Wav5" min="0" max="208">
+        <input id="osc2-wavescan-wav6" type="number" placeholder="WaveScan Wav6" min="0" max="208">
+        <input id="osc2-wavescan-wav7" type="number" placeholder="WaveScan Wav7" min="0" max="208">
+        <input id="osc2-wavescan-wav8" type="number" placeholder="WaveScan Wav8" min="0" max="208">
+      </div>
+      <br />
+
+      <!-- OSC 3 -->
+      <div class="column-4" id="osc3">
+        <h3>Oscillator 3</h3>
+        <input id="osc3-type" type="number" placeholder="Type" min="0" max="218">
+        <input id="osc3-cent" type="number" placeholder="Cent" min="0" max="8192">
+        <input id="osc3-keytrack" type="number" placeholder="Keytrack" min="0" max="200">
+      </div>
+      <br />
     </div>
-
-    <!-- OSC 1 -->
-    <div id="osc1">
-      <input id="osc1-type" type="number" placeholder="OSC1 Type">
-      <input id="osc1-cent" type="number" placeholder="OSC1 Cent">
-      <input id="osc1-keytrack" min="0" max="200" type="number" placeholder="OSC1 Keytrack">
-      <input id="osc1-wavescan" type="number" placeholder="OSC1 WaveScan" min="0" max="8192">
-      <input id="solo-osc1-wavescan" type="number" placeholder="solo OSC1 wavescan">
-      <input id="osc1-wavescan-wav1" type="number" placeholder="OSC1 WaveScan Wav1" min="0" max="218">
-      <input id="osc1-wavescan-wav2" type="number" placeholder="OSC1 WaveScan Wav2" min="0" max="218">
-      <input id="osc1-wavescan-wav3" type="number" placeholder="OSC1 WaveScan Wav3" min="0" max="218">
-      <input id="osc1-wavescan-wav4" type="number" placeholder="OSC1 WaveScan Wav4" min="0" max="218">
-      <input id="osc1-wavescan-wav5" type="number" placeholder="OSC1 WaveScan Wav5" min="0" max="218">
-      <input id="osc1-wavescan-wav6" type="number" placeholder="OSC1 WaveScan Wav6" min="0" max="218">
-      <input id="osc1-wavescan-wav7" type="number" placeholder="OSC1 WaveScan Wav7" min="0" max="218">
-      <input id="osc1-wavescan-wav8" type="number" placeholder="OSC1 WaveScan Wav8" min="0" max="218">
-    </div>
-    <br />
-
-    <!-- OSC 2 -->
-    <div id="osc2">
-      <input id="osc2-type" type="number" placeholder="OSC2 Type">
-      <input id="osc2-cent" type="number" placeholder="OSC2 Cent">
-      <input id="osc2-keytrack" min="0" max="200" type="number" placeholder="OSC2 Keytrack">
-      <input id="osc2-wavescan" type="number" min="0" max="8192" placeholder="OSC2 WaveScan">
-      <input id="solo-osc2-wavescan" type="number" placeholder="solo OSC2 wavescan">
-      <input id="osc2-wavescan-wav1" type="number" placeholder="OSC2 WaveScan Wav1" min="0" max="208">
-      <input id="osc2-wavescan-wav2" type="number" placeholder="OSC2 WaveScan Wav2" min="0" max="208">
-      <input id="osc2-wavescan-wav3" type="number" placeholder="OSC2 WaveScan Wav3" min="0" max="208">
-      <input id="osc2-wavescan-wav4" type="number" placeholder="OSC2 WaveScan Wav4" min="0" max="208">
-      <input id="osc2-wavescan-wav5" type="number" placeholder="OSC2 WaveScan Wav5" min="0" max="208">
-      <input id="osc2-wavescan-wav6" type="number" placeholder="OSC2 WaveScan Wav6" min="0" max="208">
-      <input id="osc2-wavescan-wav7" type="number" placeholder="OSC2 WaveScan Wav7" min="0" max="208">
-      <input id="osc2-wavescan-wav8" type="number" placeholder="OSC2 WaveScan Wav8" min="0" max="208">
-    </div>
-    <br />
-
-    <!-- OSC 3 -->
-    <div id="osc3">
-      <input id="osc3-type" type="number" placeholder="OSC3 Type" min="0" max="218">
-      <input id="osc3-cent" type="number" placeholder="OSC3 Cent">
-      <input id="osc3-keytrack" min="0" max="200" type="number" placeholder="OSC3 Keytrack">      
-    </div>
-    <br />
 
 
     <!-- MUTATOR ALL -->
-    <div id="mutator">
-      <input id="mutator-mode" type="number" placeholder="Mutator Mode">
-      <input id="mutator-sources-fm-lin" type="number" placeholder="Mutator Sources (FM-Lin)">
-      <input id="mutator-sources-osc-sync" type="number" placeholder="Mutator Sources (OSC Sync)">      
-    </div>
-    <br />
+    <div class="row">
+      <div class="column-5" id="mutator">
+        <h3>All Mutators</h3>
+        <input id="mutator-mode" type="number" placeholder="Mode">
+        <input id="mutator-sources-fm-lin" type="number" placeholder="Sources (FM-Lin)">
+        <input id="mutator-sources-osc-sync" type="number" placeholder="Sources (OSC Sync)">
+      </div>
+      <br />
 
-    <!-- MUTATOR 1 -->
-    <div id="mutator1">
-      <input id="mutator1-ratio" type="number" placeholder="Mutator1 Ratio" min="0" max="8192">
-      <input id="mutator1-depth" type="number" placeholder="Mutator1 Depth" min="0" max="8192">
-      <input id="mutator1-dry-wet" type="number" placeholder="Mutator1 Dry/Wet" min="0" max="8192">
-      <input id="mutator1-feedback" type="number" placeholder="Mutator1 Feedback" min="0" max="8192">
-      <input id="mutator1-window" type="number" placeholder="Mutator1 Window" min="0" max="8192">
-      <input id="mutator1-warp1" type="number" placeholder="Mutator1 Warp1" min="0" max="8192">
-      <input id="mutator1-warp2" type="number" placeholder="Mutator1 Warp2" min="0" max="8192">
-      <input id="mutator1-warp3" type="number" placeholder="Mutator1 Warp3" min="0" max="8192">
-      <input id="mutator1-warp4" type="number" placeholder="Mutator1 Warp4" min="0" max="8192">
-      <input id="mutator1-warp5" type="number" placeholder="Mutator1 Warp5" min="0" max="8192">
-      <input id="mutator1-warp6" type="number" placeholder="Mutator1 Warp6" min="0" max="8192">
-      <input id="mutator1-warp7" type="number" placeholder="Mutator1 Warp7" min="0" max="8192">
-      <input id="mutator1-warp8" type="number" placeholder="Mutator1 Warp8" min="0" max="8192">
-    </div>
-    <br />
+      <!-- MUTATOR 1 -->
+      <div class="column-5" id="mutator1">
+        <h3>Mutator 1</h3>
+        <input id="mutator1-ratio" type="number" placeholder="Ratio" min="0" max="8192">
+        <input id="mutator1-depth" type="number" placeholder="Depth" min="0" max="8192">
+        <input id="mutator1-dry-wet" type="number" placeholder="Dry/Wet" min="0" max="8192">
+        <input id="mutator1-feedback" type="number" placeholder="Feedback" min="0" max="8192">
+        <input id="mutator1-window" type="number" placeholder="Window" min="0" max="8192">
+        <input id="mutator1-warp1" type="number" placeholder="Warp1" min="0" max="8192">
+        <input id="mutator1-warp2" type="number" placeholder="Warp2" min="0" max="8192">
+        <input id="mutator1-warp3" type="number" placeholder="Warp3" min="0" max="8192">
+        <input id="mutator1-warp4" type="number" placeholder="Warp4" min="0" max="8192">
+        <input id="mutator1-warp5" type="number" placeholder="Warp5" min="0" max="8192">
+        <input id="mutator1-warp6" type="number" placeholder="Warp6" min="0" max="8192">
+        <input id="mutator1-warp7" type="number" placeholder="Warp7" min="0" max="8192">
+        <input id="mutator1-warp8" type="number" placeholder="Warp8" min="0" max="8192">
+      </div>
+      <br />
 
-    <!-- MUTATOR 2 -->
-    <div id="mutator2">
-      <input id="mutator2-ratio" type="number" placeholder="Mutator2 Ratio" min="0" max="8192">
-      <input id="mutator2-depth" type="number" placeholder="Mutator2 Depth" min="0" max="8192">
-      <input id="mutator2-dry-wet" type="number" placeholder="Mutator2 Dry/Wet" min="0" max="8192">
-      <input id="mutator2-feedback" type="number" placeholder="Mutator2 Feedback" min="0" max="8192">
-      <input id="mutator2-window" type="number" placeholder="Mutator2 Window" min="0" max="8192">
-      <input id="mutator2-warp1" type="number" placeholder="Mutator2 Warp1" min="0" max="8192">
-      <input id="mutator2-warp2" type="number" placeholder="Mutator2 Warp2" min="0" max="8192">
-      <input id="mutator2-warp3" type="number" placeholder="Mutator2 Warp3" min="0" max="8192">
-      <input id="mutator2-warp4" type="number" placeholder="Mutator2 Warp4" min="0" max="8192">
-      <input id="mutator2-warp5" type="number" placeholder="Mutator2 Warp5" min="0" max="8192">
-      <input id="mutator2-warp6" type="number" placeholder="Mutator2 Warp6" min="0" max="8192">
-      <input id="mutator2-warp7" type="number" placeholder="Mutator2 Warp7" min="0" max="8192">
-      <input id="mutator2-warp8" type="number" placeholder="Mutator2 Warp8" min="0" max="8192">
-    </div>
-    <br />
+      <!-- MUTATOR 2 -->
+      <div class="column-5" id="mutator2">
+        <h3>Mutator 2</h3>
+        <input id="mutator2-ratio" type="number" placeholder="Ratio" min="0" max="8192">
+        <input id="mutator2-depth" type="number" placeholder="Depth" min="0" max="8192">
+        <input id="mutator2-dry-wet" type="number" placeholder="Dry/Wet" min="0" max="8192">
+        <input id="mutator2-feedback" type="number" placeholder="Feedback" min="0" max="8192">
+        <input id="mutator2-window" type="number" placeholder="Window" min="0" max="8192">
+        <input id="mutator2-warp1" type="number" placeholder="Warp1" min="0" max="8192">
+        <input id="mutator2-warp2" type="number" placeholder="Warp2" min="0" max="8192">
+        <input id="mutator2-warp3" type="number" placeholder="Warp3" min="0" max="8192">
+        <input id="mutator2-warp4" type="number" placeholder="Warp4" min="0" max="8192">
+        <input id="mutator2-warp5" type="number" placeholder="Warp5" min="0" max="8192">
+        <input id="mutator2-warp6" type="number" placeholder="Warp6" min="0" max="8192">
+        <input id="mutator2-warp7" type="number" placeholder="Warp7" min="0" max="8192">
+        <input id="mutator2-warp8" type="number" placeholder="Warp8" min="0" max="8192">
+      </div>
+      <br />
 
-    <!-- MUTATOR 3 -->
-    <div id="mutator-3">
-      <input id="mutator3-ratio" type="number" placeholder="Mutator3 Ratio" min="0" max="8192">
-      <input id="mutator3-depth" type="number" placeholder="Mutator3 Depth" min="0" max="8192">
-      <input id="mutator3-dry-wet" type="number" placeholder="Mutator3 Dry/Wet" min="0" max="8192">
-      <input id="mutator3-feedback" type="number" placeholder="Mutator3 Feedback" min="0" max="8192">
-      <input id="mutator3-window" type="number" placeholder="Mutator3 Window" min="0" max="8192">
-      <input id="mutator3-warp1" type="number" placeholder="Mutator3 Warp1" min="0" max="8192">
-      <input id="mutator3-warp2" type="number" placeholder="Mutator3 Warp2" min="0" max="8192">
-      <input id="mutator3-warp3" type="number" placeholder="Mutator3 Warp3" min="0" max="8192">
-      <input id="mutator3-warp4" type="number" placeholder="Mutator3 Warp4" min="0" max="8192">
-      <input id="mutator3-warp5" type="number" placeholder="Mutator3 Warp5" min="0" max="8192">
-      <input id="mutator3-warp6" type="number" placeholder="Mutator3 Warp6" min="0" max="8192">
-      <input id="mutator3-warp7" type="number" placeholder="Mutator3 Warp7" min="0" max="8192">
-      <input id="mutator3-warp8" type="number" placeholder="Mutator3 Warp8" min="0" max="8192">
-    </div>
-    <br />
+      <!-- MUTATOR 3 -->
+      <div class="column-5" id="mutator3">
+        <h3>Mutator 3</h3>
+        <input id="mutator3-ratio" type="number" placeholder="Ratio" min="0" max="8192">
+        <input id="mutator3-depth" type="number" placeholder="Depth" min="0" max="8192">
+        <input id="mutator3-dry-wet" type="number" placeholder="Dry/Wet" min="0" max="8192">
+        <input id="mutator3-feedback" type="number" placeholder="Feedback" min="0" max="8192">
+        <input id="mutator3-window" type="number" placeholder="Window" min="0" max="8192">
+        <input id="mutator3-warp1" type="number" placeholder="Warp1" min="0" max="8192">
+        <input id="mutator3-warp2" type="number" placeholder="Warp2" min="0" max="8192">
+        <input id="mutator3-warp3" type="number" placeholder="Warp3" min="0" max="8192">
+        <input id="mutator3-warp4" type="number" placeholder="Warp4" min="0" max="8192">
+        <input id="mutator3-warp5" type="number" placeholder="Warp5" min="0" max="8192">
+        <input id="mutator3-warp6" type="number" placeholder="Warp6" min="0" max="8192">
+        <input id="mutator3-warp7" type="number" placeholder="Warp7" min="0" max="8192">
+        <input id="mutator3-warp8" type="number" placeholder="Warp8" min="0" max="8192">
+      </div>
+      <br />
 
-    <!-- MUTATOR 4 -->
-    <div id="mutator-4">
-      <input id="mutator4-ratio" type="number" placeholder="Mutator4 Ratio" min="0" max="8192">
-      <input id="mutator4-depth" type="number" placeholder="Mutator4 Depth" min="0" max="8192">
-      <input id="mutator4-dry-wet" type="number" placeholder="Mutator4 Dry/Wet" min="0" max="8192">
-      <input id="mutator4-feedback" type="number" placeholder="Mutator4 Feedback" min="0" max="8192">
-      <input id="mutator4-window" type="number" placeholder="Mutator4 Window" min="0" max="8192">
-      <input id="mutator4-warp1" type="number" placeholder="Mutator4 Warp1" min="0" max="8192">
-      <input id="mutator4-warp2" type="number" placeholder="Mutator4 Warp2" min="0" max="8192">
-      <input id="mutator4-warp3" type="number" placeholder="Mutator4 Warp3" min="0" max="8192">
-      <input id="mutator4-warp4" type="number" placeholder="Mutator4 Warp4" min="0" max="8192">
-      <input id="mutator4-warp5" type="number" placeholder="Mutator4 Warp5" min="0" max="8192">
-      <input id="mutator4-warp6" type="number" placeholder="Mutator4 Warp6" min="0" max="8192">
-      <input id="mutator4-warp7" type="number" placeholder="Mutator4 Warp7" min="0" max="8192">
-      <input id="mutator4-warp8" type="number" placeholder="Mutator4 Warp8" min="0" max="8192">
+      <!-- MUTATOR 4 -->
+      <div class="column-5" id="mutator4">
+        <h3>Mutator 4</h3>
+        <input id="mutator4-ratio" type="number" placeholder="Ratio" min="0" max="8192">
+        <input id="mutator4-depth" type="number" placeholder="Depth" min="0" max="8192">
+        <input id="mutator4-dry-wet" type="number" placeholder="Dry/Wet" min="0" max="8192">
+        <input id="mutator4-feedback" type="number" placeholder="Feedback" min="0" max="8192">
+        <input id="mutator4-window" type="number" placeholder="Window" min="0" max="8192">
+        <input id="mutator4-warp1" type="number" placeholder="Warp1" min="0" max="8192">
+        <input id="mutator4-warp2" type="number" placeholder="Warp2" min="0" max="8192">
+        <input id="mutator4-warp3" type="number" placeholder="Warp3" min="0" max="8192">
+        <input id="mutator4-warp4" type="number" placeholder="Warp4" min="0" max="8192">
+        <input id="mutator4-warp5" type="number" placeholder="Warp5" min="0" max="8192">
+        <input id="mutator4-warp6" type="number" placeholder="Warp6" min="0" max="8192">
+        <input id="mutator4-warp7" type="number" placeholder="Warp7" min="0" max="8192">
+        <input id="mutator4-warp8" type="number" placeholder="Warp8" min="0" max="8192">
+      </div>
+      <br />
     </div>
-    <br />
 
     <!-- RING-NOISE -->
-    <div id="ring-noise">
-      <input id="type-of-noise" type="number" placeholder="Type of Noise" min="0" max="6">
-      <input id="rm12-depth" type="number" placeholder="RM12 Depth" min="0" max="8192">
-      <input id="signal-source-for-rm" type="number" placeholder="Signal Source for RM">
-    </div>
-    <br />
+    <div class="row">
+      <div class="column-2" id="ring-noise">
+        <h3>Ring/Noise</h3>
+        <input id="type-of-noise" type="number" placeholder="Type of Noise" min="0" max="6">
+        <input id="rm12-depth" type="number" placeholder="RM12 Depth" min="0" max="8192">
+        <input id="signal-source-for-rm" type="number" placeholder="Signal Source for RM">
+      </div>
+      <br />
 
-    <!-- MIX -->
-    <div id="mix">
-      <input id="mixer-solo" type="number" placeholder="Mixer Solo (off/on)" min="0" max="1">
-      <input id="osc1-vol" type="number" placeholder="Osc1 Volume" min="0" max="8192">
-      <input id="osc1-pan" type="number" placeholder="Osc1 Pan" min="0" max="8192">
-      <input id="osc1-filter" type="number" placeholder="Osc1 Filter" min="0" max="8192">
-      <input id="osc2-vol" type="number" placeholder="Osc2 Volume" min="0" max="8192">
-      <input id="osc2-pan" type="number" placeholder="Osc2 Pan" min="0" max="8192">
-      <input id="osc2-filter" type="number" placeholder="Osc2 Filter" min="0" max="8192">
-      <input id="osc3-vol" type="number" placeholder="Osc3 Volume" min="0" max="8192">
-      <input id="osc3-pan" type="number" placeholder="Osc3 Pan" min="0" max="8192">
-      <input id="osc3-filter" type="number" placeholder="Osc3 Filter" min="0" max="8192">
-      <input id="noise-vol" type="number" placeholder="Noise Volume" min="0" max="8192">
-      <input id="noise-pan" type="number" placeholder="Noise Pan" min="0" max="8192">
-      <input id="noise-filter" type="number" placeholder="Noise Filter" min="0" max="8192">
-      <input id="rm12-vol" type="number" placeholder="RM12 Volume" min="0" max="8192">
-      <input id="rm12-pan" type="number" placeholder="RM12 Pan" min="0" max="8192">
-      <input id="rm12-filter" type="number" placeholder="RM12 Filter" min="0" max="8192">
-      <input id="filter-routing" type="number" placeholder="Filter Router (series/parallel)" min="0" max="1">
+      <!-- MIX -->
+      <div class="column-2" id="mix">
+        <h3>Mix</h3>
+        <input id="mixer-solo" type="number" placeholder="Mixer Solo (off/on)" min="0" max="1">
+        <input id="osc1-vol" type="number" placeholder="Osc1 Volume" min="0" max="8192">
+        <input id="osc1-pan" type="number" placeholder="Osc1 Pan" min="0" max="8192">
+        <input id="osc1-filter" type="number" placeholder="Osc1 Filter" min="0" max="8192">
+        <input id="osc2-vol" type="number" placeholder="Osc2 Volume" min="0" max="8192">
+        <input id="osc2-pan" type="number" placeholder="Osc2 Pan" min="0" max="8192">
+        <input id="osc2-filter" type="number" placeholder="Osc2 Filter" min="0" max="8192">
+        <input id="osc3-vol" type="number" placeholder="Osc3 Volume" min="0" max="8192">
+        <input id="osc3-pan" type="number" placeholder="Osc3 Pan" min="0" max="8192">
+        <input id="osc3-filter" type="number" placeholder="Osc3 Filter" min="0" max="8192">
+        <input id="noise-vol" type="number" placeholder="Noise Volume" min="0" max="8192">
+        <input id="noise-pan" type="number" placeholder="Noise Pan" min="0" max="8192">
+        <input id="noise-filter" type="number" placeholder="Noise Filter" min="0" max="8192">
+        <input id="rm12-vol" type="number" placeholder="RM12 Volume" min="0" max="8192">
+        <input id="rm12-pan" type="number" placeholder="RM12 Pan" min="0" max="8192">
+        <input id="rm12-filter" type="number" placeholder="RM12 Filter" min="0" max="8192">
+        <input id="filter-routing" type="number" placeholder="Filter Router (series/parallel)" min="0" max="1">
+      </div>
+      <br />
     </div>
-    <br />
+
 
     <!-- FILTER 1 -->
-    <div id="filter1">
-      <input id="filter1-position-of-drive" type="number" placeholder="Filter1 Drive Position" min="0" max="1">
-      <input id="filter1-cutoff" type="number" placeholder="Filter1 Cutoff" min="0" max="8192">
-      <input id="filter1-drive" type="number" placeholder="Filter1 Drive" min="0" max="8192">
-      <input id="filter1-res" type="number" placeholder="Filter1 Resonance" min="0" max="8192">
-      <input id="filter1-special" type="number" placeholder="Filter1 Special" min="0" max="8192">
-      <input id="filter1-keytrack" type="number" placeholder="Filter1 Keytrack" min="0" max="8192">
-      <input id="filter1-lfo1-amt" type="number" placeholder="Filter1 LFO1 Amount" min="0" max="8192">
-      <input id="filter1-vowel-order" type="number" placeholder="Filter1 Vowel Order (formant)" min="0" max="7">
-      <input id="filter1-model" type="number" placeholder="Filter1 Model/Type" min="0" max="10">
-      <input id="filter1-vel-env" type="number" placeholder="Filter1 Velocity Env" min="0" max="8192">
-      <input id="filter1-env1-amt" type="number" placeholder="Filter1 Env1 Amount" min="0" max="8192">            
-    </div>
-    <br />
+    <div class="row">
+      <div class="column-3" id="filter1">
+        <h3>Filter 1</h3>
+        <input id="filter1-position-of-drive" type="number" placeholder="Drive Position" min="0" max="1">
+        <input id="filter1-cutoff" type="number" placeholder="Cutoff" min="0" max="8192">
+        <input id="filter1-drive" type="number" placeholder="Drive" min="0" max="8192">
+        <input id="filter1-res" type="number" placeholder="Resonance" min="0" max="8192">
+        <input id="filter1-special" type="number" placeholder="Special" min="0" max="8192">
+        <input id="filter1-keytrack" type="number" placeholder="Keytrack" min="0" max="8192">
+        <input id="filter1-lfo1-amt" type="number" placeholder="LFO1 Amount" min="0" max="8192">
+        <input id="filter1-vowel-order" type="number" placeholder="Vowel Order (formant)" min="0" max="7">
+        <input id="filter1-model" type="number" placeholder="Model/Type" min="0" max="10">
+        <input id="filter1-vel-env" type="number" placeholder="Velocity Env" min="0" max="8192">
+        <input id="filter1-env1-amt" type="number" placeholder="Env1 Amount" min="0" max="8192">
+      </div>
+      <br />
 
-    <!-- FILTER 2 -->
-    <div id="filter2">
-      <input id="filter2-position-of-drive" type="number" placeholder="Filter2 Drive Position" min="0" max="1">
-      <input id="filter2-cutoff" type="number" placeholder="Filter2 Cutoff" min="0" max="8192">      
-      <input id="filter2-res" type="number" placeholder="Filter2 Resonance" min="0" max="8192">
-      <input id="filter2-morph" type="number" placeholder="Filter2 Morph" min="0" max="8192">
-      <input id="filter2-keytrack" type="number" placeholder="Filter2 Keytrack" min="0" max="8192">
-      <input id="filter2-lfo1-amt" type="number" placeholder="Filter2 LFO1 Amount" min="0" max="8192">            
-      <input id="filter2-vel-env" type="number" placeholder="Filter2 Velocity Env" min="0" max="8192">
-      <input id="filter2-env1-amt" type="number" placeholder="Filter2 Env1 Amount" min="0" max="8192">
-      <input id="filter2-type" type="number" placeholder="Filter2 Type" min="0" max="1">
-    </div>
-    <br />
+      <!-- FILTER 2 -->
+      <div class="column-3" id="filter2">
+        <h3>Filter 2</h3>
+        <input id="filter2-position-of-drive" type="number" placeholder="Drive Position" min="0" max="1">
+        <input id="filter2-cutoff" type="number" placeholder="Cutoff" min="0" max="8192">
+        <input id="filter2-res" type="number" placeholder="Resonance" min="0" max="8192">
+        <input id="filter2-morph" type="number" placeholder="Morph" min="0" max="8192">
+        <input id="filter2-keytrack" type="number" placeholder="Keytrack" min="0" max="8192">
+        <input id="filter2-lfo1-amt" type="number" placeholder="LFO1 Amount" min="0" max="8192">
+        <input id="filter2-vel-env" type="number" placeholder="Velocity Env" min="0" max="8192">
+        <input id="filter2-env1-amt" type="number" placeholder="Env1 Amount" min="0" max="8192">
+        <input id="filter2-type" type="number" placeholder="Type" min="0" max="1">
+      </div>
+      <br />
 
-    <!-- FILTER 2 -->
-    <div id="filter2">
-      <input id="filter2-position-of-drive" type="number" placeholder="Filter2 Drive Position" min="0" max="1">
-      <input id="filter2-cutoff" type="number" placeholder="Filter2 Cutoff" min="0" max="8192">      
-      <input id="filter2-res" type="number" placeholder="Filter2 Resonance" min="0" max="8192">
-      <input id="filter2-morph" type="number" placeholder="Filter2 Morph" min="0" max="8192">
-      <input id="filter2-keytrack" type="number" placeholder="Filter2 Keytrack" min="0" max="8192">
-      <input id="filter2-lfo1-amt" type="number" placeholder="Filter2 LFO1 Amount" min="0" max="8192">            
-      <input id="filter2-vel-env" type="number" placeholder="Filter2 Velocity Env" min="0" max="8192">
-      <input id="filter2-env1-amt" type="number" placeholder="Filter2 Env1 Amount" min="0" max="8192">
-      <input id="filter2-type" type="number" placeholder="Filter2 Type" min="0" max="1">
+      <!-- AMP -->
+      <div class="column-3" id="amp">
+        <h3>Amplifier</h3>
+        <input id="amp-level" type="number" placeholder="Level" min="0" max="8192">
+        <input id="amp-vel-env" type="number" placeholder="Vel Env" min="0" max="8192">
+        <input id="amp-lfo2-amt" type="number" placeholder="LFO2 Amount" min="0" max="8192">
+      </div>
+      <br />
     </div>
-    <br />
 
-    <!-- AMP -->
-    <div id="amp">                 
-      <input id="amp-level" type="number" placeholder="Amp Level" min="0" max="8192">
-      <input id="amp-vel-env" type="number" placeholder="Amp Vel Env" min="0" max="8192">
-      <input id="amp-lfo2-amt" type="number" placeholder="Amp LFO2 Amount" min="0" max="8192">
-    </div>
-    <br />
 
     <!-- PRE-FX -->
-    <div id="pre-fx">
-      <input id="pre-fx-type" type="number" placeholder="Pre FX Type" min="0" max="8192">
-      <input id="pre-fx-preset" type="number" placeholder="Pre FX Preset" min="0" max="8192">      
-      <input id="pre-fx-mix" type="number" placeholder="Pre FX Mix" min="0" max="8192">
-      <input id="pre-fx-param1" type="number" placeholder="Pre FX Param1" min="0" max="8192">
-      <input id="pre-fx-param2" type="number" placeholder="Pre FX Param1" min="0" max="8192">
-      <input id="pre-fx-param3" type="number" placeholder="Pre FX Param1" min="0" max="8192">            
-      <input id="pre-fx-param4" type="number" placeholder="Pre FX Param1" min="0" max="8192">
-      <input id="pre-fx-param5" type="number" placeholder="Pre FX Param1" min="0" max="8192">
-      <input id="pre-fx-selection-type" type="number" placeholder="Pre FX Selection Type" min="0" max="8192">
+    <div class="row">
+      <div class="column-4" id="pre-fx">
+        <h3>Pre-FX</h3>
+        <input id="pre-fx-type" type="number" placeholder="Type" min="0" max="8192">
+        <input id="pre-fx-preset" type="number" placeholder="Preset" min="0" max="8192">
+        <input id="pre-fx-mix" type="number" placeholder="Mix" min="0" max="8192">
+        <input id="pre-fx-param1" type="number" placeholder="Param1" min="0" max="8192">
+        <input id="pre-fx-param2" type="number" placeholder="Param2" min="0" max="8192">
+        <input id="pre-fx-param3" type="number" placeholder="Param3" min="0" max="8192">
+        <input id="pre-fx-param4" type="number" placeholder="Param4" min="0" max="8192">
+        <input id="pre-fx-param5" type="number" placeholder="Param5" min="0" max="8192">
+        <input id="pre-fx-selection-type" type="number" placeholder="Selection Type" min="0" max="8192">
+      </div>
+      <br />
+
+      <!-- DELAY -->
+      <div class="column-4" id="delay">
+        <h3>Delay</h3>
+        <input id="delay-bpm-sync" type="number" placeholder="BPM Sync" min="0" max="1">
+        <input id="delay-dry-wet" type="number" placeholder="Dry/Wet" min="0" max="8192">
+        <input id="delay-feedback" type="number" placeholder="Feedback" min="0" max="8192">
+        <input id="delay-feedtone" type="number" placeholder="FeedTone" min="0" max="8192">
+        <input id="delay-time" type="number" placeholder="Time" min="0" max="8192">
+        <input id="delay-type" type="number" placeholder="Type" min="0" max="4">
+        <input id="delay-wet-tone" type="number" placeholder="Wet Tone" min="0" max="8192">
+      </div>
+      <br />
+
+      <!-- REVERB -->
+      <div class="column-4" id="reverb">
+        <h3>Reverb</h3>
+        <input id="reverb-dry-wet" type="number" placeholder="Dry/Wet" min="0" max="8192">
+        <input id="reverb-hi-damp" type="number" placeholder="HiDamp" min="0" max="8192">
+        <input id="reverb-lo-damp" type="number" placeholder="LoDamp" min="0" max="8192">
+        <input id="reverb-predelay" type="number" placeholder="Time" min="0" max="8192">
+        <input id="reverb-time" type="number" placeholder="Type" min="0" max="4">
+        <input id="reverb-tone" type="number" placeholder="Wet Tone" min="0" max="8192">
+        <input id="reverb-type" type="number" placeholder="Wet Tone" min="0" max="3">
+      </div>
+      <br />
+
+      <!-- POST-FX -->
+      <div class="column-4" id="post-fx">
+        <h3>Post FX</h3>
+        <input id="post-fx-type" type="number" placeholder="Type" min="0" max="8192">
+        <input id="post-fx-preset" type="number" placeholder="Preset" min="0" max="8192">
+        <input id="post-fx-mix" type="number" placeholder="Mix" min="0" max="8192">
+        <input id="post-fx-param1" type="number" placeholder="Param1" min="0" max="8192">
+        <input id="post-fx-param2" type="number" placeholder="Param2" min="0" max="8192">
+        <input id="post-fx-param3" type="number" placeholder="Param3" min="0" max="8192">
+        <input id="post-fx-param4" type="number" placeholder="Param4" min="0" max="8192">
+        <input id="post-fx-param5" type="number" placeholder="Param5" min="0" max="8192">
+        <input id="post-fx-sidechain-type" type="number" placeholder="Sidechain Type (compress only)" min="0"
+          max="8192">
+      </div>
+      <br />
+    </div>
+
+    <!-- LFOs -->
+    <div class="row" id="lfos">
+      <div class="column-5">
+        <h3>LFO 1</h3>
+        <input id="lfo1-gain" type="number" placeholder="Gain" min="0" max="8192">
+        <input id="lfo1-rate" type="number" placeholder="Rate" min="0" max="8192">
+        <input id="lfo1-phase" type="number" placeholder="Phase" min="0" max="360">
+      </div>
+
+      <div class="column-5">
+        <h3>LFO 1</h3>
+        <input id="lfo2-gain" type="number" placeholder="Gain" min="0" max="8192">
+        <input id="lfo2-rate" type="number" placeholder="Rate" min="0" max="8192">
+        <input id="lfo2-phase" type="number" placeholder="hase" min="0" max="360">
+      </div>
+
+      <div class="column-5">
+        <h3>LFO 3</h3>
+        <input id="lfo3-gain" type="number" placeholder="Gain" min="0" max="8192">
+        <input id="lfo3-rate" type="number" placeholder="Rate" min="0" max="8192">
+        <input id="lfo3-phase" type="number" placeholder="Phase" min="0" max="360">
+      </div>
+
+      <div class="column-5">
+        <h3>LFO 4</h3>
+        <input id="lfo4-gain" type="number" placeholder="Gain" min="0" max="8192">
+        <input id="lfo4-rate" type="number" placeholder="Rate" min="0" max="8192">
+        <input id="lfo4-phase" type="number" placeholder="Phase" min="0" max="360">
+      </div>
+
+      <div class="column-5">
+        <h3>LFO 5</h3>
+        <input id="lfo5-gain" type="number" placeholder="Gain" min="0" max="8192">
+        <input id="lfo5-rate" type="number" placeholder="Rate" min="0" max="8192">
+        <input id="lfo5-phase" type="number" placeholder="Phase" min="0" max="360">
+      </div>
     </div>
     <br />
 
-    <!-- DELAY -->
-    <div id="delay">
-      <input id="delay-bpm-sync" type="number" placeholder="Delay BPM Sync" min="0" max="1">
-      <input id="delay-dry-wet" type="number" placeholder="Delay Dry/Wet" min="0" max="8192">      
-      <input id="delay-feedback" type="number" placeholder="Delay Feedback" min="0" max="8192">
-      <input id="delay-feedtone" type="number" placeholder="Delay FeedTone" min="0" max="8192">
-      <input id="delay-time" type="number" placeholder="Delay Time" min="0" max="8192">
-      <input id="delay-type" type="number" placeholder="Delay Type" min="0" max="4">            
-      <input id="delay-wet-tone" type="number" placeholder="Delay Wet Tone" min="0" max="8192">            
+
+    <!-- ENV1 -->
+    <div class="row">
+      <div class="column-5" id="env1">
+        <h3>Envelope 1</h3>
+        <input id="env1-att" type="number" placeholder="Attack" min="0" max="8192">
+        <input id="env1-hold" type="number" placeholder="Hold" min="0" max="8192">
+        <input id="env1-dec" type="number" placeholder="Decay" min="0" max="8192">
+        <input id="env1-sus" type="number" placeholder="Sustain" min="0" max="8192">
+        <input id="env1-rel" type="number" placeholder="Release" min="0" max="8192">
+        <input id="env1-att-curve" type="number" placeholder="Att Curve" min="0" max="127">
+        <input id="env1-dec-curve" type="number" placeholder="Dec Curve" min="0" max="127">
+        <input id="env1-rel-curve" type="number" placeholder="Rel Curve" min="0" max="127">
+      </div>
+      <br />
+
+      <!-- ENV2 -->
+      <div class="column-5" id="env2">
+        <h3>Envelope 2</h3>
+        <input id="env2-att" type="number" placeholder="Attack" min="0" max="8192">
+        <input id="env2-hold" type="number" placeholder="Hold" min="0" max="8192">
+        <input id="env2-dec" type="number" placeholder="Decay" min="0" max="8192">
+        <input id="env2-sus" type="number" placeholder="Sustain" min="0" max="8192">
+        <input id="env2-rel" type="number" placeholder="Release" min="0" max="8192">
+        <input id="env2-att-curve" type="number" placeholder="Att Curve" min="0" max="127">
+        <input id="env2-dec-curve" type="number" placeholder="Dec Curve" min="0" max="127">
+        <input id="env2-rel-curve" type="number" placeholder="Rel Curve" min="0" max="127">
+      </div>
+      <br />
+
+      <!-- ENV3 -->
+      <div class="column-5" id="env3">
+        <h3>Envelope 3</h3>
+        <input id="env3-att" type="number" placeholder="Attack" min="0" max="8192">
+        <input id="env3-hold" type="number" placeholder="Hold" min="0" max="8192">
+        <input id="env3-dec" type="number" placeholder="Decay" min="0" max="8192">
+        <input id="env3-sus" type="number" placeholder="Sustain" min="0" max="8192">
+        <input id="env3-rel" type="number" placeholder="Release" min="0" max="8192">
+        <input id="env3-att-curve" type="number" placeholder="Att Curve" min="0" max="127">
+        <input id="env3-dec-curve" type="number" placeholder="Dec Curve" min="0" max="127">
+        <input id="env3-rel-curve" type="number" placeholder="Rel Curve" min="0" max="127">
+      </div>
+      <br />
+
+      <!-- ENV4 -->
+      <div class="column-5" id="env4">
+        <h3>Envelope 4</h3>
+        <input id="env4-att" type="number" placeholder="Attack" min="0" max="8192">
+        <input id="env4-hold" type="number" placeholder="Hold" min="0" max="8192">
+        <input id="env4-dec" type="number" placeholder="Decay" min="0" max="8192">
+        <input id="env4-sus" type="number" placeholder="Sustain" min="0" max="8192">
+        <input id="env4-rel" type="number" placeholder="Release" min="0" max="8192">
+        <input id="env4-att-curve" type="number" placeholder="Att Curve" min="0" max="127">
+        <input id="env4-dec-curve" type="number" placeholder="Dec Curve" min="0" max="127">
+        <input id="env4-rel-curve" type="number" placeholder="Rel Curve" min="0" max="127">
+      </div>
+      <br />
+
+      <!-- ENV5 -->
+      <div class="column-5" id="env5">
+        <h3>Envelope 5</h3>
+        <input id="env5-att" type="number" placeholder="Attack" min="0" max="8192">
+        <input id="env5-hold" type="number" placeholder="Hold" min="0" max="8192">
+        <input id="env5-dec" type="number" placeholder="Decay" min="0" max="8192">
+        <input id="env5-sus" type="number" placeholder="Sustain" min="0" max="8192">
+        <input id="env5-rel" type="number" placeholder="Release" min="0" max="8192">
+        <input id="env5-att-curve" type="number" placeholder="Att Curve" min="0" max="127">
+        <input id="env5-dec-curve" type="number" placeholder="Dec Curve" min="0" max="127">
+        <input id="env5-rel-curve" type="number" placeholder="Rel Curve" min="0" max="127">
+      </div>
+      <br />
+    </div>
+
+    <!-- INSERT MACROS HERE -->
+    <div class="row">
+      <h2>(Macros assignments/routes coming soon...)</h2>
+    </div>
+
+
+    <!-- MOD MATRIX-->
+
+    <div class="row" id="mod-matrix">
+      <div class="column-2">
+        <h3>Mod Matrix Depth (1-16)</h3>
+        <input id="mod-matrix1-depth" type="number" placeholder="Matrix1 Depth" min="0" max="8192">
+        <input id="mod-matrix2-depth" type="number" placeholder="Matrix2 Depth" min="0" max="8192">
+        <input id="mod-matrix3-depth" type="number" placeholder="Matrix3 Depth" min="0" max="8192">
+        <input id="mod-matrix4-depth" type="number" placeholder="Matrix4 Depth" min="0" max="8192">
+        <input id="mod-matrix5-depth" type="number" placeholder="Matrix5 Depth" min="0" max="8192">
+        <input id="mod-matrix6-depth" type="number" placeholder="Matrix6 Depth" min="0" max="8192">
+        <input id="mod-matrix7-depth" type="number" placeholder="Matrix7 Depth" min="0" max="8192">
+        <input id="mod-matrix8-depth" type="number" placeholder="Matrix8 Depth" min="0" max="8192">
+        <input id="mod-matrix9-depth" type="number" placeholder="Matrix9 Depth" min="0" max="8192">
+        <input id="mod-matrix10-depth" type="number" placeholder="Matrix10 Depth" min="0" max="8192">
+        <input id="mod-matrix11-depth" type="number" placeholder="Matrix11 Depth" min="0" max="8192">
+        <input id="mod-matrix12-depth" type="number" placeholder="Matrix12 Depth" min="0" max="8192">
+        <input id="mod-matrix13-depth" type="number" placeholder="Matrix13 Depth" min="0" max="8192">
+        <input id="mod-matrix14-depth" type="number" placeholder="Matrix14 Depth" min="0" max="8192">
+        <input id="mod-matrix15-depth" type="number" placeholder="Matrix15 Depth" min="0" max="8192">
+        <input id="mod-matrix16-depth" type="number" placeholder="Matrix16 Depth" min="0" max="8192">
+      </div>
+      <div class="column-2">
+        <h3>Mod Matrix Depth (17-32)</h3>
+        <input id="mod-matrix17-depth" type="number" placeholder="Matrix17 Depth" min="0" max="8192">
+        <input id="mod-matrix18-depth" type="number" placeholder="Matrix18 Depth" min="0" max="8192">
+        <input id="mod-matrix19-depth" type="number" placeholder="Matrix19 Depth" min="0" max="8192">
+        <input id="mod-matrix20-depth" type="number" placeholder="Matrix20 Depth" min="0" max="8192">
+        <input id="mod-matrix21-depth" type="number" placeholder="Matrix21 Depth" min="0" max="8192">
+        <input id="mod-matrix22-depth" type="number" placeholder="Matrix22 Depth" min="0" max="8192">
+        <input id="mod-matrix23-depth" type="number" placeholder="Matrix23 Depth" min="0" max="8192">
+        <input id="mod-matrix24-depth" type="number" placeholder="Matrix24 Depth" min="0" max="8192">
+        <input id="mod-matrix25-depth" type="number" placeholder="Matrix25 Depth" min="0" max="8192">
+        <input id="mod-matrix26-depth" type="number" placeholder="Matrix26 Depth" min="0" max="8192">
+        <input id="mod-matrix27-depth" type="number" placeholder="Matrix27 Depth" min="0" max="8192">
+        <input id="mod-matrix28-depth" type="number" placeholder="Matrix28 Depth" min="0" max="8192">
+        <input id="mod-matrix29-depth" type="number" placeholder="Matrix29 Depth" min="0" max="8192">
+        <input id="mod-matrix30-depth" type="number" placeholder="Matrix30 Depth" min="0" max="8192">
+        <input id="mod-matrix31-depth" type="number" placeholder="Matrix31 Depth" min="0" max="8192">
+        <input id="mod-matrix32-depth" type="number" placeholder="Matrix32 Depth" min="0" max="8192">
+      </div>
     </div>
     <br />
-
-    <!-- REVERB -->
-    <div id="reverb">      
-      <input id="reverb-dry-wet" type="number" placeholder="Reverb Dry/Wet" min="0" max="8192">      
-      <input id="reverb-hi-damp" type="number" placeholder="Reverb HiDamp" min="0" max="8192">
-      <input id="reverb-lo-damp" type="number" placeholder="Reverb LoDamp" min="0" max="8192">
-      <input id="reverb-predelay" type="number" placeholder="Reverb Time" min="0" max="8192">
-      <input id="reverb-time" type="number" placeholder="Reverb Type" min="0" max="4">            
-      <input id="reverb-tone" type="number" placeholder="Reverb Wet Tone" min="0" max="8192">
-      <input id="reverb-type" type="number" placeholder="Reverb Wet Tone" min="0" max="3">            
-    </div>
-    <br />
-
-    <!-- POST-FX -->
-    <div id="post-fx">
-      <input id="post-fx-type" type="number" placeholder="Post FX Type" min="0" max="8192">
-      <input id="post-fx-preset" type="number" placeholder="Post FX Preset" min="0" max="8192">      
-      <input id="post-fx-mix" type="number" placeholder="Post FX Mix" min="0" max="8192">
-      <input id="post-fx-param1" type="number" placeholder="Post FX Param1" min="0" max="8192">
-      <input id="post-fx-param2" type="number" placeholder="Post FX Param1" min="0" max="8192">
-      <input id="post-fx-param3" type="number" placeholder="Post FX Param1" min="0" max="8192">            
-      <input id="post-fx-param4" type="number" placeholder="Post FX Param1" min="0" max="8192">
-      <input id="post-fx-param5" type="number" placeholder="Post FX Param1" min="0" max="8192">
-      <input id="post-fx-sidechain-type" type="number" placeholder="Post FX Sidechain Type (compress only)" min="0" max="8192">
-    </div>
-    <br />
-
-    
-
-
-
 
 
 
