@@ -28,7 +28,7 @@ WebMidi.enable(function (err) {
     function changeItDefault(x, y, a) {
       let val1 = a & 127;
       let val2 = a >> 7;
-      console.log(val1, val2)
+      calculate(x,y)
       output.setNonRegisteredParameter([x, y], [val2, val1], 1);
       // let a = Math.floor(Math.random() * 64);      
       // let b = Math.floor(Math.random() * 127);           
@@ -61,15 +61,15 @@ WebMidi.enable(function (err) {
       );
 
       function calculate(x, y) {
-        let newParam = (x << 8) + (y & 0xff);
+        let newParam = (x << 7) + (y & 0xff);
         console.log(newParam);
       }
 
-      calculate(64, 26)
+      
 
       function changePage(arr) {           
-        let newValue = (arr[2] << 8) + (arr[3] & 0xff);        
-        let newParam = (arr[0] << 8) + (arr[1] & 0xff);
+        let newValue = (arr[2] << 7) + (arr[3] & 0xff);        
+        let newParam = (arr[0] << 7) + (arr[1] & 0xff);
         // let val1 = arr[0]
         // let val2 = arr[1];
 
@@ -77,699 +77,699 @@ WebMidi.enable(function (err) {
 
       
 
-        
+        // INPUT MONITORING SENDING
         switch(newParam) {
-          case (16644):
+          case (8218):
             allOscCent.value = newValue;            
             break;
-          case (16153):
+          case (8089):
             osc1Type.value = newValue;
             break;
-          case (16641):
+          case (8321):
             osc1Cent.value = newValue;
             break;
-          case (16212):
+          case (8148):
             osc1Keytrack.value = newValue;
             break;
-          case (16682):
+          case (8362):
             osc1WaveScan.value = newValue;
             break;
-          case (16224):
+          case (8160):
             osc1WaveScanWav1.value = newValue;
             break;
-          case (16225):
+          case (8161):
             osc1WaveScanWav2.value = newValue;
             break;
-          case (16226):
+          case (8162):
             osc1WaveScanWav3.value = newValue;
             break;
-          case (16227):
+          case (8163):
             osc1WaveScanWav4.value = newValue;
             break;
-          case (16228):
+          case (8164):
             osc1WaveScanWav5.value = newValue;
             break;
-          case (16229):
+          case (8165):
             osc1WaveScanWav6.value = newValue;
             break;
-          case (16230):
+          case (8166):
             osc1WaveScanWav7.value = newValue;
             break;
-          case (16231):
+          case (8167):
             osc1WaveScanWav8.value = newValue;
             break;
-          case (16154):
+          case (8890):
             osc2Type.value = newValue;
             break;
-          case (16442):
+          case (8322):
             osc2Cent.value = newValue;
             break;
-          case (16213):
+          case (8149):
             osc2Keytrack.value = newValue;
             break;
-          case (16683):
+          case (8168):
             osc2WaveScan.value = newValue;
             break;
-          case (16232):
+          case (8168):
             osc2WaveScanWav1.value = newValue;
             break;
-          case (16233):
+          case (8169):
             osc2WaveScanWav2.value = newValue;
             break;
-          case (16234):
+          case (8170):
             osc2WaveScanWav3.value = newValue;
             break;
-          case (16235):
+          case (8171):
             osc2WaveScanWav4.value = newValue;
             break;
-          case (16236):
+          case (8172):
             osc2WaveScanWav5.value = newValue;
             break;
-          case (16237):
+          case (8173):
             osc2WaveScanWav6.value = newValue;
             break;
-          case (16238):
+          case (8174):
             osc2WaveScanWav7.value = newValue;
             break;
-          case (16239):
+          case (8175):
             osc2WaveScanWav8.value = newValue;
             break;
-          case (16141):
+          case (8077):
             osc3Type.value = newValue;
             break;
-          case (16643):
+          case (8323):
             osc3Cent.value = newValue;
             break;
-          case (16214):
+          case (8150):
             osc3Keytrack.value = newValue;
             break;
-          case (16684):
+          case (8364):
             mutator1Ratio.value = newValue;
             break;
-          case (16415):
+          case (8223):
             mutator1Depth.value = newValue;
             break;
-          case (16418):
+          case (8226):
             mutator1DryWet.value = newValue;
             break;
-          case (16421):
+          case (8229):
             mutator1Feedback.value = newValue;
             break;
-          case (16412):
+          case (8220):
             mutator1Window.value = newValue;
             break;
-          case (16480):
+          case (8288):
             mutator1Warp1.value = newValue;
             break;
-          case (16481):
+          case (8299):
             mutator1Warp2.value = newValue;
             break;
-          case (16482):
+          case (8300):
             mutator1Warp3.value = newValue;
             break;
-          case (16483):
+          case (8301):
             mutator1Warp4.value = newValue;
             break;
-          case (16484):
+          case (8302):
             mutator1Warp5.value = newValue;
             break;
-          case (16485):
+          case (8303):
             mutator1Warp6.value = newValue;
             break;
-          case (16486):
+          case (8304):
             mutator1Warp7.value = newValue;
             break;
-          case (16487):
+          case (8305):
             mutator1Warp8.value = newValue;
             break;
-          case (16685):
+          case (8365):
             mutator2Ratio.value = newValue;
             break;
-          case (16416):
+          case (8224):
             mutator2Depth.value = newValue;
             break;
-          case (16419):
+          case (8227):
             mutator2DryWet.value = newValue;
             break;
-          case (16422):
+          case (8230):
             mutator2Feedback.value = newValue;
             break;
-          case (16413):
+          case (8221):
             mutator2Window.value = newValue;
             break;
-          case (16488):
+          case (8296):
             mutator2Warp1.value = newValue;
             break;
-          case (16489):
+          case (8297):
             mutator2Warp2.value = newValue;
             break;
-          case (16489):
+          case (8298):
             mutator2Warp3.value = newValue;
             break;
-          case (16490):
+          case (8299):
             mutator2Warp4.value = newValue;
             break;
-          case (16491):
+          case (8300):
             mutator2Warp5.value = newValue;
             break;
-          case (16492):
+          case (8301):
             mutator2Warp6.value = newValue;
             break;
-          case (16493):
+          case (8302):
             mutator2Warp7.value = newValue;
             break;
-          case (16494):
+          case (8303):
             mutator2Warp8.value = newValue;
             break;
-          case (16686):
+          case (8366):
             mutator3Ratio.value = newValue;
             break;
-          case (16417):
+          case (8225):
             mutator3Depth.value = newValue;
             break;
-          case (64 && 36):
+          case (8228):
             mutator3DryWet.value = newValue;
             break;
-          case (16423):
+          case (8231):
             mutator3Feedback.value = newValue;
             break;
-          case (16414):
+          case (8222):
             mutator3Window.value = newValue;
             break;
-          case (16496):
+          case (8304):
             mutator3Warp1.value = newValue;
             break;
-          case (16497):
+          case (8305):
             mutator3Warp2.value = newValue;
             break;
-          case (16498):
+          case (8306):
             mutator3Warp3.value = newValue;
             break;
-          case (16499):
+          case (8307):
             mutator3Warp4.value = newValue;
             break;
-          case (16500):
+          case (8308):
             mutator3Warp5.value = newValue;
             break;
-          case (16501):
+          case (8309):
             mutator3Warp6.value = newValue;
             break;
-          case (16502):
+          case (8310):
             mutator3Warp7.value = newValue;
             break;
-          case (16503):
+          case (8311):
             mutator3Warp8.value = newValue;
             break;
-          case (16687):
+          case (8367):
             mutator4Ratio.value = newValue;
             break;
-          case (16406):
+          case (8214):
             mutator4Depth.value = newValue;
             break;
-          case (16407):
+          case (8215):
             mutator4DryWet.value = newValue;
             break;
-          case (16411):
+          case (8219):
             mutator4Feedback.value = newValue;
             break;
-          case (16410):
+          case (8218):
             mutator4Window.value = newValue;
             break;
-          case (16504):
+          case (8312):
             mutator4Warp1.value = newValue;
             break;
-          case (16505):
+          case (8313):
             mutator4Warp2.value = newValue;
             break;
-          case (16506):
+          case (8314):
             mutator4Warp3.value = newValue;
             break;
-          case (16507):
+          case (8315):
             mutator4Warp4.value = newValue;
             break;
-          case (16508):
+          case (8316):
             mutator4Warp5.value = newValue;
             break;
-          case (16509):
+          case (8317):
             mutator4Warp6.value = newValue;
             break;
-          case (16510):
+          case (8318):
             mutator4Warp7.value = newValue;
             break;
-          case (16511):
+          case (8319):
             mutator4Warp8.value = newValue;
             break;
-          case (16387):
+          case (8195):
             rm12Depth.value = newValue;
             break;
-          case (16391):
+          case (8199):
             osc1Vol.value = newValue;
             break;
-          case (16392):
+          case (8200):
             osc1Pan.value = newValue;
             break;
-          case (16433):
+          case (8241):
             osc1Filter.value = newValue;
             break;
-          case (16393):
+          case (8201):
             osc2Vol.value = newValue;
             break;
-          case (16394):
+          case (8202):
             osc2Pan.value = newValue;
             break;
-          case (16434):
+          case (8242):
             osc2Filter.value = newValue;
             break;
-          case (16395):
+          case (8203):
             osc3Vol.value = newValue;
             break;
-          case (16396):
+          case (8204):
             osc3Pan.value = newValue;
             break;
-          case (16435):
+          case (8243):
             osc3Filter.value = newValue;
             break;
-          case (16397):
+          case (8205):
             noiseVol.value = newValue;
             break;
-          case (16398):
+          case (8206):
             noisePan.value = newValue;
             break;
-          case (16436):
+          case (8244):
             noiseFilter.value = newValue;
             break;
-          case (16385):
+          case (8193):
             rm12Vol.value = newValue;
             break;
-          case (16388):
+          case (8196):
             rm12Pan.value = newValue;
             break;
-          case (16437):
+          case (8245):
             rm12Filter.value = newValue;
             break;
-          case (16424):
+          case (8232):
             filter1Cutoff.value = newValue;
             break;
-          case (16427):
+          case (8235):
             filter1Drive.value = newValue;
             break;
-          case (16425):
+          case (8233):
             filter1Res.value = newValue;
             break;
-          case (16426):
+          case (8234):
             filter1Special.value = newValue;
             break;
-          case (16742):
+          case (8422):
             filter1Keytrack.value = newValue;
             break;
-          case (16736):
+          case (8416):
             filter1LFO1Amt.value = newValue;
             break;
-          case (16745):
+          case (8425):
             filter1VelEnv.value = newValue;
             break;
-          case (16737):
+          case (8417):
             filter1EnvAmt.value = newValue;
             break;
-          case (16428):
+          case (8236):
             filter2Cutoff.value = newValue;
             break;          
-          case (16429):
+          case (8237):
             filter2Res.value = newValue;
             break;
-          case (16430):
+          case (8238):
             filter2Morph.value = newValue;
             break;
-          case (16743):
+          case (8423):
             filter2Keytrack.value = newValue;
             break;
-          case (16738):
+          case (8418):
             filter2LFO1Amt.value = newValue;
             break;
-          case (16746):
+          case (8426):
             filter2VelEnv.value = newValue;
             break;
-          case (16739):
+          case (8419):
             filter2EnvAmt.value = newValue;
             break;
-          case (16386):
+          case (8194):
             ampLevel.value = newValue;
             break;
-          case (16747):
+          case (8427):
             ampVelEnv.value = newValue;
             break;
-          case (16740):
+          case (8420):
             ampLFO2Amt.value = newValue;
             break;
-          case (15231):
+          case (7679):
             preFXType.value = newValue;
             break;
-          case (15104):
+          case (7552):
             preFXPreset.value = newValue;
             break;
-          case (16750):
+          case (8430):
             preFXMix.value = newValue;
             break;
-          case (16751):
+          case (8431):
             preFXParam1.value = newValue;
             break;
-          case (16752):
+          case (8432):
             preFXParam2.value = newValue;
             break;
-          case (15152):
+          case (7600):
             preFXParam3.value = newValue;
             break;
-          case (15168):
+          case (7616):
             preFXParam4.value = newValue;
             break;
-          case (15184):
+          case (7632):
             preFXParam5.value = newValue;
             break;
-          case (15219):
+          case (7667):
             preFXSelectionType.value = newValue;
             break;
-          case (16760):
+          case (8440):
             delayDryWet.value = newValue;
             break;
-          case (16757):
+          case (8437):
             delayFeedback.value = newValue;
             break;
-          case (16758):
+          case (8438):
             delayFeedtone.value = newValue;
             break;
-          case (16756):
+          case (8436):
             delayTime.value = newValue;
             break;
-          case (16759):
+          case (8439):
             delayWetTone.value = newValue;
             break;
-          case (16766):
+          case (8446):
             reverbDryWet.value = newValue;
             break;
-          case (16763):
+          case (8443):
             reverbHiDamp.value = newValue;
             break;
-          case (16764):
+          case (8444):
             reverbLoDamp.value = newValue;
             break;
-          case (16765):
+          case (8445):
             reverbPreDelay.value = newValue;
             break;
-          case (16761):
+          case (8441):
             reverbTime.value = newValue;
             break;
-          case (16762):
+          case (8442):
             reverbTone.value = newValue;
             break;
-          case (15474):
+          case (7794):
             reverbType.value = newValue;
             break;
-          case (15487):
+          case (7807):
             postFXType.value = newValue;
             break;
-          case (15360):
+          case (7680):
             postFXPreset.value = newValue;
             break;
-          case (16753):
+          case (8433):
             postFXMix.value = newValue;
             break;
-          case (16754):
+          case (8434):
             postFXParam1.value = newValue;
             break;
-          case (16755):
+          case (8435):
             preFXParam2.value = newValue;
             break;
-          case (15408):
+          case (7728):
             postFXParam3.value = newValue;
             break;
-          case (15424):
+          case (7744):
             postFXParam4.value = newValue;
             break;
-          case (15440):
+          case (7760):
             postFXParam5.value = newValue;
             break;
-          case (15475):
+          case (7795):
             postFXSidechainType.value = newValue;
             break;
-          case (16651):
+          case (8331):
             lfo1Gain.value = newValue;
             break;
-          case (16645):
+          case (8325):
             lfo1Rate.value = newValue;
             break;
-          case (16176):
+          case (8112):
             lfo1Phase.value = newValue;
             break;
-          case (16652):
+          case (8332):
             lfo2Gain.value = newValue;
             break;
-          case (16646):
+          case (8326):
             lfo2Rate.value = newValue;
             break;
-          case (16177):
+          case (8113):
             lfo2Phase.value = newValue;
             break;
-          case (16653):
+          case (8333):
             lfo3Gain.value = newValue;
             break;
-          case (16647):
+          case (8327):
             lfo3Rate.value = newValue;
             break;
-          case (16178):
+          case (8114):
             lfo3Phase.value = newValue;
             break;
-          case (16654):
+          case (8334):
             lfo4Gain.value = newValue;
             break;
-          case (16648):
+          case (8328):
             lfo4Rate.value = newValue;
             break;
-          case (16179):
+          case (8115):
             lfo4Phase.value = newValue;
             break;
-          case (16655):
+          case (8335):
             lfo5Gain.value = newValue;
             break;
-          case (16649):
+          case (8329):
             lfo5Rate.value = newValue;
             break;
-          case (16180):
+          case (8116):
             lfo5Phase.value = newValue;
             break;
-          case (16657):
+          case (8337):
             env1Att.value = newValue;
             break;
-          case (16662):
+          case (8342):
             env1Hold.value = newValue;
             break;
-          case (16667):
+          case (8347):
             env1Dec.value = newValue;
             break;
-          case (16672):
+          case (8352):
             env1Sus.value = newValue;
             break;
-          case (16677):
+          case (8357):
             env1Rel.value = newValue;
             break;
-          case (16240):
+          case (8176):
             env1AttCurve.value = newValue;
             break;
-          case (16245):
+          case (8181):
             env1DecCurve.value = newValue;
             break;
-          case (16250):
+          case (8186):
             env1RelCurve.value = newValue;
             break;
-          case (16658):
+          case (8338):
             env2Att.value = newValue;
             break;
-          case (16633):
+          case (8343):
             env2Hold.value = newValue;
             break;
-          case (16668):
+          case (8348):
             env2Dec.value = newValue;
             break;
-          case (16673):
+          case (8353):
             env2Sus.value = newValue;
             break;
-          case (16678):
+          case (8358):
             env2Rel.value = newValue;
             break;
-          case (16241):
+          case (8177):
             env2AttCurve.value = newValue;
             break;
-          case (16246):
+          case (8182):
             env2DecCurve.value = newValue;
             break;
-          case (16251):
+          case (8187):
             env2RelCurve.value = newValue;
             break;
-          case (16659):
+          case (8339):
             env3Att.value = newValue;
             break;
-          case (16664):
+          case (8344):
             env3Hold.value = newValue;
             break;
-          case (16669):
+          case (8349):
             env3Dec.value = newValue;
             break;
-          case (16674):
+          case (8354):
             env3Sus.value = newValue;
             break;
-          case (16679):
+          case (8359):
             env3Rel.value = newValue;
             break;
-          case (16242):
+          case (8178):
             env3AttCurve.value = newValue;
             break;
-          case (16247):
+          case (8183):
             env3DecCurve.value = newValue;
             break;
-          case (16252):
+          case (8188):
             env3RelCurve.value = newValue;
             break;
-          case (16660):
+          case (8340):
             env4Att.value = newValue;
             break;
-          case (16665):
+          case (8345):
             env4Hold.value = newValue;
             break;
-          case (16670):
+          case (8350):
             env4Dec.value = newValue;
             break;
-          case (16675):
+          case (8355):
             env4Sus.value = newValue;
             break;
-          case (16680):
+          case (8360):
             env4Rel.value = newValue;
             break;
-          case (16243):
+          case (8179):
             env4AttCurve.value = newValue;
             break;
-          case (16248):
+          case (8184):
             env4DecCurve.value = newValue;
             break;
-          case (16253):
+          case (8189):
             env4RelCurve.value = newValue;
             break;
-          case (16661):
+          case (8341):
             env5Att.value = newValue;
             break;
-          case (16671):
+          case (8346):
             env5Hold.value = newValue;
             break;
-          case (16667):
+          case (8351):
             env5Dec.value = newValue;
             break;
-          case (16676):
+          case (8356):
             env5Sus.value = newValue;
             break;
-          case (16681):
+          case (8361):
             env5Rel.value = newValue;
             break;
-          case (16244):
+          case (8180):
             env5AttCurve.value = newValue;
             break;
-          case (16249):
+          case (8185):
             env5DecCurve.value = newValue;
             break;
-          case (16254):
+          case (8190):
             env5RelCurve.value = newValue;
             break;
-          case (16704):
+          case (8384):
             modMatrix1Depth.value = newValue;
             break;
-          case (16705):
+          case (8385):
             modMatrix2Depth.value = newValue;
             break;
-          case (16706):
+          case (8386):
             modMatrix3Depth.value = newValue;
             break;
-          case (16707):
+          case (8387):
             modMatrix4Depth.value = newValue;
             break;
-          case (16708):
+          case (8388):
             modMatrix5Depth.value = newValue;
             break;
-          case (16709):
+          case (8389):
             modMatrix6Depth.value = newValue;
             break;
-          case (16710):
+          case (8390):
             modMatrix7Depth.value = newValue;
             break;
-          case (16711):
+          case (8391):
             modMatrix8Depth.value = newValue;
             break;
-          case (16712):
+          case (8392):
             modMatrix9Depth.value = newValue;
             break;
-          case (16713):
+          case (8393):
             modMatrix10Depth.value = newValue;
             break;
-          case (16714):
+          case (8394):
             modMatrix11Depth.value = newValue;
             break;
-          case (16715):
+          case (8395):
             modMatrix12Depth.value = newValue;
             break;
-          case (16716):
+          case (8396):
             modMatrix13Depth.value = newValue;
             break;
-          case (16717):
+          case (8397):
             modMatrix14Depth.value = newValue;
             break;
-          case (16718):
+          case (8398):
             modMatrix15Depth.value = newValue;
             break;
-          case (16719):
+          case (8399):
             modMatrix16Depth.value = newValue;
             break;
-          case (16720):
+          case (8400):
             modMatrix17Depth.value = newValue;
             break;
-          case (16721):
+          case (8401):
             modMatrix18Depth.value = newValue;
             break;
-          case (16722):
+          case (8402):
             modMatrix19Depth.value = newValue;
             break;
-          case (16723):
+          case (8403):
             modMatrix20Depth.value = newValue;
             break;
-          case (16724):
+          case (8404):
             modMatrix21Depth.value = newValue;
             break;
-          case (16725):
+          case (8405):
             modMatrix22Depth.value = newValue;
             break;
-          case (16726):
+          case (8406):
             modMatrix23Depth.value = newValue;
             break;
-          case (16727):
+          case (8407):
             modMatrix24Depth.value = newValue;
             break;
-          case (16728):
+          case (8408):
             modMatrix25Depth.value = newValue;
             break;
-          case (16729):
+          case (8409):
             modMatrix26Depth.value = newValue;
             break;
-          case (16730):
+          case (8410):
             modMatrix27Depth.value = newValue;
             break;
-          case (16731):
+          case (8411):
             modMatrix28Depth.value = newValue;
             break;
-          case (16732):
+          case (8412):
             modMatrix29Depth.value = newValue;
             break;
-          case (16733):
+          case (8413):
             modMatrix30Depth.value = newValue;
             break;
-          case (16734):
+          case (8414):
             modMatrix31Depth.value = newValue;
             break;
-          case (16735):
+          case (8415):
             modMatrix32Depth.value = newValue;
             break;
                                 
