@@ -1,5 +1,6 @@
 const infoDiv = document.getElementById('info');
 const midiOutputSelect = document.getElementById('midi-outputs');
+// const midiInputSelect = document.getElementById('midi-inputs');
 
 WebMidi.enable(function (err) {
   if (err) {
@@ -7,27 +8,776 @@ WebMidi.enable(function (err) {
     infoDiv.innerHTML = ('WebMidi could not be enabled', err);
   } else {
     console.log('WedMidi enabled!');
-    for (index in WebMidi.outputs) {
-      midiOutputSelect.options[midiOutputSelect.options.length] = new Option(WebMidi.outputs[index].name, index);
-    }
+    // for (index in WebMidi.outputs) {
+    //   midiOutputSelect.options[midiOutputSelect.options.length] = new Option(WebMidi.outputs[index].name, index);
+    // }
+    // for (index in WebMidi.inputs) {
+    //   midiInputSelect.options[midiInputSelect.options.length] = new Option(WebMidi.inputs[index].name, index);      
+    // }
 
-    output = null;
+    output = WebMidi.getOutputByName('HYDRASYNTH DR');;
+    input = WebMidi.getInputByName('HYDRASYNTH DR');
 
-    function getMidiOutput() {
-      return output = WebMidi.getOutputByName(midiOutputSelect.options[midiOutputSelect.selectedIndex].text);
-    }
-    midiOutputSelect.addEventListener('change', getMidiOutput);
+    // function getMidiOutput() {
+    //   return output = WebMidi.getOutputByName(midiOutputSelect.options[midiOutputSelect.selectedIndex].text);
+    // }
+    // midiOutputSelect.addEventListener('change', getMidiOutput);
+
+    
 
     function changeItDefault(x, y, a) {
       let val1 = a & 127;
       let val2 = a >> 7;
       console.log(val1, val2)
-      output.setNonRegisteredParameter([x, y], [val2, val1], 1);      
+      output.setNonRegisteredParameter([x, y], [val2, val1], 1);
       // let a = Math.floor(Math.random() * 64);      
       // let b = Math.floor(Math.random() * 127);           
     }
 
-    functio
+    
+
+    
+      let nrpnArray = [0,0,0,0]; // CCs [99,98,6,38]
+      // Listen to NRPN message on all channels
+      input.addListener('controlchange', 'all',
+        function (e) {
+          if (e.controller.number === 99) {
+            nrpnArray[0] = e.value;
+            changePage(nrpnArray);
+          }
+          if (e.controller.number === 98) {
+            nrpnArray[1] = e.value;
+            changePage(nrpnArray);
+          }
+          if (e.controller.number === 6) {
+            nrpnArray[2] = e.value;
+            changePage(nrpnArray);
+          }
+          if (e.controller.number === 38) {
+            nrpnArray[3] = e.value;
+            changePage(nrpnArray);
+          }          
+        }          
+      );
+
+      function calculate(x, y) {
+        let newParam = (x << 8) + (y & 0xff);
+        console.log(newParam);
+      }
+
+      calculate(64, 26)
+
+      function changePage(arr) {           
+        let newValue = (arr[2] << 8) + (arr[3] & 0xff);        
+        let newParam = (arr[0] << 8) + (arr[1] & 0xff);
+        // let val1 = arr[0]
+        // let val2 = arr[1];
+
+       console.log(newParam);
+
+      
+
+        
+        switch(newParam) {
+          case (16644):
+            allOscCent.value = newValue;            
+            break;
+          case (16153):
+            osc1Type.value = newValue;
+            break;
+          case (16641):
+            osc1Cent.value = newValue;
+            break;
+          case (16212):
+            osc1Keytrack.value = newValue;
+            break;
+          case (16682):
+            osc1WaveScan.value = newValue;
+            break;
+          case (16224):
+            osc1WaveScanWav1.value = newValue;
+            break;
+          case (16225):
+            osc1WaveScanWav2.value = newValue;
+            break;
+          case (16226):
+            osc1WaveScanWav3.value = newValue;
+            break;
+          case (16227):
+            osc1WaveScanWav4.value = newValue;
+            break;
+          case (16228):
+            osc1WaveScanWav5.value = newValue;
+            break;
+          case (16229):
+            osc1WaveScanWav6.value = newValue;
+            break;
+          case (16230):
+            osc1WaveScanWav7.value = newValue;
+            break;
+          case (16231):
+            osc1WaveScanWav8.value = newValue;
+            break;
+          case (16154):
+            osc2Type.value = newValue;
+            break;
+          case (16442):
+            osc2Cent.value = newValue;
+            break;
+          case (16213):
+            osc2Keytrack.value = newValue;
+            break;
+          case (16683):
+            osc2WaveScan.value = newValue;
+            break;
+          case (16232):
+            osc2WaveScanWav1.value = newValue;
+            break;
+          case (16233):
+            osc2WaveScanWav2.value = newValue;
+            break;
+          case (16234):
+            osc2WaveScanWav3.value = newValue;
+            break;
+          case (16235):
+            osc2WaveScanWav4.value = newValue;
+            break;
+          case (16236):
+            osc2WaveScanWav5.value = newValue;
+            break;
+          case (16237):
+            osc2WaveScanWav6.value = newValue;
+            break;
+          case (16238):
+            osc2WaveScanWav7.value = newValue;
+            break;
+          case (16239):
+            osc2WaveScanWav8.value = newValue;
+            break;
+          case (16141):
+            osc3Type.value = newValue;
+            break;
+          case (16643):
+            osc3Cent.value = newValue;
+            break;
+          case (16214):
+            osc3Keytrack.value = newValue;
+            break;
+          case (16684):
+            mutator1Ratio.value = newValue;
+            break;
+          case (16415):
+            mutator1Depth.value = newValue;
+            break;
+          case (16418):
+            mutator1DryWet.value = newValue;
+            break;
+          case (16421):
+            mutator1Feedback.value = newValue;
+            break;
+          case (16412):
+            mutator1Window.value = newValue;
+            break;
+          case (16480):
+            mutator1Warp1.value = newValue;
+            break;
+          case (16481):
+            mutator1Warp2.value = newValue;
+            break;
+          case (16482):
+            mutator1Warp3.value = newValue;
+            break;
+          case (16483):
+            mutator1Warp4.value = newValue;
+            break;
+          case (16484):
+            mutator1Warp5.value = newValue;
+            break;
+          case (16485):
+            mutator1Warp6.value = newValue;
+            break;
+          case (16486):
+            mutator1Warp7.value = newValue;
+            break;
+          case (16487):
+            mutator1Warp8.value = newValue;
+            break;
+          case (16685):
+            mutator2Ratio.value = newValue;
+            break;
+          case (16416):
+            mutator2Depth.value = newValue;
+            break;
+          case (16419):
+            mutator2DryWet.value = newValue;
+            break;
+          case (16422):
+            mutator2Feedback.value = newValue;
+            break;
+          case (16413):
+            mutator2Window.value = newValue;
+            break;
+          case (16488):
+            mutator2Warp1.value = newValue;
+            break;
+          case (16489):
+            mutator2Warp2.value = newValue;
+            break;
+          case (16489):
+            mutator2Warp3.value = newValue;
+            break;
+          case (16490):
+            mutator2Warp4.value = newValue;
+            break;
+          case (16491):
+            mutator2Warp5.value = newValue;
+            break;
+          case (16492):
+            mutator2Warp6.value = newValue;
+            break;
+          case (16493):
+            mutator2Warp7.value = newValue;
+            break;
+          case (16494):
+            mutator2Warp8.value = newValue;
+            break;
+          case (16686):
+            mutator3Ratio.value = newValue;
+            break;
+          case (16417):
+            mutator3Depth.value = newValue;
+            break;
+          case (64 && 36):
+            mutator3DryWet.value = newValue;
+            break;
+          case (16423):
+            mutator3Feedback.value = newValue;
+            break;
+          case (16414):
+            mutator3Window.value = newValue;
+            break;
+          case (16496):
+            mutator3Warp1.value = newValue;
+            break;
+          case (16497):
+            mutator3Warp2.value = newValue;
+            break;
+          case (16498):
+            mutator3Warp3.value = newValue;
+            break;
+          case (16499):
+            mutator3Warp4.value = newValue;
+            break;
+          case (16500):
+            mutator3Warp5.value = newValue;
+            break;
+          case (16501):
+            mutator3Warp6.value = newValue;
+            break;
+          case (16502):
+            mutator3Warp7.value = newValue;
+            break;
+          case (16503):
+            mutator3Warp8.value = newValue;
+            break;
+          case (16687):
+            mutator4Ratio.value = newValue;
+            break;
+          case (16406):
+            mutator4Depth.value = newValue;
+            break;
+          case (16407):
+            mutator4DryWet.value = newValue;
+            break;
+          case (16411):
+            mutator4Feedback.value = newValue;
+            break;
+          case (16410):
+            mutator4Window.value = newValue;
+            break;
+          case (16504):
+            mutator4Warp1.value = newValue;
+            break;
+          case (16505):
+            mutator4Warp2.value = newValue;
+            break;
+          case (16506):
+            mutator4Warp3.value = newValue;
+            break;
+          case (16507):
+            mutator4Warp4.value = newValue;
+            break;
+          case (16508):
+            mutator4Warp5.value = newValue;
+            break;
+          case (16509):
+            mutator4Warp6.value = newValue;
+            break;
+          case (16510):
+            mutator4Warp7.value = newValue;
+            break;
+          case (16511):
+            mutator4Warp8.value = newValue;
+            break;
+          case (16387):
+            rm12Depth.value = newValue;
+            break;
+          case (16391):
+            osc1Vol.value = newValue;
+            break;
+          case (16392):
+            osc1Pan.value = newValue;
+            break;
+          case (16433):
+            osc1Filter.value = newValue;
+            break;
+          case (16393):
+            osc2Vol.value = newValue;
+            break;
+          case (16394):
+            osc2Pan.value = newValue;
+            break;
+          case (16434):
+            osc2Filter.value = newValue;
+            break;
+          case (16395):
+            osc3Vol.value = newValue;
+            break;
+          case (16396):
+            osc3Pan.value = newValue;
+            break;
+          case (16435):
+            osc3Filter.value = newValue;
+            break;
+          case (16397):
+            noiseVol.value = newValue;
+            break;
+          case (16398):
+            noisePan.value = newValue;
+            break;
+          case (16436):
+            noiseFilter.value = newValue;
+            break;
+          case (16385):
+            rm12Vol.value = newValue;
+            break;
+          case (16388):
+            rm12Pan.value = newValue;
+            break;
+          case (16437):
+            rm12Filter.value = newValue;
+            break;
+          case (16424):
+            filter1Cutoff.value = newValue;
+            break;
+          case (16427):
+            filter1Drive.value = newValue;
+            break;
+          case (16425):
+            filter1Res.value = newValue;
+            break;
+          case (16426):
+            filter1Special.value = newValue;
+            break;
+          case (16742):
+            filter1Keytrack.value = newValue;
+            break;
+          case (16736):
+            filter1LFO1Amt.value = newValue;
+            break;
+          case (16745):
+            filter1VelEnv.value = newValue;
+            break;
+          case (16737):
+            filter1EnvAmt.value = newValue;
+            break;
+          case (16428):
+            filter2Cutoff.value = newValue;
+            break;          
+          case (16429):
+            filter2Res.value = newValue;
+            break;
+          case (16430):
+            filter2Morph.value = newValue;
+            break;
+          case (16743):
+            filter2Keytrack.value = newValue;
+            break;
+          case (16738):
+            filter2LFO1Amt.value = newValue;
+            break;
+          case (16746):
+            filter2VelEnv.value = newValue;
+            break;
+          case (16739):
+            filter2EnvAmt.value = newValue;
+            break;
+          case (16386):
+            ampLevel.value = newValue;
+            break;
+          case (16747):
+            ampVelEnv.value = newValue;
+            break;
+          case (16740):
+            ampLFO2Amt.value = newValue;
+            break;
+          case (15231):
+            preFXType.value = newValue;
+            break;
+          case (15104):
+            preFXPreset.value = newValue;
+            break;
+          case (16750):
+            preFXMix.value = newValue;
+            break;
+          case (16751):
+            preFXParam1.value = newValue;
+            break;
+          case (16752):
+            preFXParam2.value = newValue;
+            break;
+          case (15152):
+            preFXParam3.value = newValue;
+            break;
+          case (15168):
+            preFXParam4.value = newValue;
+            break;
+          case (15184):
+            preFXParam5.value = newValue;
+            break;
+          case (15219):
+            preFXSelectionType.value = newValue;
+            break;
+          case (16760):
+            delayDryWet.value = newValue;
+            break;
+          case (16757):
+            delayFeedback.value = newValue;
+            break;
+          case (16758):
+            delayFeedtone.value = newValue;
+            break;
+          case (16756):
+            delayTime.value = newValue;
+            break;
+          case (16759):
+            delayWetTone.value = newValue;
+            break;
+          case (16766):
+            reverbDryWet.value = newValue;
+            break;
+          case (16763):
+            reverbHiDamp.value = newValue;
+            break;
+          case (16764):
+            reverbLoDamp.value = newValue;
+            break;
+          case (16765):
+            reverbPreDelay.value = newValue;
+            break;
+          case (16761):
+            reverbTime.value = newValue;
+            break;
+          case (16762):
+            reverbTone.value = newValue;
+            break;
+          case (15474):
+            reverbType.value = newValue;
+            break;
+          case (15487):
+            postFXType.value = newValue;
+            break;
+          case (15360):
+            postFXPreset.value = newValue;
+            break;
+          case (16753):
+            postFXMix.value = newValue;
+            break;
+          case (16754):
+            postFXParam1.value = newValue;
+            break;
+          case (16755):
+            preFXParam2.value = newValue;
+            break;
+          case (15408):
+            postFXParam3.value = newValue;
+            break;
+          case (15424):
+            postFXParam4.value = newValue;
+            break;
+          case (15440):
+            postFXParam5.value = newValue;
+            break;
+          case (15475):
+            postFXSidechainType.value = newValue;
+            break;
+          case (16651):
+            lfo1Gain.value = newValue;
+            break;
+          case (16645):
+            lfo1Rate.value = newValue;
+            break;
+          case (16176):
+            lfo1Phase.value = newValue;
+            break;
+          case (16652):
+            lfo2Gain.value = newValue;
+            break;
+          case (16646):
+            lfo2Rate.value = newValue;
+            break;
+          case (16177):
+            lfo2Phase.value = newValue;
+            break;
+          case (16653):
+            lfo3Gain.value = newValue;
+            break;
+          case (16647):
+            lfo3Rate.value = newValue;
+            break;
+          case (16178):
+            lfo3Phase.value = newValue;
+            break;
+          case (16654):
+            lfo4Gain.value = newValue;
+            break;
+          case (16648):
+            lfo4Rate.value = newValue;
+            break;
+          case (16179):
+            lfo4Phase.value = newValue;
+            break;
+          case (16655):
+            lfo5Gain.value = newValue;
+            break;
+          case (16649):
+            lfo5Rate.value = newValue;
+            break;
+          case (16180):
+            lfo5Phase.value = newValue;
+            break;
+          case (16657):
+            env1Att.value = newValue;
+            break;
+          case (16662):
+            env1Hold.value = newValue;
+            break;
+          case (16667):
+            env1Dec.value = newValue;
+            break;
+          case (16672):
+            env1Sus.value = newValue;
+            break;
+          case (16677):
+            env1Rel.value = newValue;
+            break;
+          case (16240):
+            env1AttCurve.value = newValue;
+            break;
+          case (16245):
+            env1DecCurve.value = newValue;
+            break;
+          case (16250):
+            env1RelCurve.value = newValue;
+            break;
+          case (16658):
+            env2Att.value = newValue;
+            break;
+          case (16633):
+            env2Hold.value = newValue;
+            break;
+          case (16668):
+            env2Dec.value = newValue;
+            break;
+          case (16673):
+            env2Sus.value = newValue;
+            break;
+          case (16678):
+            env2Rel.value = newValue;
+            break;
+          case (16241):
+            env2AttCurve.value = newValue;
+            break;
+          case (16246):
+            env2DecCurve.value = newValue;
+            break;
+          case (16251):
+            env2RelCurve.value = newValue;
+            break;
+          case (16659):
+            env3Att.value = newValue;
+            break;
+          case (16664):
+            env3Hold.value = newValue;
+            break;
+          case (16669):
+            env3Dec.value = newValue;
+            break;
+          case (16674):
+            env3Sus.value = newValue;
+            break;
+          case (16679):
+            env3Rel.value = newValue;
+            break;
+          case (16242):
+            env3AttCurve.value = newValue;
+            break;
+          case (16247):
+            env3DecCurve.value = newValue;
+            break;
+          case (16252):
+            env3RelCurve.value = newValue;
+            break;
+          case (16660):
+            env4Att.value = newValue;
+            break;
+          case (16665):
+            env4Hold.value = newValue;
+            break;
+          case (16670):
+            env4Dec.value = newValue;
+            break;
+          case (16675):
+            env4Sus.value = newValue;
+            break;
+          case (16680):
+            env4Rel.value = newValue;
+            break;
+          case (16243):
+            env4AttCurve.value = newValue;
+            break;
+          case (16248):
+            env4DecCurve.value = newValue;
+            break;
+          case (16253):
+            env4RelCurve.value = newValue;
+            break;
+          case (16661):
+            env5Att.value = newValue;
+            break;
+          case (16671):
+            env5Hold.value = newValue;
+            break;
+          case (16667):
+            env5Dec.value = newValue;
+            break;
+          case (16676):
+            env5Sus.value = newValue;
+            break;
+          case (16681):
+            env5Rel.value = newValue;
+            break;
+          case (16244):
+            env5AttCurve.value = newValue;
+            break;
+          case (16249):
+            env5DecCurve.value = newValue;
+            break;
+          case (16254):
+            env5RelCurve.value = newValue;
+            break;
+          case (16704):
+            modMatrix1Depth.value = newValue;
+            break;
+          case (16705):
+            modMatrix2Depth.value = newValue;
+            break;
+          case (16706):
+            modMatrix3Depth.value = newValue;
+            break;
+          case (16707):
+            modMatrix4Depth.value = newValue;
+            break;
+          case (16708):
+            modMatrix5Depth.value = newValue;
+            break;
+          case (16709):
+            modMatrix6Depth.value = newValue;
+            break;
+          case (16710):
+            modMatrix7Depth.value = newValue;
+            break;
+          case (16711):
+            modMatrix8Depth.value = newValue;
+            break;
+          case (16712):
+            modMatrix9Depth.value = newValue;
+            break;
+          case (16713):
+            modMatrix10Depth.value = newValue;
+            break;
+          case (16714):
+            modMatrix11Depth.value = newValue;
+            break;
+          case (16715):
+            modMatrix12Depth.value = newValue;
+            break;
+          case (16716):
+            modMatrix13Depth.value = newValue;
+            break;
+          case (16717):
+            modMatrix14Depth.value = newValue;
+            break;
+          case (16718):
+            modMatrix15Depth.value = newValue;
+            break;
+          case (16719):
+            modMatrix16Depth.value = newValue;
+            break;
+          case (16720):
+            modMatrix17Depth.value = newValue;
+            break;
+          case (16721):
+            modMatrix18Depth.value = newValue;
+            break;
+          case (16722):
+            modMatrix19Depth.value = newValue;
+            break;
+          case (16723):
+            modMatrix20Depth.value = newValue;
+            break;
+          case (16724):
+            modMatrix21Depth.value = newValue;
+            break;
+          case (16725):
+            modMatrix22Depth.value = newValue;
+            break;
+          case (16726):
+            modMatrix23Depth.value = newValue;
+            break;
+          case (16727):
+            modMatrix24Depth.value = newValue;
+            break;
+          case (16728):
+            modMatrix25Depth.value = newValue;
+            break;
+          case (16729):
+            modMatrix26Depth.value = newValue;
+            break;
+          case (16730):
+            modMatrix27Depth.value = newValue;
+            break;
+          case (16731):
+            modMatrix28Depth.value = newValue;
+            break;
+          case (16732):
+            modMatrix29Depth.value = newValue;
+            break;
+          case (16733):
+            modMatrix30Depth.value = newValue;
+            break;
+          case (16734):
+            modMatrix31Depth.value = newValue;
+            break;
+          case (16735):
+            modMatrix32Depth.value = newValue;
+            break;
+                                
+        }                
+      }
+
+      
+    
 
 
 
@@ -40,7 +790,7 @@ WebMidi.enable(function (err) {
     const allOscCent = document.getElementById('all-osc-cent');
     const oscMode = document.getElementById('osc-mode');
     const semi = document.getElementById('semi');
-    
+
     // OSC 1
     const osc1Type = document.getElementById('osc1-type');
     const osc1Cent = document.getElementById('osc1-cent');
@@ -148,7 +898,7 @@ WebMidi.enable(function (err) {
     const rm12Depth = document.getElementById('rm12-depth');
     const signalSourceForRM = document.getElementById('signal-source-for-rm');
 
-    
+
     // MIX
     const mixerSolo = document.getElementById('mixer-solo');
     const osc1Vol = document.getElementById('osc1-vol');
@@ -171,8 +921,8 @@ WebMidi.enable(function (err) {
 
     // FILTER 1    
     const filter1PositionOfDrive = document.getElementById('filter1-position-of-drive');
-    const filter1Cutoff = document.getElementById('filter1-cutoff'); 
-    const filter1Drive =  document.getElementById('filter1-drive');
+    const filter1Cutoff = document.getElementById('filter1-cutoff');
+    const filter1Drive = document.getElementById('filter1-drive');
     const filter1Res = document.getElementById('filter1-res');
     const filter1Special = document.getElementById('filter1-special');
     const filter1Keytrack = document.getElementById('filter1-keytrack');
@@ -184,11 +934,11 @@ WebMidi.enable(function (err) {
 
     // FILTER 2  
     const filter2PositionOfDrive = document.getElementById('filter2-position-of-drive');
-    const filter2Cutoff = document.getElementById('filter2-cutoff');    
+    const filter2Cutoff = document.getElementById('filter2-cutoff');
     const filter2Res = document.getElementById('filter2-res');
     const filter2Morph = document.getElementById('filter2-morph');
     const filter2Keytrack = document.getElementById('filter2-keytrack');
-    const filter2LFO1Amt = document.getElementById('filter2-lfo1-amt');    
+    const filter2LFO1Amt = document.getElementById('filter2-lfo1-amt');
     const filter2VelEnv = document.getElementById('filter2-vel-env');
     const filter2EnvAmt = document.getElementById('filter2-env1-amt');
     const filter2Type = document.getElementById('filter2-type');
@@ -226,7 +976,7 @@ WebMidi.enable(function (err) {
     const reverbTime = document.getElementById('reverb-time');
     const reverbTone = document.getElementById('reverb-tone');
     const reverbType = document.getElementById('reverb-type');
-        
+
     // POST-FX    
     const postFXType = document.getElementById('post-fx-type');
     const postFXPreset = document.getElementById('post-fx-preset');
@@ -304,7 +1054,7 @@ WebMidi.enable(function (err) {
     const env5AttCurve = document.getElementById('env5-att-curve');
     const env5DecCurve = document.getElementById('env5-dec-curve');
     const env5RelCurve = document.getElementById('env5-rel-curve');
-    
+
     // INSERT MACROS HERE //
 
     // MOD MATRIX
@@ -340,24 +1090,24 @@ WebMidi.enable(function (err) {
     const modMatrix30Depth = document.getElementById('mod-matrix30-depth');
     const modMatrix31Depth = document.getElementById('mod-matrix31-depth');
     const modMatrix32Depth = document.getElementById('mod-matrix32-depth');
-    
 
 
-    
-    
-    
-    
-               
-    
-    
-    
+
+
+
+
+
+
+
+
+
 
 
     ////////////////
 
-    
+
     // // All OSC
-    allOscCent.addEventListener('input', function(){changeItDefault(65, 4, allOscCent.value)}); // [0, 0] = 8192
+    allOscCent.addEventListener('input', function(){changeItDefault(65, 04, allOscCent.value)}); // [0, 0] = 8192
     // oscMode.addEventListener('input', function(){changeItDefault(63, 24, oscMode.value)}); // Check manual
     // semi.addEventListener('input', function(){changeItDefault(63, 17, 64, 0)}, false); // Check manual
     
@@ -402,8 +1152,8 @@ WebMidi.enable(function (err) {
 
     // All MUTATORS      
     // mutatorMode.addEventListener('input', function(){changeItDefault(63, 33, mutatorMode.value)});
-    // mutatorSourcesFMLin.addEventListener('input', function(){changeItDefault(63, 36, mutatorMode.value)});
-    // mutatorSourcesOscSync.addEventListener('input', function(){changeItDefault(63, 34, mutatorMode.value)});
+    // mutatorSourcesFMLin.addEventListener('input', function(){changeItDefault(63, 36, mutatorSourcesFMLin.value)});
+    // mutatorSourcesOscSync.addEventListener('input', function(){changeItDefault(63, 34, mutatorSourcesOscSync.value)});
 
     // // MUTATOR 1
     mutator1Ratio.addEventListener('input', function(){changeItDefault(65, 44, mutator1Ratio.value)}); 
@@ -437,7 +1187,7 @@ WebMidi.enable(function (err) {
 
     // // MUTATOR 3
     mutator3Ratio.addEventListener('input', function(){changeItDefault(65, 46, mutator3Ratio.value)}); 
-    mutator3Depth.addEventListener('input', function(){changeItDefault(64, 31, mutator3Depth.value)}); 
+    mutator3Depth.addEventListener('input', function(){changeItDefault(64, 33, mutator3Depth.value)}); 
     mutator3DryWet.addEventListener('input', function(){changeItDefault(64, 36, mutator3DryWet.value)}); 
     mutator3Feedback.addEventListener('input', function(){changeItDefault(64, 39, mutator3Feedback.value)});
     mutator3Window.addEventListener('input', function(){changeItDefault(64, 30, mutator3Window.value)}); 
@@ -522,7 +1272,7 @@ WebMidi.enable(function (err) {
     preFXType.addEventListener('input', function(){changeItDefault(59, 127, preFXType.value)});
     preFXPreset.addEventListener('input', function(){changeItDefault(59, 0, preFXPreset.value)});
     preFXMix.addEventListener('input', function(){changeItDefault(65, 110, preFXMix.value)});
-    preFXParam1.addEventListener('input', function(){changeItDefault(65, 11, preFXParam1.value)});
+    preFXParam1.addEventListener('input', function(){changeItDefault(65, 111, preFXParam1.value)});
     preFXParam2.addEventListener('input', function(){changeItDefault(65, 112, preFXParam2.value)});
     preFXParam3.addEventListener('input', function(){changeItDefault(59, 48, preFXParam3.value)});
     preFXParam4.addEventListener('input', function(){changeItDefault(59, 64, preFXParam4.value)});
@@ -658,42 +1408,13 @@ WebMidi.enable(function (err) {
     modMatrix30Depth.addEventListener('input', function(){changeItDefault(65, 93, modMatrix30Depth.value)});
     modMatrix31Depth.addEventListener('input', function(){changeItDefault(65, 94, modMatrix31Depth.value)});
     modMatrix32Depth.addEventListener('input', function(){changeItDefault(65, 95, modMatrix32Depth.value)});
-    
 
-    function slowRandom() {
 
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        
+
+
+
+
+
+
   }
 });

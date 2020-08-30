@@ -13,9 +13,14 @@
   <div>
 
     <h1>ASM HydraSynth NRPN Map</h1>
-    <select id="midi-outputs">
-      <option value="" selected disabled hidden>Choose MIDI Output</option>
-    </select>
+    <div class="row">
+      <!-- <select id="midi-outputs">
+        <option value="" selected disabled hidden>Choose MIDI Output</option>
+      </select> -->
+      <!-- <select id="midi-inputs">
+        <option value="" selected disabled hidden>Choose MIDI Input (optional for monitoring)</option>
+      </select> -->
+    </div>
     <br /><br />
 
     <!-- ALL OSC -->
@@ -167,9 +172,9 @@
     <div class="row">
       <div class="column-2" id="ring-noise">
         <h3>Ring/Noise</h3>
-        <input id="type-of-noise" type="number" placeholder="Type of Noise" min="0" max="6">
+        <!-- <input id="type-of-noise" type="number" placeholder="Type of Noise" min="0" max="6"> -->
         <input id="rm12-depth" type="number" placeholder="RM12 Depth" min="0" max="8192">
-        <input id="signal-source-for-rm" type="number" placeholder="Signal Source for RM">
+        <!-- <input id="signal-source-for-rm" type="number" placeholder="Signal Source for RM"> -->
       </div>
       <br />
 
@@ -311,7 +316,7 @@
       </div>
 
       <div class="column-5">
-        <h3>LFO 1</h3>
+        <h3>LFO 2</h3>
         <input id="lfo2-gain" type="number" placeholder="Gain" min="0" max="8192">
         <input id="lfo2-rate" type="number" placeholder="Rate" min="0" max="8192">
         <input id="lfo2-phase" type="number" placeholder="hase" min="0" max="360">
