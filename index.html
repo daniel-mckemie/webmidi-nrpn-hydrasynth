@@ -13,7 +13,7 @@
   <div>
 
     <h1>ASM HydraSynth NRPN Map</h1>
-    <div class="row">
+    <div class="row">      
       <!-- <select id="midi-outputs">
         <option value="" selected disabled hidden>Choose MIDI Output</option>
       </select> -->
@@ -467,6 +467,20 @@
       </div>
     </div>
     <br />
+    
+    
+    <div class="row">
+      <h2>Compositional Tools</h2>
+      <select id="random-choice-1">
+        <option value="" selected disabled hidden>Parameter to Randomize</option>
+      </select>
+      <select id="start-stop-random" name"start-stop">
+        <option value="start">Start</option>
+        <option value="stop">Stop</option>
+      </select>
+      <input id="rand-speed" type="number" placeholder="speed" min="1">
+      <input id="rand-butt" type="button" value="Start/Stop Randomize!">      
+    </div>
 
 
 
@@ -476,7 +490,7 @@
 
   </div>
   <script src="./libs/webmidi.min.js"></script>
-  <script src="./script.js"></script>
+  <script src="./script.js"></script>  
 </body>
 
 </html>

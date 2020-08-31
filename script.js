@@ -23,19 +23,13 @@ WebMidi.enable(function (err) {
     // }
     // midiOutputSelect.addEventListener('change', getMidiOutput);
 
-    
-
     function changeItDefault(x, y, a) {
       let val1 = a & 127;
-      let val2 = a >> 7;
-      calculate(x,y)
+      let val2 = a >> 7;      
       output.setNonRegisteredParameter([x, y], [val2, val1], 1);
       // let a = Math.floor(Math.random() * 64);      
       // let b = Math.floor(Math.random() * 127);           
     }
-
-    
-
     
       let nrpnArray = [0,0,0,0]; // CCs [99,98,6,38]
       // Listen to NRPN message on all channels
@@ -62,10 +56,8 @@ WebMidi.enable(function (err) {
 
       function calculate(x, y) {
         let newParam = (x << 7) + (y & 0xff);
-        console.log(newParam);
+        
       }
-
-      
 
       function changePage(arr) {           
         let newValue = (arr[2] << 7) + (arr[3] & 0xff);        
@@ -73,704 +65,700 @@ WebMidi.enable(function (err) {
         // let val1 = arr[0]
         // let val2 = arr[1];
 
-       console.log(newParam);
-
-      
-
         // INPUT MONITORING SENDING
         switch(newParam) {
           case (8218):
-            allOscCent.value = newValue;            
+            allParams.allOscCent.value = newValue;            
             break;
           case (8089):
-            osc1Type.value = newValue;
+            allParams.osc1Type.value = newValue;
             break;
           case (8321):
-            osc1Cent.value = newValue;
+            allParams.osc1Cent.value = newValue;
             break;
           case (8148):
-            osc1Keytrack.value = newValue;
+            allParams.osc1Keytrack.value = newValue;
             break;
           case (8362):
-            osc1WaveScan.value = newValue;
+            allParams.osc1WaveScan.value = newValue;
             break;
           case (8160):
-            osc1WaveScanWav1.value = newValue;
+            allParams.osc1WaveScanWav1.value = newValue;
             break;
           case (8161):
-            osc1WaveScanWav2.value = newValue;
+            allParams.osc1WaveScanWav2.value = newValue;
             break;
           case (8162):
-            osc1WaveScanWav3.value = newValue;
+            allParams.osc1WaveScanWav3.value = newValue;
             break;
           case (8163):
-            osc1WaveScanWav4.value = newValue;
+            allParams.osc1WaveScanWav4.value = newValue;
             break;
           case (8164):
-            osc1WaveScanWav5.value = newValue;
+            allParams.osc1WaveScanWav5.value = newValue;
             break;
           case (8165):
-            osc1WaveScanWav6.value = newValue;
+            allParams.osc1WaveScanWav6.value = newValue;
             break;
           case (8166):
-            osc1WaveScanWav7.value = newValue;
+            allParams.osc1WaveScanWav7.value = newValue;
             break;
           case (8167):
-            osc1WaveScanWav8.value = newValue;
+            allParams.osc1WaveScanWav8.value = newValue;
             break;
           case (8890):
-            osc2Type.value = newValue;
+            allParams.osc2Type.value = newValue;
             break;
           case (8322):
-            osc2Cent.value = newValue;
+            allParams.osc2Cent.value = newValue;
             break;
           case (8149):
-            osc2Keytrack.value = newValue;
+            allParams.osc2Keytrack.value = newValue;
             break;
           case (8168):
-            osc2WaveScan.value = newValue;
+            allParams.osc2WaveScan.value = newValue;
             break;
           case (8168):
-            osc2WaveScanWav1.value = newValue;
+            allParams.osc2WaveScanWav1.value = newValue;
             break;
           case (8169):
-            osc2WaveScanWav2.value = newValue;
+            allParams.osc2WaveScanWav2.value = newValue;
             break;
           case (8170):
-            osc2WaveScanWav3.value = newValue;
+            allParams.osc2WaveScanWav3.value = newValue;
             break;
           case (8171):
-            osc2WaveScanWav4.value = newValue;
+            allParams.osc2WaveScanWav4.value = newValue;
             break;
           case (8172):
-            osc2WaveScanWav5.value = newValue;
+            allParams.osc2WaveScanWav5.value = newValue;
             break;
           case (8173):
-            osc2WaveScanWav6.value = newValue;
+            allParams.osc2WaveScanWav6.value = newValue;
             break;
           case (8174):
-            osc2WaveScanWav7.value = newValue;
+            allParams.osc2WaveScanWav7.value = newValue;
             break;
           case (8175):
-            osc2WaveScanWav8.value = newValue;
+            allParams.osc2WaveScanWav8.value = newValue;
             break;
           case (8077):
-            osc3Type.value = newValue;
+            allParams.osc3Type.value = newValue;
             break;
           case (8323):
-            osc3Cent.value = newValue;
+            allParams.osc3Cent.value = newValue;
             break;
           case (8150):
-            osc3Keytrack.value = newValue;
+            allParams.osc3Keytrack.value = newValue;
             break;
           case (8364):
-            mutator1Ratio.value = newValue;
+            allParams.mutator1Ratio.value = newValue;
             break;
           case (8223):
-            mutator1Depth.value = newValue;
+            allParams.mutator1Depth.value = newValue;
             break;
           case (8226):
-            mutator1DryWet.value = newValue;
+            allParams.mutator1DryWet.value = newValue;
             break;
           case (8229):
-            mutator1Feedback.value = newValue;
+            allParams.mutator1Feedback.value = newValue;
             break;
           case (8220):
-            mutator1Window.value = newValue;
+            allParams.mutator1Window.value = newValue;
             break;
           case (8288):
-            mutator1Warp1.value = newValue;
+            allParams.mutator1Warp1.value = newValue;
             break;
           case (8299):
-            mutator1Warp2.value = newValue;
+            allParams.mutator1Warp2.value = newValue;
             break;
           case (8300):
-            mutator1Warp3.value = newValue;
+            allParams.mutator1Warp3.value = newValue;
             break;
           case (8301):
-            mutator1Warp4.value = newValue;
+            allParams.mutator1Warp4.value = newValue;
             break;
           case (8302):
-            mutator1Warp5.value = newValue;
+            allParams.mutator1Warp5.value = newValue;
             break;
           case (8303):
-            mutator1Warp6.value = newValue;
+            allParams.mutator1Warp6.value = newValue;
             break;
           case (8304):
-            mutator1Warp7.value = newValue;
+            allParams.mutator1Warp7.value = newValue;
             break;
           case (8305):
-            mutator1Warp8.value = newValue;
+            allParams.mutator1Warp8.value = newValue;
             break;
           case (8365):
-            mutator2Ratio.value = newValue;
+            allParams.mutator2Ratio.value = newValue;
             break;
           case (8224):
-            mutator2Depth.value = newValue;
+            allParams.mutator2Depth.value = newValue;
             break;
           case (8227):
-            mutator2DryWet.value = newValue;
+            allParams.mutator2DryWet.value = newValue;
             break;
           case (8230):
-            mutator2Feedback.value = newValue;
+            allParams.mutator2Feedback.value = newValue;
             break;
           case (8221):
-            mutator2Window.value = newValue;
+            allParams.mutator2Window.value = newValue;
             break;
           case (8296):
-            mutator2Warp1.value = newValue;
+            allParams.mutator2Warp1.value = newValue;
             break;
           case (8297):
-            mutator2Warp2.value = newValue;
+            allParams.mutator2Warp2.value = newValue;
             break;
           case (8298):
-            mutator2Warp3.value = newValue;
+            allParams.mutator2Warp3.value = newValue;
             break;
           case (8299):
-            mutator2Warp4.value = newValue;
+            allParams.mutator2Warp4.value = newValue;
             break;
           case (8300):
-            mutator2Warp5.value = newValue;
+            allParams.mutator2Warp5.value = newValue;
             break;
           case (8301):
-            mutator2Warp6.value = newValue;
+            allParams.mutator2Warp6.value = newValue;
             break;
           case (8302):
-            mutator2Warp7.value = newValue;
+            allParams.mutator2Warp7.value = newValue;
             break;
           case (8303):
-            mutator2Warp8.value = newValue;
+            allParams.mutator2Warp8.value = newValue;
             break;
           case (8366):
-            mutator3Ratio.value = newValue;
+            allParams.mutator3Ratio.value = newValue;
             break;
           case (8225):
-            mutator3Depth.value = newValue;
+            allParams.mutator3Depth.value = newValue;
             break;
           case (8228):
-            mutator3DryWet.value = newValue;
+            allParams.mutator3DryWet.value = newValue;
             break;
           case (8231):
-            mutator3Feedback.value = newValue;
+            allParams.mutator3Feedback.value = newValue;
             break;
           case (8222):
-            mutator3Window.value = newValue;
+            allParams.mutator3Window.value = newValue;
             break;
           case (8304):
-            mutator3Warp1.value = newValue;
+            allParams.mutator3Warp1.value = newValue;
             break;
           case (8305):
-            mutator3Warp2.value = newValue;
+            allParams.mutator3Warp2.value = newValue;
             break;
           case (8306):
-            mutator3Warp3.value = newValue;
+            allParams.mutator3Warp3.value = newValue;
             break;
           case (8307):
-            mutator3Warp4.value = newValue;
+            allParams.mutator3Warp4.value = newValue;
             break;
           case (8308):
-            mutator3Warp5.value = newValue;
+            allParams.mutator3Warp5.value = newValue;
             break;
           case (8309):
-            mutator3Warp6.value = newValue;
+            allParams.mutator3Warp6.value = newValue;
             break;
           case (8310):
-            mutator3Warp7.value = newValue;
+            allParams.mutator3Warp7.value = newValue;
             break;
           case (8311):
-            mutator3Warp8.value = newValue;
+            allParams.mutator3Warp8.value = newValue;
             break;
           case (8367):
-            mutator4Ratio.value = newValue;
+            allParams.mutator4Ratio.value = newValue;
             break;
           case (8214):
-            mutator4Depth.value = newValue;
+            allParams.mutator4Depth.value = newValue;
             break;
           case (8215):
-            mutator4DryWet.value = newValue;
+            allParams.mutator4DryWet.value = newValue;
             break;
           case (8219):
-            mutator4Feedback.value = newValue;
+            allParams.mutator4Feedback.value = newValue;
             break;
           case (8218):
-            mutator4Window.value = newValue;
+            allParams.mutator4Window.value = newValue;
             break;
           case (8312):
-            mutator4Warp1.value = newValue;
+            allParams.mutator4Warp1.value = newValue;
             break;
           case (8313):
-            mutator4Warp2.value = newValue;
+            allParams.mutator4Warp2.value = newValue;
             break;
           case (8314):
-            mutator4Warp3.value = newValue;
+            allParams.mutator4Warp3.value = newValue;
             break;
           case (8315):
-            mutator4Warp4.value = newValue;
+            allParams.mutator4Warp4.value = newValue;
             break;
           case (8316):
-            mutator4Warp5.value = newValue;
+            allParams.mutator4Warp5.value = newValue;
             break;
           case (8317):
-            mutator4Warp6.value = newValue;
+            allParams.mutator4Warp6.value = newValue;
             break;
           case (8318):
-            mutator4Warp7.value = newValue;
+            allParams.mutator4Warp7.value = newValue;
             break;
           case (8319):
-            mutator4Warp8.value = newValue;
+            allParams.mutator4Warp8.value = newValue;
             break;
           case (8195):
-            rm12Depth.value = newValue;
+            allParams.rm12Depth.value = newValue;
             break;
           case (8199):
-            osc1Vol.value = newValue;
+            allParams.osc1Vol.value = newValue;
             break;
           case (8200):
-            osc1Pan.value = newValue;
+            allParams.osc1Pan.value = newValue;
             break;
           case (8241):
-            osc1Filter.value = newValue;
+            allParams.osc1Filter.value = newValue;
             break;
           case (8201):
-            osc2Vol.value = newValue;
+            allParams.osc2Vol.value = newValue;
             break;
           case (8202):
-            osc2Pan.value = newValue;
+            allParams.osc2Pan.value = newValue;
             break;
           case (8242):
-            osc2Filter.value = newValue;
+            allParams.osc2Filter.value = newValue;
             break;
           case (8203):
-            osc3Vol.value = newValue;
+            allParams.osc3Vol.value = newValue;
             break;
           case (8204):
-            osc3Pan.value = newValue;
+            allParams.osc3Pan.value = newValue;
             break;
           case (8243):
-            osc3Filter.value = newValue;
+            allParams.osc3Filter.value = newValue;
             break;
           case (8205):
-            noiseVol.value = newValue;
+            allParams.noiseVol.value = newValue;
             break;
           case (8206):
-            noisePan.value = newValue;
+            allParams.noisePan.value = newValue;
             break;
           case (8244):
-            noiseFilter.value = newValue;
+            allParams.noiseFilter.value = newValue;
             break;
           case (8193):
-            rm12Vol.value = newValue;
+            allParams.rm12Vol.value = newValue;
             break;
           case (8196):
-            rm12Pan.value = newValue;
+            allParams.rm12Pan.value = newValue;
             break;
           case (8245):
-            rm12Filter.value = newValue;
+            allParams.rm12Filter.value = newValue;
             break;
           case (8232):
-            filter1Cutoff.value = newValue;
+            allParams.filter1Cutoff.value = newValue;
             break;
           case (8235):
-            filter1Drive.value = newValue;
+            allParams.filter1Drive.value = newValue;
             break;
           case (8233):
-            filter1Res.value = newValue;
+            allParams.filter1Res.value = newValue;
             break;
           case (8234):
-            filter1Special.value = newValue;
+            allParams.filter1Special.value = newValue;
             break;
           case (8422):
-            filter1Keytrack.value = newValue;
+            allParams.filter1Keytrack.value = newValue;
             break;
           case (8416):
-            filter1LFO1Amt.value = newValue;
+            allParams.filter1LFO1Amt.value = newValue;
             break;
           case (8425):
-            filter1VelEnv.value = newValue;
+            allParams.filter1VelEnv.value = newValue;
             break;
           case (8417):
-            filter1EnvAmt.value = newValue;
+            allParams.filter1EnvAmt.value = newValue;
             break;
           case (8236):
-            filter2Cutoff.value = newValue;
+            allParams.filter2Cutoff.value = newValue;
             break;          
           case (8237):
-            filter2Res.value = newValue;
+            allParams.filter2Res.value = newValue;
             break;
           case (8238):
-            filter2Morph.value = newValue;
+            allParams.filter2Morph.value = newValue;
             break;
           case (8423):
-            filter2Keytrack.value = newValue;
+            allParams.filter2Keytrack.value = newValue;
             break;
           case (8418):
-            filter2LFO1Amt.value = newValue;
+            allParams.filter2LFO1Amt.value = newValue;
             break;
           case (8426):
-            filter2VelEnv.value = newValue;
+            allParams.filter2VelEnv.value = newValue;
             break;
           case (8419):
-            filter2EnvAmt.value = newValue;
+            allParams.filter2EnvAmt.value = newValue;
             break;
           case (8194):
-            ampLevel.value = newValue;
+            allParams.ampLevel.value = newValue;
             break;
           case (8427):
-            ampVelEnv.value = newValue;
+            allParams.ampVelEnv.value = newValue;
             break;
           case (8420):
-            ampLFO2Amt.value = newValue;
+            allParams.ampLFO2Amt.value = newValue;
             break;
           case (7679):
-            preFXType.value = newValue;
+            allParams.preFXType.value = newValue;
             break;
           case (7552):
-            preFXPreset.value = newValue;
+            allParams.preFXPreset.value = newValue;
             break;
           case (8430):
-            preFXMix.value = newValue;
+            allParams.preFXMix.value = newValue;
             break;
           case (8431):
-            preFXParam1.value = newValue;
+            allParams.preFXParam1.value = newValue;
             break;
           case (8432):
-            preFXParam2.value = newValue;
+            allParams.preFXParam2.value = newValue;
             break;
           case (7600):
-            preFXParam3.value = newValue;
+            allParams.preFXParam3.value = newValue;
             break;
           case (7616):
-            preFXParam4.value = newValue;
+            allParams.preFXParam4.value = newValue;
             break;
           case (7632):
-            preFXParam5.value = newValue;
+            allParams.preFXParam5.value = newValue;
             break;
           case (7667):
-            preFXSelectionType.value = newValue;
+            allParams.preFXSelectionType.value = newValue;
             break;
           case (8440):
-            delayDryWet.value = newValue;
+            allParams.delayDryWet.value = newValue;
             break;
           case (8437):
-            delayFeedback.value = newValue;
+            allParams.delayFeedback.value = newValue;
             break;
           case (8438):
-            delayFeedtone.value = newValue;
+            allParams.delayFeedtone.value = newValue;
             break;
           case (8436):
-            delayTime.value = newValue;
+            allParams.delayTime.value = newValue;
             break;
           case (8439):
-            delayWetTone.value = newValue;
+            allParams.delayWetTone.value = newValue;
             break;
           case (8446):
-            reverbDryWet.value = newValue;
+            allParams.reverbDryWet.value = newValue;
             break;
           case (8443):
-            reverbHiDamp.value = newValue;
+            allParams.reverbHiDamp.value = newValue;
             break;
           case (8444):
-            reverbLoDamp.value = newValue;
+            allParams.reverbLoDamp.value = newValue;
             break;
           case (8445):
-            reverbPreDelay.value = newValue;
+            allParams.reverbPreDelay.value = newValue;
             break;
           case (8441):
-            reverbTime.value = newValue;
+            allParams.reverbTime.value = newValue;
             break;
           case (8442):
-            reverbTone.value = newValue;
+            allParams.reverbTone.value = newValue;
             break;
           case (7794):
-            reverbType.value = newValue;
+            allParams.reverbType.value = newValue;
             break;
           case (7807):
-            postFXType.value = newValue;
+            allParams.postFXType.value = newValue;
             break;
           case (7680):
-            postFXPreset.value = newValue;
+            allParams.postFXPreset.value = newValue;
             break;
           case (8433):
-            postFXMix.value = newValue;
+            allParams.postFXMix.value = newValue;
             break;
           case (8434):
-            postFXParam1.value = newValue;
+            allParams.postFXParam1.value = newValue;
             break;
           case (8435):
-            preFXParam2.value = newValue;
+            allParams.preFXParam2.value = newValue;
             break;
           case (7728):
-            postFXParam3.value = newValue;
+            allParams.postFXParam3.value = newValue;
             break;
           case (7744):
-            postFXParam4.value = newValue;
+            allParams.postFXParam4.value = newValue;
             break;
           case (7760):
-            postFXParam5.value = newValue;
+            allParams.postFXParam5.value = newValue;
             break;
           case (7795):
-            postFXSidechainType.value = newValue;
+            allParams.postFXSidechainType.value = newValue;
             break;
           case (8331):
-            lfo1Gain.value = newValue;
+            allParams.lfo1Gain.value = newValue;
             break;
           case (8325):
-            lfo1Rate.value = newValue;
+            allParams.lfo1Rate.value = newValue;
             break;
           case (8112):
-            lfo1Phase.value = newValue;
+            allParams.lfo1Phase.value = newValue;
             break;
           case (8332):
-            lfo2Gain.value = newValue;
+            allParams.lfo2Gain.value = newValue;
             break;
           case (8326):
-            lfo2Rate.value = newValue;
+            allParams.lfo2Rate.value = newValue;
             break;
           case (8113):
-            lfo2Phase.value = newValue;
+            allParams.lfo2Phase.value = newValue;
             break;
           case (8333):
-            lfo3Gain.value = newValue;
+            allParams.lfo3Gain.value = newValue;
             break;
           case (8327):
-            lfo3Rate.value = newValue;
+            allParams.lfo3Rate.value = newValue;
             break;
           case (8114):
-            lfo3Phase.value = newValue;
+            allParams.lfo3Phase.value = newValue;
             break;
           case (8334):
-            lfo4Gain.value = newValue;
+            allParams.lfo4Gain.value = newValue;
             break;
           case (8328):
-            lfo4Rate.value = newValue;
+            allParams.lfo4Rate.value = newValue;
             break;
           case (8115):
-            lfo4Phase.value = newValue;
+            allParams.lfo4Phase.value = newValue;
             break;
           case (8335):
-            lfo5Gain.value = newValue;
+            allParams.lfo5Gain.value = newValue;
             break;
           case (8329):
-            lfo5Rate.value = newValue;
+            allParams.lfo5Rate.value = newValue;
             break;
           case (8116):
-            lfo5Phase.value = newValue;
+            allParams.lfo5Phase.value = newValue;
             break;
           case (8337):
-            env1Att.value = newValue;
+            allParams.env1Att.value = newValue;
             break;
           case (8342):
-            env1Hold.value = newValue;
+            allParams.env1Hold.value = newValue;
             break;
           case (8347):
-            env1Dec.value = newValue;
+            allParams.env1Dec.value = newValue;
             break;
           case (8352):
-            env1Sus.value = newValue;
+            allParams.env1Sus.value = newValue;
             break;
           case (8357):
-            env1Rel.value = newValue;
+            allParams.env1Rel.value = newValue;
             break;
           case (8176):
-            env1AttCurve.value = newValue;
+            allParams.env1AttCurve.value = newValue;
             break;
           case (8181):
-            env1DecCurve.value = newValue;
+            allParams.env1DecCurve.value = newValue;
             break;
           case (8186):
-            env1RelCurve.value = newValue;
+            allParams.env1RelCurve.value = newValue;
             break;
           case (8338):
-            env2Att.value = newValue;
+            allParams.env2Att.value = newValue;
             break;
           case (8343):
-            env2Hold.value = newValue;
+            allParams.env2Hold.value = newValue;
             break;
           case (8348):
-            env2Dec.value = newValue;
+            allParams.env2Dec.value = newValue;
             break;
           case (8353):
-            env2Sus.value = newValue;
+            allParams.env2Sus.value = newValue;
             break;
           case (8358):
-            env2Rel.value = newValue;
+            allParams.env2Rel.value = newValue;
             break;
           case (8177):
-            env2AttCurve.value = newValue;
+            allParams.env2AttCurve.value = newValue;
             break;
           case (8182):
-            env2DecCurve.value = newValue;
+            allParams.env2DecCurve.value = newValue;
             break;
           case (8187):
-            env2RelCurve.value = newValue;
+            allParams.env2RelCurve.value = newValue;
             break;
           case (8339):
-            env3Att.value = newValue;
+            allParams.env3Att.value = newValue;
             break;
           case (8344):
-            env3Hold.value = newValue;
+            allParams.env3Hold.value = newValue;
             break;
           case (8349):
-            env3Dec.value = newValue;
+            allParams.env3Dec.value = newValue;
             break;
           case (8354):
-            env3Sus.value = newValue;
+            allParams.env3Sus.value = newValue;
             break;
           case (8359):
-            env3Rel.value = newValue;
+            allParams.env3Rel.value = newValue;
             break;
           case (8178):
-            env3AttCurve.value = newValue;
+            allParams.env3AttCurve.value = newValue;
             break;
           case (8183):
-            env3DecCurve.value = newValue;
+            allParams.env3DecCurve.value = newValue;
             break;
           case (8188):
-            env3RelCurve.value = newValue;
+            allParams.env3RelCurve.value = newValue;
             break;
           case (8340):
-            env4Att.value = newValue;
+            allParams.env4Att.value = newValue;
             break;
           case (8345):
-            env4Hold.value = newValue;
+            allParams.env4Hold.value = newValue;
             break;
           case (8350):
-            env4Dec.value = newValue;
+            allParams.env4Dec.value = newValue;
             break;
           case (8355):
-            env4Sus.value = newValue;
+            allParams.env4Sus.value = newValue;
             break;
           case (8360):
-            env4Rel.value = newValue;
+            allParams.env4Rel.value = newValue;
             break;
           case (8179):
-            env4AttCurve.value = newValue;
+            allParams.env4AttCurve.value = newValue;
             break;
           case (8184):
-            env4DecCurve.value = newValue;
+            allParams.env4DecCurve.value = newValue;
             break;
           case (8189):
-            env4RelCurve.value = newValue;
+            allParams.env4RelCurve.value = newValue;
             break;
           case (8341):
-            env5Att.value = newValue;
+            allParams.env5Att.value = newValue;
             break;
           case (8346):
-            env5Hold.value = newValue;
+            allParams.env5Hold.value = newValue;
             break;
           case (8351):
-            env5Dec.value = newValue;
+            allParams.env5Dec.value = newValue;
             break;
           case (8356):
-            env5Sus.value = newValue;
+            allParams.env5Sus.value = newValue;
             break;
           case (8361):
-            env5Rel.value = newValue;
+            allParams.env5Rel.value = newValue;
             break;
           case (8180):
-            env5AttCurve.value = newValue;
+            allParams.env5AttCurve.value = newValue;
             break;
           case (8185):
-            env5DecCurve.value = newValue;
+            allParams.env5DecCurve.value = newValue;
             break;
           case (8190):
-            env5RelCurve.value = newValue;
+            allParams.env5RelCurve.value = newValue;
             break;
           case (8384):
-            modMatrix1Depth.value = newValue;
+            allParams.modMatrix1Depth.value = newValue;
             break;
           case (8385):
-            modMatrix2Depth.value = newValue;
+            allParams.modMatrix2Depth.value = newValue;
             break;
           case (8386):
-            modMatrix3Depth.value = newValue;
+            allParams.modMatrix3Depth.value = newValue;
             break;
           case (8387):
-            modMatrix4Depth.value = newValue;
+            allParams.modMatrix4Depth.value = newValue;
             break;
           case (8388):
-            modMatrix5Depth.value = newValue;
+            allParams.modMatrix5Depth.value = newValue;
             break;
           case (8389):
-            modMatrix6Depth.value = newValue;
+            allParams.modMatrix6Depth.value = newValue;
             break;
           case (8390):
-            modMatrix7Depth.value = newValue;
+            allParams.modMatrix7Depth.value = newValue;
             break;
           case (8391):
-            modMatrix8Depth.value = newValue;
+            allParams.modMatrix8Depth.value = newValue;
             break;
           case (8392):
-            modMatrix9Depth.value = newValue;
+            allParams.modMatrix9Depth.value = newValue;
             break;
           case (8393):
-            modMatrix10Depth.value = newValue;
+            allParams.modMatrix10Depth.value = newValue;
             break;
           case (8394):
-            modMatrix11Depth.value = newValue;
+            allParams.modMatrix11Depth.value = newValue;
             break;
           case (8395):
-            modMatrix12Depth.value = newValue;
+            allParams.modMatrix12Depth.value = newValue;
             break;
           case (8396):
-            modMatrix13Depth.value = newValue;
+            allParams.modMatrix13Depth.value = newValue;
             break;
           case (8397):
-            modMatrix14Depth.value = newValue;
+            allParams.modMatrix14Depth.value = newValue;
             break;
           case (8398):
-            modMatrix15Depth.value = newValue;
+            allParams.modMatrix15Depth.value = newValue;
             break;
           case (8399):
-            modMatrix16Depth.value = newValue;
+            allParams.modMatrix16Depth.value = newValue;
             break;
           case (8400):
-            modMatrix17Depth.value = newValue;
+            allParams.modMatrix17Depth.value = newValue;
             break;
           case (8401):
-            modMatrix18Depth.value = newValue;
+            allParams.modMatrix18Depth.value = newValue;
             break;
           case (8402):
-            modMatrix19Depth.value = newValue;
+            allParams.modMatrix19Depth.value = newValue;
             break;
           case (8403):
-            modMatrix20Depth.value = newValue;
+            allParams.modMatrix20Depth.value = newValue;
             break;
           case (8404):
-            modMatrix21Depth.value = newValue;
+            allParams.modMatrix21Depth.value = newValue;
             break;
           case (8405):
-            modMatrix22Depth.value = newValue;
+            allParams.modMatrix22Depth.value = newValue;
             break;
           case (8406):
-            modMatrix23Depth.value = newValue;
+            allParams.modMatrix23Depth.value = newValue;
             break;
           case (8407):
-            modMatrix24Depth.value = newValue;
+            allParams.modMatrix24Depth.value = newValue;
             break;
           case (8408):
-            modMatrix25Depth.value = newValue;
+            allParams.modMatrix25Depth.value = newValue;
             break;
           case (8409):
-            modMatrix26Depth.value = newValue;
+            allParams.modMatrix26Depth.value = newValue;
             break;
           case (8410):
-            modMatrix27Depth.value = newValue;
+            allParams.modMatrix27Depth.value = newValue;
             break;
           case (8411):
-            modMatrix28Depth.value = newValue;
+            allParams.modMatrix28Depth.value = newValue;
             break;
           case (8412):
-            modMatrix29Depth.value = newValue;
+            allParams.modMatrix29Depth.value = newValue;
             break;
           case (8413):
-            modMatrix30Depth.value = newValue;
+            allParams.modMatrix30Depth.value = newValue;
             break;
           case (8414):
-            modMatrix31Depth.value = newValue;
+            allParams.modMatrix31Depth.value = newValue;
             break;
           case (8415):
-            modMatrix32Depth.value = newValue;
+            allParams.modMatrix32Depth.value = newValue;
             break;
                                 
         }                
@@ -786,312 +774,314 @@ WebMidi.enable(function (err) {
 
     /////////////////////
 
+    let allParams = {
     // All OSC
-    const allOscCent = document.getElementById('all-osc-cent');
-    const oscMode = document.getElementById('osc-mode');
-    const semi = document.getElementById('semi');
+    allOscCent: document.getElementById('all-osc-cent'),
+    oscMode: document.getElementById('osc-mode'),
+    semi: document.getElementById('semi'),
+    
 
     // OSC 1
-    const osc1Type = document.getElementById('osc1-type');
-    const osc1Cent = document.getElementById('osc1-cent');
-    const osc1Keytrack = document.getElementById('osc1-keytrack');
-    const osc1WaveScan = document.getElementById('osc1-wavescan');
-    const soloOsc1WaveScan = document.getElementById('solo-osc1-wavescan');
-    const osc1WaveScanWav1 = document.getElementById('osc1-wavescan-wav1');
-    const osc1WaveScanWav2 = document.getElementById('osc1-wavescan-wav2');
-    const osc1WaveScanWav3 = document.getElementById('osc1-wavescan-wav3');
-    const osc1WaveScanWav4 = document.getElementById('osc1-wavescan-wav4');
-    const osc1WaveScanWav5 = document.getElementById('osc1-wavescan-wav5');
-    const osc1WaveScanWav6 = document.getElementById('osc1-wavescan-wav6');
-    const osc1WaveScanWav7 = document.getElementById('osc1-wavescan-wav7');
-    const osc1WaveScanWav8 = document.getElementById('osc1-wavescan-wav8');
+    osc1Type: document.getElementById('osc1-type'),
+    osc1Cent: document.getElementById('osc1-cent'),
+    osc1Keytrack: document.getElementById('osc1-keytrack'),
+    osc1WaveScan: document.getElementById('osc1-wavescan'),
+    soloOsc1WaveScan: document.getElementById('solo-osc1-wavescan'),
+    osc1WaveScanWav1: document.getElementById('osc1-wavescan-wav1'),
+    osc1WaveScanWav2: document.getElementById('osc1-wavescan-wav2'),
+    osc1WaveScanWav3: document.getElementById('osc1-wavescan-wav3'),
+    osc1WaveScanWav4: document.getElementById('osc1-wavescan-wav4'),
+    osc1WaveScanWav5: document.getElementById('osc1-wavescan-wav5'),
+    osc1WaveScanWav6: document.getElementById('osc1-wavescan-wav6'),
+    osc1WaveScanWav7: document.getElementById('osc1-wavescan-wav7'),
+    osc1WaveScanWav8: document.getElementById('osc1-wavescan-wav8'),
 
     // OSC 2
-    const osc2Type = document.getElementById('osc2-type');
-    const osc2Cent = document.getElementById('osc2-cent');
-    const osc2Keytrack = document.getElementById('osc2-keytrack');
-    const osc2WaveScan = document.getElementById('osc2-wavescan');
-    const soloOsc2WaveScan = document.getElementById('solo-osc2-wavescan');
-    const osc2WaveScanWav1 = document.getElementById('osc2-wavescan-wav1');
-    const osc2WaveScanWav2 = document.getElementById('osc2-wavescan-wav2');
-    const osc2WaveScanWav3 = document.getElementById('osc2-wavescan-wav3');
-    const osc2WaveScanWav4 = document.getElementById('osc2-wavescan-wav4');
-    const osc2WaveScanWav5 = document.getElementById('osc2-wavescan-wav5');
-    const osc2WaveScanWav6 = document.getElementById('osc2-wavescan-wav6');
-    const osc2WaveScanWav7 = document.getElementById('osc2-wavescan-wav7');
-    const osc2WaveScanWav8 = document.getElementById('osc2-wavescan-wav8');
+    osc2Type: document.getElementById('osc2-type'),
+    osc2Cent: document.getElementById('osc2-cent'),
+    osc2Keytrack: document.getElementById('osc2-keytrack'),
+    osc2WaveScan: document.getElementById('osc2-wavescan'),
+    soloOsc2WaveScan: document.getElementById('solo-osc2-wavescan'),
+    osc2WaveScanWav1: document.getElementById('osc2-wavescan-wav1'),
+    osc2WaveScanWav2: document.getElementById('osc2-wavescan-wav2'),
+    osc2WaveScanWav3: document.getElementById('osc2-wavescan-wav3'),
+    osc2WaveScanWav4: document.getElementById('osc2-wavescan-wav4'),
+    osc2WaveScanWav5: document.getElementById('osc2-wavescan-wav5'),
+    osc2WaveScanWav6: document.getElementById('osc2-wavescan-wav6'),
+    osc2WaveScanWav7: document.getElementById('osc2-wavescan-wav7'),
+    osc2WaveScanWav8: document.getElementById('osc2-wavescan-wav8'),
 
     // OSC 3
-    const osc3Type = document.getElementById('osc3-type');
-    const osc3Cent = document.getElementById('osc3-cent');
-    const osc3Keytrack = document.getElementById('osc3-keytrack');
-
-
+    osc3Type: document.getElementById('osc3-type'),
+    osc3Cent: document.getElementById('osc3-cent'),
+    osc3Keytrack: document.getElementById('osc3-keytrack'),
 
     // All MUTATORS
-    const mutatorMode = document.getElementById('mutator-type');
-    const mutatorSourcesFMLin = document.getElementById('mutator-sources-fm-lin');
-    const mutatorSourcesOscSync = document.getElementById('mutator-sources-osc-sync');
+    mutatorMode: document.getElementById('mutator-type'),
+    mutatorSourcesFMLin: document.getElementById('mutator-sources-fm-lin'),
+    mutatorSourcesOscSync: document.getElementById('mutator-sources-osc-sync'),
 
     // MUTATOR 1
-    const mutator1Ratio = document.getElementById('mutator1-ratio');
-    const mutator1Depth = document.getElementById('mutator1-depth');
-    const mutator1DryWet = document.getElementById('mutator1-dry-wet');
-    const mutator1Feedback = document.getElementById('mutator1-feedback');
-    const mutator1Window = document.getElementById('mutator1-window');
-    const mutator1Warp1 = document.getElementById('mutator1-warp1');
-    const mutator1Warp2 = document.getElementById('mutator1-warp2');
-    const mutator1Warp3 = document.getElementById('mutator1-warp3');
-    const mutator1Warp4 = document.getElementById('mutator1-warp4');
-    const mutator1Warp5 = document.getElementById('mutator1-warp5');
-    const mutator1Warp6 = document.getElementById('mutator1-warp6');
-    const mutator1Warp7 = document.getElementById('mutator1-warp7');
-    const mutator1Warp8 = document.getElementById('mutator1-warp8');
+    mutator1Ratio: document.getElementById('mutator1-ratio'),
+    mutator1Depth: document.getElementById('mutator1-depth'),
+    mutator1DryWet: document.getElementById('mutator1-dry-wet'),
+    mutator1Feedback: document.getElementById('mutator1-feedback'),
+    mutator1Window: document.getElementById('mutator1-window'),
+    mutator1Warp1: document.getElementById('mutator1-warp1'),
+    mutator1Warp2: document.getElementById('mutator1-warp2'),
+    mutator1Warp3: document.getElementById('mutator1-warp3'),
+    mutator1Warp4: document.getElementById('mutator1-warp4'),
+    mutator1Warp5: document.getElementById('mutator1-warp5'),
+    mutator1Warp6: document.getElementById('mutator1-warp6'),
+    mutator1Warp7: document.getElementById('mutator1-warp7'),
+    mutator1Warp8: document.getElementById('mutator1-warp8'),
 
     // MUTATOR 2
-    const mutator2Ratio = document.getElementById('mutator2-ratio');
-    const mutator2Depth = document.getElementById('mutator2-depth');
-    const mutator2DryWet = document.getElementById('mutator2-dry-wet');
-    const mutator2Feedback = document.getElementById('mutator2-feedback');
-    const mutator2Window = document.getElementById('mutator2-window');
-    const mutator2Warp1 = document.getElementById('mutator2-warp1');
-    const mutator2Warp2 = document.getElementById('mutator2-warp2');
-    const mutator2Warp3 = document.getElementById('mutator2-warp3');
-    const mutator2Warp4 = document.getElementById('mutator2-warp4');
-    const mutator2Warp5 = document.getElementById('mutator2-warp5');
-    const mutator2Warp6 = document.getElementById('mutator2-warp6');
-    const mutator2Warp7 = document.getElementById('mutator2-warp7');
-    const mutator2Warp8 = document.getElementById('mutator2-warp8');
+    mutator2Ratio: document.getElementById('mutator2-ratio'),
+    mutator2Depth: document.getElementById('mutator2-depth'),
+    mutator2DryWet: document.getElementById('mutator2-dry-wet'),
+    mutator2Feedback: document.getElementById('mutator2-feedback'),
+    mutator2Window: document.getElementById('mutator2-window'),
+    mutator2Warp1: document.getElementById('mutator2-warp1'),
+    mutator2Warp2: document.getElementById('mutator2-warp2'),
+    mutator2Warp3: document.getElementById('mutator2-warp3'),
+    mutator2Warp4: document.getElementById('mutator2-warp4'),
+    mutator2Warp5: document.getElementById('mutator2-warp5'),
+    mutator2Warp6: document.getElementById('mutator2-warp6'),
+    mutator2Warp7: document.getElementById('mutator2-warp7'),
+    mutator2Warp8: document.getElementById('mutator2-warp8'),
 
     // MUTATOR 3
-    const mutator3Ratio = document.getElementById('mutator3-ratio');
-    const mutator3Depth = document.getElementById('mutator3-depth');
-    const mutator3DryWet = document.getElementById('mutator3-dry-wet');
-    const mutator3Feedback = document.getElementById('mutator3-feedback');
-    const mutator3Window = document.getElementById('mutator3-window');
-    const mutator3Warp1 = document.getElementById('mutator3-warp1');
-    const mutator3Warp2 = document.getElementById('mutator3-warp2');
-    const mutator3Warp3 = document.getElementById('mutator3-warp3');
-    const mutator3Warp4 = document.getElementById('mutator3-warp4');
-    const mutator3Warp5 = document.getElementById('mutator3-warp5');
-    const mutator3Warp6 = document.getElementById('mutator3-warp6');
-    const mutator3Warp7 = document.getElementById('mutator3-warp7');
-    const mutator3Warp8 = document.getElementById('mutator3-warp8');
+    mutator3Ratio: document.getElementById('mutator3-ratio'),
+    mutator3Depth: document.getElementById('mutator3-depth'),
+    mutator3DryWet: document.getElementById('mutator3-dry-wet'),
+    mutator3Feedback: document.getElementById('mutator3-feedback'),
+    mutator3Window: document.getElementById('mutator3-window'),
+    mutator3Warp1: document.getElementById('mutator3-warp1'),
+    mutator3Warp2: document.getElementById('mutator3-warp2'),
+    mutator3Warp3: document.getElementById('mutator3-warp3'),
+    mutator3Warp4: document.getElementById('mutator3-warp4'),
+    mutator3Warp5: document.getElementById('mutator3-warp5'),
+    mutator3Warp6: document.getElementById('mutator3-warp6'),
+    mutator3Warp7: document.getElementById('mutator3-warp7'),
+    mutator3Warp8: document.getElementById('mutator3-warp8'),
 
     // MUTATOR 4
-    const mutator4Ratio = document.getElementById('mutator4-ratio');
-    const mutator4Depth = document.getElementById('mutator4-depth');
-    const mutator4DryWet = document.getElementById('mutator4-dry-wet');
-    const mutator4Feedback = document.getElementById('mutator4-feedback');
-    const mutator4Window = document.getElementById('mutator4-window');
-    const mutator4Warp1 = document.getElementById('mutator4-warp1');
-    const mutator4Warp2 = document.getElementById('mutator4-warp2');
-    const mutator4Warp3 = document.getElementById('mutator4-warp3');
-    const mutator4Warp4 = document.getElementById('mutator4-warp4');
-    const mutator4Warp5 = document.getElementById('mutator4-warp5');
-    const mutator4Warp6 = document.getElementById('mutator4-warp6');
-    const mutator4Warp7 = document.getElementById('mutator4-warp7');
-    const mutator4Warp8 = document.getElementById('mutator4-warp8');
+    mutator4Ratio: document.getElementById('mutator4-ratio'),
+    mutator4Depth: document.getElementById('mutator4-depth'),
+    mutator4DryWet: document.getElementById('mutator4-dry-wet'),
+    mutator4Feedback: document.getElementById('mutator4-feedback'),
+    mutator4Window: document.getElementById('mutator4-window'),
+    mutator4Warp1: document.getElementById('mutator4-warp1'),
+    mutator4Warp2: document.getElementById('mutator4-warp2'),
+    mutator4Warp3: document.getElementById('mutator4-warp3'),
+    mutator4Warp4: document.getElementById('mutator4-warp4'),
+    mutator4Warp5: document.getElementById('mutator4-warp5'),
+    mutator4Warp6: document.getElementById('mutator4-warp6'),
+    mutator4Warp7: document.getElementById('mutator4-warp7'),
+    mutator4Warp8: document.getElementById('mutator4-warp8'),
 
     // RING-NOISE
-    const typeOfNoise = document.getElementById('type-of-noise');
-    const rm12Depth = document.getElementById('rm12-depth');
-    const signalSourceForRM = document.getElementById('signal-source-for-rm');
+    typeOfNoise: document.getElementById('type-of-noise'),
+    rm12Depth: document.getElementById('rm12-depth'),
+    signalSourceForRM: document.getElementById('signal-source-for-rm'),
 
 
     // MIX
-    const mixerSolo = document.getElementById('mixer-solo');
-    const osc1Vol = document.getElementById('osc1-vol');
-    const osc1Pan = document.getElementById('osc1-pan');
-    const osc1Filter = document.getElementById('osc1-filter');
-    const osc2Vol = document.getElementById('osc2-vol');
-    const osc2Pan = document.getElementById('osc2-pan');
-    const osc2Filter = document.getElementById('osc2-filter');
-    const osc3Vol = document.getElementById('osc3-vol');
-    const osc3Pan = document.getElementById('osc3-pan');
-    const osc3Filter = document.getElementById('osc3-filter');
-    const noiseVol = document.getElementById('noise-vol');
-    const noisePan = document.getElementById('noise-pan');
-    const noiseFilter = document.getElementById('noise-filter');
-    const rm12Vol = document.getElementById('rm12-vol');
-    const rm12Pan = document.getElementById('rm12-pan');
-    const rm12Filter = document.getElementById('rm12-filter');
-    const filterRouting = document.getElementById('filter-routing');
+    mixerSolo: document.getElementById('mixer-solo'),
+    osc1Vol: document.getElementById('osc1-vol'),
+    osc1Pan: document.getElementById('osc1-pan'),
+    osc1Filter: document.getElementById('osc1-filter'),
+    osc2Vol: document.getElementById('osc2-vol'),
+    osc2Pan: document.getElementById('osc2-pan'),
+    osc2Filter: document.getElementById('osc2-filter'),
+    osc3Vol: document.getElementById('osc3-vol'),
+    osc3Pan: document.getElementById('osc3-pan'),
+    osc3Filter: document.getElementById('osc3-filter'),
+    noiseVol: document.getElementById('noise-vol'),
+    noisePan: document.getElementById('noise-pan'),
+    noiseFilter: document.getElementById('noise-filter'),
+    rm12Vol: document.getElementById('rm12-vol'),
+    rm12Pan: document.getElementById('rm12-pan'),
+    rm12Filter: document.getElementById('rm12-filter'),
+    filterRouting: document.getElementById('filter-routing'),
 
 
     // FILTER 1    
-    const filter1PositionOfDrive = document.getElementById('filter1-position-of-drive');
-    const filter1Cutoff = document.getElementById('filter1-cutoff');
-    const filter1Drive = document.getElementById('filter1-drive');
-    const filter1Res = document.getElementById('filter1-res');
-    const filter1Special = document.getElementById('filter1-special');
-    const filter1Keytrack = document.getElementById('filter1-keytrack');
-    const filter1LFO1Amt = document.getElementById('filter1-lfo1-amt');
-    const filter1VowelOrder = document.getElementById('filter1-vowel-order');
-    const filter1Model = document.getElementById('filter1-model');
-    const filter1VelEnv = document.getElementById('filter1-vel-env');
-    const filter1EnvAmt = document.getElementById('filter1-env1-amt');
+    filter1PositionOfDrive: document.getElementById('filter1-position-of-drive'),
+    filter1Cutoff: document.getElementById('filter1-cutoff'),
+    filter1Drive: document.getElementById('filter1-drive'),
+    filter1Res: document.getElementById('filter1-res'),
+    filter1Special: document.getElementById('filter1-special'),
+    filter1Keytrack: document.getElementById('filter1-keytrack'),
+    filter1LFO1Amt: document.getElementById('filter1-lfo1-amt'),
+    filter1VowelOrder: document.getElementById('filter1-vowel-order'),
+    filter1Model: document.getElementById('filter1-model'),
+    filter1VelEnv: document.getElementById('filter1-vel-env'),
+    filter1EnvAmt: document.getElementById('filter1-env1-amt'),
 
     // FILTER 2  
-    const filter2PositionOfDrive = document.getElementById('filter2-position-of-drive');
-    const filter2Cutoff = document.getElementById('filter2-cutoff');
-    const filter2Res = document.getElementById('filter2-res');
-    const filter2Morph = document.getElementById('filter2-morph');
-    const filter2Keytrack = document.getElementById('filter2-keytrack');
-    const filter2LFO1Amt = document.getElementById('filter2-lfo1-amt');
-    const filter2VelEnv = document.getElementById('filter2-vel-env');
-    const filter2EnvAmt = document.getElementById('filter2-env1-amt');
-    const filter2Type = document.getElementById('filter2-type');
+    filter2PositionOfDrive: document.getElementById('filter2-position-of-drive'),
+    filter2Cutoff: document.getElementById('filter2-cutoff'),
+    filter2Res: document.getElementById('filter2-res'),
+    filter2Morph: document.getElementById('filter2-morph'),
+    filter2Keytrack: document.getElementById('filter2-keytrack'),
+    filter2LFO1Amt: document.getElementById('filter2-lfo1-amt'),
+    filter2VelEnv: document.getElementById('filter2-vel-env'),
+    filter2EnvAmt: document.getElementById('filter2-env1-amt'),
+    filter2Type: document.getElementById('filter2-type'),
 
     // AMP                    
-    const ampLevel = document.getElementById('amp-level');
-    const ampVelEnv = document.getElementById('amp-vel-env');
-    const ampLFO2Amt = document.getElementById('amp-lfo2-amt');
+    ampLevel: document.getElementById('amp-level'),
+    ampVelEnv: document.getElementById('amp-vel-env'),
+    ampLFO2Amt: document.getElementById('amp-lfo2-amt'),
 
     // PRE-FX
-    const preFXType = document.getElementById('pre-fx-type');
-    const preFXPreset = document.getElementById('pre-fx-preset');
-    const preFXMix = document.getElementById('pre-fx-mix');
-    const preFXParam1 = document.getElementById('pre-fx-param1');
-    const preFXParam2 = document.getElementById('pre-fx-param2');
-    const preFXParam3 = document.getElementById('pre-fx-param3');
-    const preFXParam4 = document.getElementById('pre-fx-param4');
-    const preFXParam5 = document.getElementById('pre-fx-param5');
-    const preFXSelectionType = document.getElementById('pre-fx-selection-type');
+    preFXType: document.getElementById('pre-fx-type'),
+    preFXPreset: document.getElementById('pre-fx-preset'),
+    preFXMix: document.getElementById('pre-fx-mix'),
+    preFXParam1: document.getElementById('pre-fx-param1'),
+    preFXParam2: document.getElementById('pre-fx-param2'),
+    preFXParam3: document.getElementById('pre-fx-param3'),
+    preFXParam4: document.getElementById('pre-fx-param4'),
+    preFXParam5: document.getElementById('pre-fx-param5'),
+    preFXSelectionType: document.getElementById('pre-fx-selection-type'),
 
     // DELAY    
-    const delayBPMSync = document.getElementById('delay-bpm-sync');
-    const delayDryWet = document.getElementById('delay-dry-wet');
-    const delayFeedback = document.getElementById('delay-feedback');
-    const delayFeedtone = document.getElementById('delay-feedtone');
-    const delayTime = document.getElementById('delay-time');
-    const delayType = document.getElementById('delay-type');
-    const delayWetTone = document.getElementById('delay-wet-tone');
+    delayBPMSync: document.getElementById('delay-bpm-sync'),
+    delayDryWet: document.getElementById('delay-dry-wet'),
+    delayFeedback: document.getElementById('delay-feedback'),
+    delayFeedtone: document.getElementById('delay-feedtone'),
+    delayTime: document.getElementById('delay-time'),
+    delayType: document.getElementById('delay-type'),
+    delayWetTone: document.getElementById('delay-wet-tone'),
 
     // REVERB
-    const reverbDryWet = document.getElementById('reverb-dry-wet');
-    const reverbHiDamp = document.getElementById('reverb-hi-damp');
-    const reverbLoDamp = document.getElementById('reverb-lo-damp');
-    const reverbPreDelay = document.getElementById('reverb-predelay');
-    const reverbTime = document.getElementById('reverb-time');
-    const reverbTone = document.getElementById('reverb-tone');
-    const reverbType = document.getElementById('reverb-type');
+    reverbDryWet: document.getElementById('reverb-dry-wet'),
+    reverbHiDamp: document.getElementById('reverb-hi-damp'),
+    reverbLoDamp: document.getElementById('reverb-lo-damp'),
+    reverbPreDelay: document.getElementById('reverb-predelay'),
+    reverbTime: document.getElementById('reverb-time'),
+    reverbTone: document.getElementById('reverb-tone'),
+    reverbType: document.getElementById('reverb-type'),
 
     // POST-FX    
-    const postFXType = document.getElementById('post-fx-type');
-    const postFXPreset = document.getElementById('post-fx-preset');
-    const postFXMix = document.getElementById('post-fx-mix');
-    const postFXParam1 = document.getElementById('post-fx-param1');
-    const postFXParam2 = document.getElementById('post-fx-param2');
-    const postFXParam3 = document.getElementById('post-fx-param3');
-    const postFXParam4 = document.getElementById('post-fx-param4');
-    const postFXParam5 = document.getElementById('post-fx-param5');
-    const postFXSidechainType = document.getElementById('post-fx-sidechain-type');
+    postFXType: document.getElementById('post-fx-type'),
+    postFXPreset: document.getElementById('post-fx-preset'),
+    postFXMix: document.getElementById('post-fx-mix'),
+    postFXParam1: document.getElementById('post-fx-param1'),
+    postFXParam2: document.getElementById('post-fx-param2'),
+    postFXParam3: document.getElementById('post-fx-param3'),
+    postFXParam4: document.getElementById('post-fx-param4'),
+    postFXParam5: document.getElementById('post-fx-param5'),
+    postFXSidechainType: document.getElementById('post-fx-sidechain-type'),
 
     // LFOs    
-    const lfo1Gain = document.getElementById('lfo1-gain');
-    const lfo1Rate = document.getElementById('lfo1-rate');
-    const lfo1Phase = document.getElementById('lfo1-phase')
-    const lfo2Gain = document.getElementById('lfo2-gain');
-    const lfo2Rate = document.getElementById('lfo2-rate');
-    const lfo2Phase = document.getElementById('lfo2-phase')
-    const lfo3Gain = document.getElementById('lfo3-gain');
-    const lfo3Rate = document.getElementById('lfo3-rate');
-    const lfo3Phase = document.getElementById('lfo3-phase')
-    const lfo4Gain = document.getElementById('lfo4-gain');
-    const lfo4Rate = document.getElementById('lfo4-rate');
-    const lfo4Phase = document.getElementById('lfo4-phase')
-    const lfo5Gain = document.getElementById('lfo5-gain');
-    const lfo5Rate = document.getElementById('lfo5-rate');
-    const lfo5Phase = document.getElementById('lfo5-phase')
+    lfo1Gain: document.getElementById('lfo1-gain'),
+    lfo1Rate: document.getElementById('lfo1-rate'),
+    lfo1Phase: document.getElementById('lfo1-phase'),
+    lfo2Gain: document.getElementById('lfo2-gain'),
+    lfo2Rate: document.getElementById('lfo2-rate'),
+    lfo2Phase: document.getElementById('lfo2-phase'),
+    lfo3Gain: document.getElementById('lfo3-gain'),
+    lfo3Rate: document.getElementById('lfo3-rate'),
+    lfo3Phase: document.getElementById('lfo3-phase'),
+    lfo4Gain: document.getElementById('lfo4-gain'),
+    lfo4Rate: document.getElementById('lfo4-rate'),
+    lfo4Phase: document.getElementById('lfo4-phase'),
+    lfo5Gain: document.getElementById('lfo5-gain'),
+    lfo5Rate: document.getElementById('lfo5-rate'),
+    lfo5Phase: document.getElementById('lfo5-phase'),
 
     // ENVELOPE 1
-    const env1Att = document.getElementById('env1-att');
-    const env1Hold = document.getElementById('env1-hold');
-    const env1Dec = document.getElementById('env1-dec');
-    const env1Sus = document.getElementById('env1-sus');
-    const env1Rel = document.getElementById('env1-rel');
-    const env1AttCurve = document.getElementById('env1-att-curve');
-    const env1DecCurve = document.getElementById('env1-dec-curve');
-    const env1RelCurve = document.getElementById('env1-rel-curve');
+    env1Att: document.getElementById('env1-att'),
+    env1Hold: document.getElementById('env1-hold'),
+    env1Dec: document.getElementById('env1-dec'),
+    env1Sus: document.getElementById('env1-sus'),
+    env1Rel: document.getElementById('env1-rel'),
+    env1AttCurve: document.getElementById('env1-att-curve'),
+    env1DecCurve: document.getElementById('env1-dec-curve'),
+    env1RelCurve: document.getElementById('env1-rel-curve'),
 
     // ENVELOPE 2
-    const env2Att = document.getElementById('env2-att');
-    const env2Hold = document.getElementById('env2-hold');
-    const env2Dec = document.getElementById('env2-dec');
-    const env2Sus = document.getElementById('env2-sus');
-    const env2Rel = document.getElementById('env2-rel');
-    const env2AttCurve = document.getElementById('env2-att-curve');
-    const env2DecCurve = document.getElementById('env2-dec-curve');
-    const env2RelCurve = document.getElementById('env2-rel-curve');
+    env2Att: document.getElementById('env2-att'),
+    env2Hold: document.getElementById('env2-hold'),
+    env2Dec: document.getElementById('env2-dec'),
+    env2Sus: document.getElementById('env2-sus'),
+    env2Rel: document.getElementById('env2-rel'),
+    env2AttCurve: document.getElementById('env2-att-curve'),
+    env2DecCurve: document.getElementById('env2-dec-curve'),
+    env2RelCurve: document.getElementById('env2-rel-curve'),
 
     // ENVELOPE 3
-    const env3Att = document.getElementById('env3-att');
-    const env3Hold = document.getElementById('env3-hold');
-    const env3Dec = document.getElementById('env3-dec');
-    const env3Sus = document.getElementById('env3-sus');
-    const env3Rel = document.getElementById('env3-rel');
-    const env3AttCurve = document.getElementById('env3-att-curve');
-    const env3DecCurve = document.getElementById('env3-dec-curve');
-    const env3RelCurve = document.getElementById('env3-rel-curve');
+    env3Att: document.getElementById('env3-att'),
+    env3Hold: document.getElementById('env3-hold'),
+    env3Dec: document.getElementById('env3-dec'),
+    env3Sus: document.getElementById('env3-sus'),
+    env3Rel: document.getElementById('env3-rel'),
+    env3AttCurve: document.getElementById('env3-att-curve'),
+    env3DecCurve: document.getElementById('env3-dec-curve'),
+    env3RelCurve: document.getElementById('env3-rel-curve'),
 
     // ENVELOPE 4
-    const env4Att = document.getElementById('env4-att');
-    const env4Hold = document.getElementById('env4-hold');
-    const env4Dec = document.getElementById('env4-dec');
-    const env4Sus = document.getElementById('env4-sus');
-    const env4Rel = document.getElementById('env4-rel');
-    const env4AttCurve = document.getElementById('env4-att-curve');
-    const env4DecCurve = document.getElementById('env4-dec-curve');
-    const env4RelCurve = document.getElementById('env4-rel-curve');
+    env4Att: document.getElementById('env4-att'),
+    env4Hold: document.getElementById('env4-hold'),
+    env4Dec: document.getElementById('env4-dec'),
+    env4Sus: document.getElementById('env4-sus'),
+    env4Rel: document.getElementById('env4-rel'),
+    env4AttCurve: document.getElementById('env4-att-curve'),
+    env4DecCurve: document.getElementById('env4-dec-curve'),
+    env4RelCurve: document.getElementById('env4-rel-curve'),
 
     // ENVELOPE 5
-    const env5Att = document.getElementById('env5-att');
-    const env5Hold = document.getElementById('env5-hold');
-    const env5Dec = document.getElementById('env5-dec');
-    const env5Sus = document.getElementById('env5-sus');
-    const env5Rel = document.getElementById('env5-rel');
-    const env5AttCurve = document.getElementById('env5-att-curve');
-    const env5DecCurve = document.getElementById('env5-dec-curve');
-    const env5RelCurve = document.getElementById('env5-rel-curve');
+    env5Att: document.getElementById('env5-att'),
+    env5Hold: document.getElementById('env5-hold'),
+    env5Dec: document.getElementById('env5-dec'),
+    env5Sus: document.getElementById('env5-sus'),
+    env5Rel: document.getElementById('env5-rel'),
+    env5AttCurve: document.getElementById('env5-att-curve'),
+    env5DecCurve: document.getElementById('env5-dec-curve'),
+    env5RelCurve: document.getElementById('env5-rel-curve'),
 
     // INSERT MACROS HERE //
 
     // MOD MATRIX
-    const modMatrix1Depth = document.getElementById('mod-matrix1-depth');
-    const modMatrix2Depth = document.getElementById('mod-matrix2-depth');
-    const modMatrix3Depth = document.getElementById('mod-matrix3-depth');
-    const modMatrix4Depth = document.getElementById('mod-matrix4-depth');
-    const modMatrix5Depth = document.getElementById('mod-matrix5-depth');
-    const modMatrix6Depth = document.getElementById('mod-matrix6-depth');
-    const modMatrix7Depth = document.getElementById('mod-matrix7-depth');
-    const modMatrix8Depth = document.getElementById('mod-matrix8-depth');
-    const modMatrix9Depth = document.getElementById('mod-matrix9-depth');
-    const modMatrix10Depth = document.getElementById('mod-matrix10-depth');
-    const modMatrix11Depth = document.getElementById('mod-matrix11-depth');
-    const modMatrix12Depth = document.getElementById('mod-matrix12-depth');
-    const modMatrix13Depth = document.getElementById('mod-matrix13-depth');
-    const modMatrix14Depth = document.getElementById('mod-matrix14-depth');
-    const modMatrix15Depth = document.getElementById('mod-matrix15-depth');
-    const modMatrix16Depth = document.getElementById('mod-matrix16-depth');
-    const modMatrix17Depth = document.getElementById('mod-matrix17-depth');
-    const modMatrix18Depth = document.getElementById('mod-matrix18-depth');
-    const modMatrix19Depth = document.getElementById('mod-matrix19-depth');
-    const modMatrix20Depth = document.getElementById('mod-matrix20-depth');
-    const modMatrix21Depth = document.getElementById('mod-matrix21-depth');
-    const modMatrix22Depth = document.getElementById('mod-matrix22-depth');
-    const modMatrix23Depth = document.getElementById('mod-matrix23-depth');
-    const modMatrix24Depth = document.getElementById('mod-matrix24-depth');
-    const modMatrix25Depth = document.getElementById('mod-matrix25-depth');
-    const modMatrix26Depth = document.getElementById('mod-matrix26-depth');
-    const modMatrix27Depth = document.getElementById('mod-matrix27-depth');
-    const modMatrix28Depth = document.getElementById('mod-matrix28-depth');
-    const modMatrix29Depth = document.getElementById('mod-matrix29-depth');
-    const modMatrix30Depth = document.getElementById('mod-matrix30-depth');
-    const modMatrix31Depth = document.getElementById('mod-matrix31-depth');
-    const modMatrix32Depth = document.getElementById('mod-matrix32-depth');
+    modMatrix1Depth: document.getElementById('mod-matrix1-depth'),
+    modMatrix2Depth: document.getElementById('mod-matrix2-depth'),
+    modMatrix3Depth: document.getElementById('mod-matrix3-depth'),
+    modMatrix4Depth: document.getElementById('mod-matrix4-depth'),
+    modMatrix5Depth: document.getElementById('mod-matrix5-depth'),
+    modMatrix6Depth: document.getElementById('mod-matrix6-depth'),
+    modMatrix7Depth: document.getElementById('mod-matrix7-depth'),
+    modMatrix8Depth: document.getElementById('mod-matrix8-depth'),
+    modMatrix9Depth: document.getElementById('mod-matrix9-depth'),
+    modMatrix10Depth: document.getElementById('mod-matrix10-depth'),
+    modMatrix11Depth: document.getElementById('mod-matrix11-depth'),
+    modMatrix12Depth: document.getElementById('mod-matrix12-depth'),
+    modMatrix13Depth: document.getElementById('mod-matrix13-depth'),
+    modMatrix14Depth: document.getElementById('mod-matrix14-depth'),
+    modMatrix15Depth: document.getElementById('mod-matrix15-depth'),
+    modMatrix16Depth: document.getElementById('mod-matrix16-depth'),
+    modMatrix17Depth: document.getElementById('mod-matrix17-depth'),
+    modMatrix18Depth: document.getElementById('mod-matrix18-depth'),
+    modMatrix19Depth: document.getElementById('mod-matrix19-depth'),
+    modMatrix20Depth: document.getElementById('mod-matrix20-depth'),
+    modMatrix21Depth: document.getElementById('mod-matrix21-depth'),
+    modMatrix22Depth: document.getElementById('mod-matrix22-depth'),
+    modMatrix23Depth: document.getElementById('mod-matrix23-depth'),
+    modMatrix24Depth: document.getElementById('mod-matrix24-depth'),
+    modMatrix25Depth: document.getElementById('mod-matrix25-depth'),
+    modMatrix26Depth: document.getElementById('mod-matrix26-depth'),
+    modMatrix27Depth: document.getElementById('mod-matrix27-depth'),
+    modMatrix28Depth: document.getElementById('mod-matrix28-depth'),
+    modMatrix29Depth: document.getElementById('mod-matrix29-depth'),
+    modMatrix30Depth: document.getElementById('mod-matrix30-depth'),
+    modMatrix31Depth: document.getElementById('mod-matrix31-depth'),
+    modMatrix32Depth: document.getElementById('mod-matrix32-depth')
+    
+    }
 
-
+    
 
 
 
@@ -1107,314 +1097,352 @@ WebMidi.enable(function (err) {
 
 
     // // All OSC
-    allOscCent.addEventListener('input', function(){changeItDefault(65, 04, allOscCent.value)}); // [0, 0] = 8192
-    // oscMode.addEventListener('input', function(){changeItDefault(63, 24, oscMode.value)}); // Check manual
-    // semi.addEventListener('input', function(){changeItDefault(63, 17, 64, 0)}, false); // Check manual
+    allParams.allOscCent.addEventListener('change', function(){changeItDefault(65, 04, allParams.allOscCent.value)}); // [0, 0] = 8192
+    // allParams.oscMode.addEventListener('change', function(){changeItDefault(63, 24, allParams.oscMode.value)}); // Check manual
+    // allParams.semi.addEventListener('change', function(){changeItDefault(63, 17, 64, 0)}, false); // Check manual
     
     // // OSC 1
-    osc1Type.addEventListener('input', function(){changeItDefault(63, 25, osc1Type.value)}); // 0-218 / 1, 90
-    osc1Cent.addEventListener('input', function(){changeItDefault(65, 01, osc1Cent.value)});
-    osc1Keytrack.addEventListener('input', function(){changeItDefault(63, 84, osc1Keytrack.value)});
-    osc1WaveScan.addEventListener('input', function(){changeItDefault(65, 42, osc1WaveScan.value)});
-    // soloOsc1WaveScan.addEventListener('input', function(){changeItDefault(63, 27, 0, 0)}, false); // Check manual
-    osc1WaveScanWav1.addEventListener('input', function(){changeItDefault(63, 96, osc1WaveScanWav1.value)}); // 0-218 / 1, 90
-    osc1WaveScanWav2.addEventListener('input', function(){changeItDefault(63, 97, osc1WaveScanWav2.value)}); // 0-218 / 1, 90
-    osc1WaveScanWav3.addEventListener('input', function(){changeItDefault(63, 98, osc1WaveScanWav3.value)}); // 0-218 / 1, 90
-    osc1WaveScanWav4.addEventListener('input', function(){changeItDefault(63, 99, osc1WaveScanWav4.value)}); // 0-218 / 1, 90
-    osc1WaveScanWav5.addEventListener('input', function(){changeItDefault(63, 100, osc1WaveScanWav5.value)}); // 0-218 / 1, 90
-    osc1WaveScanWav6.addEventListener('input', function(){changeItDefault(63, 101, osc1WaveScanWav6.value)}); // 0-218 / 1, 90
-    osc1WaveScanWav7.addEventListener('input', function(){changeItDefault(63, 102, osc1WaveScanWav7.value)}); // 0-218 / 1, 90
-    osc1WaveScanWav8.addEventListener('input', function(){changeItDefault(63, 103, osc1WaveScanWav8.value)}); // 0-218 / 1, 90
+    allParams.osc1Type.addEventListener('change', function(){changeItDefault(63, 25, allParams.osc1Type.value)}); // 0-218 / 1, 90
+    allParams.osc1Cent.addEventListener('change', function(){changeItDefault(65, 01, allParams.osc1Cent.value)});
+    allParams.osc1Keytrack.addEventListener('change', function(){changeItDefault(63, 84, allParams.osc1Keytrack.value)});
+    allParams.osc1WaveScan.addEventListener('change', function(){changeItDefault(65, 42, allParams.osc1WaveScan.value)});
+    // allParams.soloOsc1WaveScan.addEventListener('change', function(){changeItDefault(63, 27, 0, 0)}, false); // Check manual
+    allParams.osc1WaveScanWav1.addEventListener('change', function(){changeItDefault(63, 96, allParams.osc1WaveScanWav1.value)}); // 0-218 / 1, 90
+    allParams.osc1WaveScanWav2.addEventListener('change', function(){changeItDefault(63, 97, allParams.osc1WaveScanWav2.value)}); // 0-218 / 1, 90
+    allParams.osc1WaveScanWav3.addEventListener('change', function(){changeItDefault(63, 98, allParams.osc1WaveScanWav3.value)}); // 0-218 / 1, 90
+    allParams.osc1WaveScanWav4.addEventListener('change', function(){changeItDefault(63, 99, allParams.osc1WaveScanWav4.value)}); // 0-218 / 1, 90
+    allParams.osc1WaveScanWav5.addEventListener('change', function(){changeItDefault(63, 100, allParams.osc1WaveScanWav5.value)}); // 0-218 / 1, 90
+    allParams.osc1WaveScanWav6.addEventListener('change', function(){changeItDefault(63, 101, allParams.osc1WaveScanWav6.value)}); // 0-218 / 1, 90
+    allParams.osc1WaveScanWav7.addEventListener('change', function(){changeItDefault(63, 102, allParams.osc1WaveScanWav7.value)}); // 0-218 / 1, 90
+    allParams.osc1WaveScanWav8.addEventListener('change', function(){changeItDefault(63, 103, allParams.osc1WaveScanWav8.value)}); // 0-218 / 1, 90
 
     // // OSC 2
-    osc2Type.addEventListener('input', function(){changeItDefault(63, 26, osc2Type.value)}); // 0-218 / 1, 90
-    osc2Cent.addEventListener('input', function(){changeItDefault(65, 02, osc2Cent.value)});
-    osc2Keytrack.addEventListener('input', function(){changeItDefault(63, 85, osc2Keytrack.value)}); // 0-200 / 1, 72
-    osc2WaveScan.addEventListener('input', function(){changeItDefault(65, 43, osc2WaveScan.value)});
-    // soloOsc2WaveScan.addEventListener('input', function(){changeItDefault(63, 28, 0, 0)}, false); // Check manual
-    osc2WaveScanWav1.addEventListener('input', function(){changeItDefault(63, 104, osc2WaveScanWav1.value)}); // 0-218 / 1, 90
-    osc2WaveScanWav2.addEventListener('input', function(){changeItDefault(63, 105, osc2WaveScanWav2.value)}); // 0-218 / 1, 90
-    osc2WaveScanWav3.addEventListener('input', function(){changeItDefault(63, 106, osc2WaveScanWav3.value)}); // 0-218 / 1, 90
-    osc2WaveScanWav4.addEventListener('input', function(){changeItDefault(63, 107, osc2WaveScanWav4.value)}); // 0-218 / 1, 90
-    osc2WaveScanWav5.addEventListener('input', function(){changeItDefault(63, 108, osc2WaveScanWav5.value)}); // 0-218 / 1, 90
-    osc2WaveScanWav6.addEventListener('input', function(){changeItDefault(63, 109, osc2WaveScanWav6.value)}); // 0-218 / 1, 90
-    osc2WaveScanWav7.addEventListener('input', function(){changeItDefault(63, 110, osc2WaveScanWav7.value)}); // 0-218 / 1, 90
-    osc2WaveScanWav8.addEventListener('input', function(){changeItDefault(63, 111, osc2WaveScanWav8.value)}); // 0-218 / 1, 90
+    allParams.osc2Type.addEventListener('change', function(){changeItDefault(63, 26, allParams.osc2Type.value)}); // 0-218 / 1, 90
+    allParams.osc2Cent.addEventListener('change', function(){changeItDefault(65, 02, allParams.osc2Cent.value)});
+    allParams.osc2Keytrack.addEventListener('change', function(){changeItDefault(63, 85, allParams.osc2Keytrack.value)}); // 0-200 / 1, 72
+    allParams.osc2WaveScan.addEventListener('change', function(){changeItDefault(65, 43, allParams.osc2WaveScan.value)});
+    // allParams.soloOsc2WaveScan.addEventListener('change', function(){changeItDefault(63, 28, 0, 0)}, false); // Check manual
+    allParams.osc2WaveScanWav1.addEventListener('change', function(){changeItDefault(63, 104, allParams.osc2WaveScanWav1.value)}); // 0-218 / 1, 90
+    allParams.osc2WaveScanWav2.addEventListener('change', function(){changeItDefault(63, 105, allParams.osc2WaveScanWav2.value)}); // 0-218 / 1, 90
+    allParams.osc2WaveScanWav3.addEventListener('change', function(){changeItDefault(63, 106, allParams.osc2WaveScanWav3.value)}); // 0-218 / 1, 90
+    allParams.osc2WaveScanWav4.addEventListener('change', function(){changeItDefault(63, 107, allParams.osc2WaveScanWav4.value)}); // 0-218 / 1, 90
+    allParams.osc2WaveScanWav5.addEventListener('change', function(){changeItDefault(63, 108, allParams.osc2WaveScanWav5.value)}); // 0-218 / 1, 90
+    allParams.osc2WaveScanWav6.addEventListener('change', function(){changeItDefault(63, 109, allParams.osc2WaveScanWav6.value)}); // 0-218 / 1, 90
+    allParams.osc2WaveScanWav7.addEventListener('change', function(){changeItDefault(63, 110, allParams.osc2WaveScanWav7.value)}); // 0-218 / 1, 90
+    allParams.osc2WaveScanWav8.addEventListener('change', function(){changeItDefault(63, 111, allParams.osc2WaveScanWav8.value)}); // 0-218 / 1, 90
 
     
     // // OSC 3
-    osc3Type.addEventListener('input', function(){changeItDefault(63,  13, osc3Type.value)});
-    osc3Cent.addEventListener('input', function(){changeItDefault(65, 03, osc3Cent.value)});
-    osc3Keytrack.addEventListener('input', function(){changeItDefault(63, 86, osc3Keytrack.value)});
+    allParams.osc3Type.addEventListener('change', function(){changeItDefault(63,  13, allParams.osc3Type.value)});
+    allParams.osc3Cent.addEventListener('change', function(){changeItDefault(65, 03, allParams.osc3Cent.value)});
+    allParams.osc3Keytrack.addEventListener('change', function(){changeItDefault(63, 86, allParams.osc3Keytrack.value)});
 
 
     ////////////////////////
 
     // All MUTATORS      
-    // mutatorMode.addEventListener('input', function(){changeItDefault(63, 33, mutatorMode.value)});
-    // mutatorSourcesFMLin.addEventListener('input', function(){changeItDefault(63, 36, mutatorSourcesFMLin.value)});
-    // mutatorSourcesOscSync.addEventListener('input', function(){changeItDefault(63, 34, mutatorSourcesOscSync.value)});
+    // allParams.mutatorMode.addEventListener('change', function(){changeItDefault(63, 33, allParams.mutatorMode.value)});
+    // allParams.mutatorSourcesFMLin.addEventListener('change', function(){changeItDefault(63, 36, allParams.mutatorSourcesFMLin.value)});
+    // allParams.mutatorSourcesOscSync.addEventListener('change', function(){changeItDefault(63, 34, allParams.mutatorSourcesOscSync.value)});
 
     // // MUTATOR 1
-    mutator1Ratio.addEventListener('input', function(){changeItDefault(65, 44, mutator1Ratio.value)}); 
-    mutator1Depth.addEventListener('input', function(){changeItDefault(64, 31, mutator1Depth.value)}); 
-    mutator1DryWet.addEventListener('input', function(){changeItDefault(64, 34, mutator1DryWet.value)}); 
-    mutator1Feedback.addEventListener('input', function(){changeItDefault(64, 37, mutator1Feedback.value)});
-    mutator1Window.addEventListener('input', function(){changeItDefault(64, 28, mutator1Window.value)}); 
-    mutator1Warp1.addEventListener('input', function(){changeItDefault(64, 96, mutator1Warp1.value)}); 
-    mutator1Warp2.addEventListener('input', function(){changeItDefault(64, 97, mutator1Warp2.value)}); 
-    mutator1Warp3.addEventListener('input', function(){changeItDefault(64, 98, mutator1Warp3.value)}); 
-    mutator1Warp4.addEventListener('input', function(){changeItDefault(64, 99, mutator1Warp4.value)}); 
-    mutator1Warp5.addEventListener('input', function(){changeItDefault(64, 100, mutator1Warp5.value)}); 
-    mutator1Warp6.addEventListener('input', function(){changeItDefault(64, 101, mutator1Warp6.value)}); 
-    mutator1Warp7.addEventListener('input', function(){changeItDefault(64, 102, mutator1Warp7.value)}); 
-    mutator1Warp8.addEventListener('input', function(){changeItDefault(64, 103, mutator1Warp8.value)});
+    allParams.mutator1Ratio.addEventListener('change', function(){changeItDefault(65, 44, allParams.mutator1Ratio.value)}); 
+    allParams.mutator1Depth.addEventListener('change', function(){changeItDefault(64, 31, allParams.mutator1Depth.value)}); 
+    allParams.mutator1DryWet.addEventListener('change', function(){changeItDefault(64, 34, allParams.mutator1DryWet.value)}); 
+    allParams.mutator1Feedback.addEventListener('change', function(){changeItDefault(64, 37, allParams.mutator1Feedback.value)});
+    allParams.mutator1Window.addEventListener('change', function(){changeItDefault(64, 28, allParams.mutator1Window.value)}); 
+    allParams.mutator1Warp1.addEventListener('change', function(){changeItDefault(64, 96, allParams.mutator1Warp1.value)}); 
+    allParams.mutator1Warp2.addEventListener('change', function(){changeItDefault(64, 97, allParams.mutator1Warp2.value)}); 
+    allParams.mutator1Warp3.addEventListener('change', function(){changeItDefault(64, 98, allParams.mutator1Warp3.value)}); 
+    allParams.mutator1Warp4.addEventListener('change', function(){changeItDefault(64, 99, allParams.mutator1Warp4.value)}); 
+    allParams.mutator1Warp5.addEventListener('change', function(){changeItDefault(64, 100, allParams.mutator1Warp5.value)}); 
+    allParams.mutator1Warp6.addEventListener('change', function(){changeItDefault(64, 101, allParams.mutator1Warp6.value)}); 
+    allParams.mutator1Warp7.addEventListener('change', function(){changeItDefault(64, 102, allParams.mutator1Warp7.value)}); 
+    allParams.mutator1Warp8.addEventListener('change', function(){changeItDefault(64, 103, allParams.mutator1Warp8.value)});
 
     // // MUTATOR 2
-    mutator2Ratio.addEventListener('input', function(){changeItDefault(65, 45, mutator2Ratio.value)}); 
-    mutator2Depth.addEventListener('input', function(){changeItDefault(64, 32, mutator2Depth.value)}); 
-    mutator2DryWet.addEventListener('input', function(){changeItDefault(64, 35, mutator2DryWet.value)}); 
-    mutator2Feedback.addEventListener('input', function(){changeItDefault(64, 38, mutator2Feedback.value)});
-    mutator2Window.addEventListener('input', function(){changeItDefault(64, 29, mutator2Window.value)}); 
-    mutator2Warp1.addEventListener('input', function(){changeItDefault(64, 104, mutator2Warp1.value)}); 
-    mutator2Warp2.addEventListener('input', function(){changeItDefault(64, 105, mutator2Warp2.value)}); 
-    mutator2Warp3.addEventListener('input', function(){changeItDefault(64, 106, mutator2Warp3.value)}); 
-    mutator2Warp4.addEventListener('input', function(){changeItDefault(64, 107, mutator2Warp4.value)}); 
-    mutator2Warp5.addEventListener('input', function(){changeItDefault(64, 108, mutator2Warp5.value)}); 
-    mutator2Warp6.addEventListener('input', function(){changeItDefault(64, 109, mutator2Warp6.value)}); 
-    mutator2Warp7.addEventListener('input', function(){changeItDefault(64, 110, mutator2Warp7.value)}); 
-    mutator2Warp8.addEventListener('input', function(){changeItDefault(64, 111, mutator2Warp8.value)});
+    allParams.mutator2Ratio.addEventListener('change', function(){changeItDefault(65, 45, allParams.mutator2Ratio.value)}); 
+    allParams.mutator2Depth.addEventListener('change', function(){changeItDefault(64, 32, allParams.mutator2Depth.value)}); 
+    allParams.mutator2DryWet.addEventListener('change', function(){changeItDefault(64, 35, allParams.mutator2DryWet.value)}); 
+    allParams.mutator2Feedback.addEventListener('change', function(){changeItDefault(64, 38, allParams.mutator2Feedback.value)});
+    allParams.mutator2Window.addEventListener('change', function(){changeItDefault(64, 29, allParams.mutator2Window.value)}); 
+    allParams.mutator2Warp1.addEventListener('change', function(){changeItDefault(64, 104, allParams.mutator2Warp1.value)}); 
+    allParams.mutator2Warp2.addEventListener('change', function(){changeItDefault(64, 105, allParams.mutator2Warp2.value)}); 
+    allParams.mutator2Warp3.addEventListener('change', function(){changeItDefault(64, 106, allParams.mutator2Warp3.value)}); 
+    allParams.mutator2Warp4.addEventListener('change', function(){changeItDefault(64, 107, allParams.mutator2Warp4.value)}); 
+    allParams.mutator2Warp5.addEventListener('change', function(){changeItDefault(64, 108, allParams.mutator2Warp5.value)}); 
+    allParams.mutator2Warp6.addEventListener('change', function(){changeItDefault(64, 109, allParams.mutator2Warp6.value)}); 
+    allParams.mutator2Warp7.addEventListener('change', function(){changeItDefault(64, 110, allParams.mutator2Warp7.value)}); 
+    allParams.mutator2Warp8.addEventListener('change', function(){changeItDefault(64, 111, allParams.mutator2Warp8.value)});
 
     // // MUTATOR 3
-    mutator3Ratio.addEventListener('input', function(){changeItDefault(65, 46, mutator3Ratio.value)}); 
-    mutator3Depth.addEventListener('input', function(){changeItDefault(64, 33, mutator3Depth.value)}); 
-    mutator3DryWet.addEventListener('input', function(){changeItDefault(64, 36, mutator3DryWet.value)}); 
-    mutator3Feedback.addEventListener('input', function(){changeItDefault(64, 39, mutator3Feedback.value)});
-    mutator3Window.addEventListener('input', function(){changeItDefault(64, 30, mutator3Window.value)}); 
-    mutator3Warp1.addEventListener('input', function(){changeItDefault(64, 112, mutator3Warp1.value)}); 
-    mutator3Warp2.addEventListener('input', function(){changeItDefault(64, 113, mutator3Warp2.value)}); 
-    mutator3Warp3.addEventListener('input', function(){changeItDefault(64, 114, mutator3Warp3.value)}); 
-    mutator3Warp4.addEventListener('input', function(){changeItDefault(64, 115, mutator3Warp4.value)}); 
-    mutator3Warp5.addEventListener('input', function(){changeItDefault(64, 116, mutator3Warp5.value)}); 
-    mutator3Warp6.addEventListener('input', function(){changeItDefault(64, 117, mutator3Warp6.value)}); 
-    mutator3Warp7.addEventListener('input', function(){changeItDefault(64, 118, mutator3Warp7.value)}); 
-    mutator3Warp8.addEventListener('input', function(){changeItDefault(64, 119, mutator3Warp8.value)});
+    allParams.mutator3Ratio.addEventListener('change', function(){changeItDefault(65, 46, allParams.mutator3Ratio.value)}); 
+    allParams.mutator3Depth.addEventListener('change', function(){changeItDefault(64, 33, allParams.mutator3Depth.value)}); 
+    allParams.mutator3DryWet.addEventListener('change', function(){changeItDefault(64, 36, allParams.mutator3DryWet.value)}); 
+    allParams.mutator3Feedback.addEventListener('change', function(){changeItDefault(64, 39, allParams.mutator3Feedback.value)});
+    allParams.mutator3Window.addEventListener('change', function(){changeItDefault(64, 30, allParams.mutator3Window.value)}); 
+    allParams.mutator3Warp1.addEventListener('change', function(){changeItDefault(64, 112, allParams.mutator3Warp1.value)}); 
+    allParams.mutator3Warp2.addEventListener('change', function(){changeItDefault(64, 113, allParams.mutator3Warp2.value)}); 
+    allParams.mutator3Warp3.addEventListener('change', function(){changeItDefault(64, 114, allParams.mutator3Warp3.value)}); 
+    allParams.mutator3Warp4.addEventListener('change', function(){changeItDefault(64, 115, allParams.mutator3Warp4.value)}); 
+    allParams.mutator3Warp5.addEventListener('change', function(){changeItDefault(64, 116, allParams.mutator3Warp5.value)}); 
+    allParams.mutator3Warp6.addEventListener('change', function(){changeItDefault(64, 117, allParams.mutator3Warp6.value)}); 
+    allParams.mutator3Warp7.addEventListener('change', function(){changeItDefault(64, 118, allParams.mutator3Warp7.value)}); 
+    allParams.mutator3Warp8.addEventListener('change', function(){changeItDefault(64, 119, allParams.mutator3Warp8.value)});
 
     // // MUTATOR 4
-    mutator4Ratio.addEventListener('input', function(){changeItDefault(65, 47, mutator4Ratio.value)}); 
-    mutator4Depth.addEventListener('input', function(){changeItDefault(64, 22, mutator4Depth.value)}); 
-    mutator4DryWet.addEventListener('input', function(){changeItDefault(64, 23, mutator4DryWet.value)}); 
-    mutator4Feedback.addEventListener('input', function(){changeItDefault(64, 27, mutator4Feedback.value)});
-    mutator4Window.addEventListener('input', function(){changeItDefault(64, 26, mutator4Window.value)}); 
-    mutator4Warp1.addEventListener('input', function(){changeItDefault(64, 120, mutator4Warp1.value)}); 
-    mutator4Warp2.addEventListener('input', function(){changeItDefault(64, 121, mutator4Warp2.value)}); 
-    mutator4Warp3.addEventListener('input', function(){changeItDefault(64, 122, mutator4Warp3.value)}); 
-    mutator4Warp4.addEventListener('input', function(){changeItDefault(64, 123, mutator4Warp4.value)}); 
-    mutator4Warp5.addEventListener('input', function(){changeItDefault(64, 124, mutator4Warp5.value)}); 
-    mutator4Warp6.addEventListener('input', function(){changeItDefault(64, 125, mutator4Warp6.value)}); 
-    mutator4Warp7.addEventListener('input', function(){changeItDefault(64, 126, mutator4Warp7.value)}); 
-    mutator4Warp8.addEventListener('input', function(){changeItDefault(64, 127, mutator4Warp8.value)});
+    allParams.mutator4Ratio.addEventListener('change', function(){changeItDefault(65, 47, allParams.mutator4Ratio.value)}); 
+    allParams.mutator4Depth.addEventListener('change', function(){changeItDefault(64, 22, allParams.mutator4Depth.value)}); 
+    allParams.mutator4DryWet.addEventListener('change', function(){changeItDefault(64, 23, allParams.mutator4DryWet.value)}); 
+    allParams.mutator4Feedback.addEventListener('change', function(){changeItDefault(64, 27, allParams.mutator4Feedback.value)});
+    allParams.mutator4Window.addEventListener('change', function(){changeItDefault(64, 26, allParams.mutator4Window.value)}); 
+    allParams.mutator4Warp1.addEventListener('change', function(){changeItDefault(64, 120, allParams.mutator4Warp1.value)}); 
+    allParams.mutator4Warp2.addEventListener('change', function(){changeItDefault(64, 121, allParams.mutator4Warp2.value)}); 
+    allParams.mutator4Warp3.addEventListener('change', function(){changeItDefault(64, 122, allParams.mutator4Warp3.value)}); 
+    allParams.mutator4Warp4.addEventListener('change', function(){changeItDefault(64, 123, allParams.mutator4Warp4.value)}); 
+    allParams.mutator4Warp5.addEventListener('change', function(){changeItDefault(64, 124, allParams.mutator4Warp5.value)}); 
+    allParams.mutator4Warp6.addEventListener('change', function(){changeItDefault(64, 125, allParams.mutator4Warp6.value)}); 
+    allParams.mutator4Warp7.addEventListener('change', function(){changeItDefault(64, 126, allParams.mutator4Warp7.value)}); 
+    allParams.mutator4Warp8.addEventListener('change', function(){changeItDefault(64, 127, allParams.mutator4Warp8.value)});
 
     // RING-NOISE
-    // typeOfNoise.addEventListener('input', function(){changeItDefault(63, 39, typeOfNoise.value)});
-    rm12Depth.addEventListener('input', function(){changeItDefault(64, 03, rm12Depth.value)});
-    // signalSourceForRM.addEventListener('input', function(){changeItDefault(63, 38, signalSourceForRM.value)});
+    // allParams.typeOfNoise.addEventListener('change', function(){changeItDefault(63, 39, allParams.typeOfNoise.value)});
+    allParams.rm12Depth.addEventListener('change', function(){changeItDefault(64, 03, allParams.rm12Depth.value)});
+    // allParams.signalSourceForRM.addEventListener('change', function(){changeItDefault(63, 38, allParams.signalSourceForRM.value)});
     
     // MIX
-    // mixerSolo.addEventListener('input', function(){changeItDefault(63, 37, mixerSolo.value)});
-    osc1Vol.addEventListener('input', function(){changeItDefault(64, 07, osc1Vol.value)});
-    osc1Pan.addEventListener('input', function(){changeItDefault(64, 08, osc1Pan.value)});
-    osc1Filter.addEventListener('input', function(){changeItDefault(64, 49, osc1Filter.value)});
-    osc2Vol.addEventListener('input', function(){changeItDefault(64, 09, osc2Vol.value)});
-    osc2Pan.addEventListener('input', function(){changeItDefault(64, 10, osc2Pan.value)});
-    osc2Filter.addEventListener('input', function(){changeItDefault(64, 50, osc2Filter.value)});
-    osc3Vol.addEventListener('input', function(){changeItDefault(64, 11, osc3Vol.value)});
-    osc3Pan.addEventListener('input', function(){changeItDefault(64, 12, osc3Pan.value)});
-    osc3Filter.addEventListener('input', function(){changeItDefault(64, 51, osc3Filter.value)});
-    noiseVol.addEventListener('input', function(){changeItDefault(64, 13, noiseVol.value)});
-    noisePan.addEventListener('input', function(){changeItDefault(64, 14, noisePan.value)});
-    noiseFilter.addEventListener('input', function(){changeItDefault(64, 52, noiseFilter.value)});
-    rm12Vol.addEventListener('input', function(){changeItDefault(64, 61, rm12Vol.value)});
-    rm12Pan.addEventListener('input', function(){changeItDefault(64, 04, rm12Pan.value)});
-    rm12Filter.addEventListener('input', function(){changeItDefault(64, 53, rm12Filter.value)});
-    // filterRouting.addEventListener('input', function(){changeItDefault(64, 44, filterRouting.value)});
+    // allParams.mixerSolo.addEventListener('change', function(){changeItDefault(63, 37, allParams.mixerSolo.value)});
+    allParams.osc1Vol.addEventListener('change', function(){changeItDefault(64, 07, allParams.osc1Vol.value)});
+    allParams.osc1Pan.addEventListener('change', function(){changeItDefault(64, 08, allParams.osc1Pan.value)});
+    allParams.osc1Filter.addEventListener('change', function(){changeItDefault(64, 49, allParams.osc1Filter.value)});
+    allParams.osc2Vol.addEventListener('change', function(){changeItDefault(64, 09, allParams.osc2Vol.value)});
+    allParams.osc2Pan.addEventListener('change', function(){changeItDefault(64, 10, allParams.osc2Pan.value)});
+    allParams.osc2Filter.addEventListener('change', function(){changeItDefault(64, 50, allParams.osc2Filter.value)});
+    allParams.osc3Vol.addEventListener('change', function(){changeItDefault(64, 11, allParams.osc3Vol.value)});
+    allParams.osc3Pan.addEventListener('change', function(){changeItDefault(64, 12, allParams.osc3Pan.value)});
+    allParams.osc3Filter.addEventListener('change', function(){changeItDefault(64, 51, allParams.osc3Filter.value)});
+    allParams.noiseVol.addEventListener('change', function(){changeItDefault(64, 13, allParams.noiseVol.value)});
+    allParams.noisePan.addEventListener('change', function(){changeItDefault(64, 14, allParams.noisePan.value)});
+    allParams.noiseFilter.addEventListener('change', function(){changeItDefault(64, 52, allParams.noiseFilter.value)});
+    allParams.rm12Vol.addEventListener('change', function(){changeItDefault(64, 61, allParams.rm12Vol.value)});
+    allParams.rm12Pan.addEventListener('change', function(){changeItDefault(64, 04, allParams.rm12Pan.value)});
+    allParams.rm12Filter.addEventListener('change', function(){changeItDefault(64, 53, allParams.rm12Filter.value)});
+    // allParams.filterRouting.addEventListener('change', function(){changeItDefault(64, 44, allParams.filterRouting.value)});
 
     // FILTER 1    
-    // filter1PositionOfDrive.addEventListener('input', function(){changeItDefault(63, 41, filter1PositionOfDrive.value)});
-    filter1Cutoff.addEventListener('input', function(){changeItDefault(64, 40, filter1Cutoff.value)});
-    filter1Drive.addEventListener('input', function(){changeItDefault(64, 43, filter1Drive.value)});
-    filter1Res.addEventListener('input', function(){changeItDefault(64, 41, filter1Res.value)});
-    filter1Special.addEventListener('input', function(){changeItDefault(64, 42, filter1Special.value)});
-    filter1Keytrack.addEventListener('input', function(){changeItDefault(65, 102, filter1Keytrack.value)});
-    filter1LFO1Amt.addEventListener('input', function(){changeItDefault(65, 96, filter1LFO1Amt.value)});
-    // filter1VowelOrder.addEventListener('input', function(){changeItDefault(63, 46, filter1VowelOrder.value)});
-    // filter1Model.addEventListener('input', function(){changeItDefault(63, 40, filter1Model.value)});
-    filter1VelEnv.addEventListener('input', function(){changeItDefault(65, 105, filter1VelEnv.value)});
-    filter1EnvAmt.addEventListener('input', function(){changeItDefault(65, 97, filter1EnvAmt.value)});
+    // allParams.filter1PositionOfDrive.addEventListener('change', function(){changeItDefault(63, 41, allParams.filter1PositionOfDrive.value)});
+    allParams.filter1Cutoff.addEventListener('change', function(){changeItDefault(64, 40, allParams.filter1Cutoff.value)});
+    allParams.filter1Drive.addEventListener('change', function(){changeItDefault(64, 43, allParams.filter1Drive.value)});
+    allParams.filter1Res.addEventListener('change', function(){changeItDefault(64, 41, allParams.filter1Res.value)});
+    allParams.filter1Special.addEventListener('change', function(){changeItDefault(64, 42, allParams.filter1Special.value)});
+    allParams.filter1Keytrack.addEventListener('change', function(){changeItDefault(65, 102, allParams.filter1Keytrack.value)});
+    allParams.filter1LFO1Amt.addEventListener('change', function(){changeItDefault(65, 96, allParams.filter1LFO1Amt.value)});
+    // allParams.filter1VowelOrder.addEventListener('change', function(){changeItDefault(63, 46, allParams.filter1VowelOrder.value)});
+    // allParams.filter1Model.addEventListener('change', function(){changeItDefault(63, 40, allParams.filter1Model.value)});
+    allParams.filter1VelEnv.addEventListener('change', function(){changeItDefault(65, 105, allParams.filter1VelEnv.value)});
+    allParams.filter1EnvAmt.addEventListener('change', function(){changeItDefault(65, 97, allParams.filter1EnvAmt.value)});
 
     // FILTER 2  
-    // filter2PositionOfDrive.addEventListener('input', function(){changeItDefault(63, 43, filter2PositionOfDrive.value)});
-    filter2Cutoff.addEventListener('input', function(){changeItDefault(64, 44, filter2Cutoff.value)});
-    filter2Res.addEventListener('input', function(){changeItDefault(64, 45, filter2Res.value)});
-    filter2Morph.addEventListener('input', function(){changeItDefault(64, 46, filter2Morph.value)});
-    filter2Keytrack.addEventListener('input', function(){changeItDefault(65, 103, filter2Keytrack.value)});
-    filter2LFO1Amt.addEventListener('input', function(){changeItDefault(65, 98, filter2LFO1Amt.value)});
-    filter2VelEnv.addEventListener('input', function(){changeItDefault(65, 106, filter2VelEnv.value)});
-    filter2EnvAmt.addEventListener('input', function(){changeItDefault(65, 99, filter2EnvAmt.value)});
-    // filter2Type.addEventListener('input', function(){changeItDefault(63, 35, filter2Type.value)});
+    // allParams.filter2PositionOfDrive.addEventListener('change', function(){changeItDefault(63, 43, allParams.filter2PositionOfDrive.value)});
+    allParams.filter2Cutoff.addEventListener('change', function(){changeItDefault(64, 44, allParams.filter2Cutoff.value)});
+    allParams.filter2Res.addEventListener('change', function(){changeItDefault(64, 45, allParams.filter2Res.value)});
+    allParams.filter2Morph.addEventListener('change', function(){changeItDefault(64, 46, allParams.filter2Morph.value)});
+    allParams.filter2Keytrack.addEventListener('change', function(){changeItDefault(65, 103, allParams.filter2Keytrack.value)});
+    allParams.filter2LFO1Amt.addEventListener('change', function(){changeItDefault(65, 98, allParams.filter2LFO1Amt.value)});
+    allParams.filter2VelEnv.addEventListener('change', function(){changeItDefault(65, 106, allParams.filter2VelEnv.value)});
+    allParams.filter2EnvAmt.addEventListener('change', function(){changeItDefault(65, 99, allParams.filter2EnvAmt.value)});
+    // allParams.filter2Type.addEventListener('change', function(){changeItDefault(63, 35, allParams.filter2Type.value)});
     
     // AMP                    
-    ampLevel.addEventListener('input', function(){changeItDefault(64, 02, ampLevel.value)});
-    ampVelEnv.addEventListener('input', function(){changeItDefault(65, 107, ampVelEnv.value)});
-    ampLFO2Amt.addEventListener('input', function(){changeItDefault(65, 100, ampLFO2Amt.value)});
+    allParams.ampLevel.addEventListener('change', function(){changeItDefault(64, 02, allParams.ampLevel.value)});
+    allParams.ampVelEnv.addEventListener('change', function(){changeItDefault(65, 107, allParams.ampVelEnv.value)});
+    allParams.ampLFO2Amt.addEventListener('change', function(){changeItDefault(65, 100, allParams.ampLFO2Amt.value)});
 
     // PRE-FX
-    preFXType.addEventListener('input', function(){changeItDefault(59, 127, preFXType.value)});
-    preFXPreset.addEventListener('input', function(){changeItDefault(59, 0, preFXPreset.value)});
-    preFXMix.addEventListener('input', function(){changeItDefault(65, 110, preFXMix.value)});
-    preFXParam1.addEventListener('input', function(){changeItDefault(65, 111, preFXParam1.value)});
-    preFXParam2.addEventListener('input', function(){changeItDefault(65, 112, preFXParam2.value)});
-    preFXParam3.addEventListener('input', function(){changeItDefault(59, 48, preFXParam3.value)});
-    preFXParam4.addEventListener('input', function(){changeItDefault(59, 64, preFXParam4.value)});
-    preFXParam5.addEventListener('input', function(){changeItDefault(59, 80, preFXParam5.value)});
-    preFXSelectionType.addEventListener('input', function(){changeItDefault(59, 115, preFXSelectionType.value)});
+    allParams.preFXType.addEventListener('change', function(){changeItDefault(59, 127, allParams.preFXType.value)});
+    allParams.preFXPreset.addEventListener('change', function(){changeItDefault(59, 0, allParams.preFXPreset.value)});
+    allParams.preFXMix.addEventListener('change', function(){changeItDefault(65, 110, allParams.preFXMix.value)});
+    allParams.preFXParam1.addEventListener('change', function(){changeItDefault(65, 111, allParams.preFXParam1.value)});
+    allParams.preFXParam2.addEventListener('change', function(){changeItDefault(65, 112, allParams.preFXParam2.value)});
+    allParams.preFXParam3.addEventListener('change', function(){changeItDefault(59, 48, allParams.preFXParam3.value)});
+    allParams.preFXParam4.addEventListener('change', function(){changeItDefault(59, 64, allParams.preFXParam4.value)});
+    allParams.preFXParam5.addEventListener('change', function(){changeItDefault(59, 80, allParams.preFXParam5.value)});
+    allParams.preFXSelectionType.addEventListener('change', function(){changeItDefault(59, 115, allParams.preFXSelectionType.value)});
 
     // DELAY    
-    // delayBPMSync.addEventListener('input', function(){changeItDefault(59, 112, delayBPMSync.value)});
-    delayDryWet.addEventListener('input', function(){changeItDefault(65, 120, delayDryWet.value)});
-    delayFeedback.addEventListener('input', function(){changeItDefault(65, 117, delayFeedback.value)});
-    delayFeedtone.addEventListener('input', function(){changeItDefault(65, 118, delayFeedtone.value)});
-    delayTime.addEventListener('input', function(){changeItDefault(65, 116, delayTime.value)});
-    // delayType.addEventListener('input', function(){changeItDefault(59, 113, delayType.value)});
-    delayWetTone.addEventListener('input', function(){changeItDefault(65, 119, delayWetTone.value)});
+    // allParams.delayBPMSync.addEventListener('change', function(){changeItDefault(59, 112, allParams.delayBPMSync.value)});
+    allParams.delayDryWet.addEventListener('change', function(){changeItDefault(65, 120, allParams.delayDryWet.value)});
+    allParams.delayFeedback.addEventListener('change', function(){changeItDefault(65, 117, allParams.delayFeedback.value)});
+    allParams.delayFeedtone.addEventListener('change', function(){changeItDefault(65, 118, allParams.delayFeedtone.value)});
+    allParams.delayTime.addEventListener('change', function(){changeItDefault(65, 116, allParams.delayTime.value)});
+    // allParams.delayType.addEventListener('change', function(){changeItDefault(59, 113, allParams.delayType.value)});
+    allParams.delayWetTone.addEventListener('change', function(){changeItDefault(65, 119, allParams.delayWetTone.value)});
 
     // REVERB
-    reverbDryWet.addEventListener('input', function(){changeItDefault(65, 126, reverbDryWet.value)});
-    reverbHiDamp.addEventListener('input', function(){changeItDefault(65, 123, reverbHiDamp.value)});
-    reverbLoDamp.addEventListener('input', function(){changeItDefault(65, 124, reverbLoDamp.value)});
-    reverbPreDelay.addEventListener('input', function(){changeItDefault(65, 125, reverbPreDelay.value)});
-    reverbTime.addEventListener('input', function(){changeItDefault(65, 121, reverbTime.value)});
-    reverbTone.addEventListener('input', function(){changeItDefault(65, 122, reverbTone.value)});
-    reverbType.addEventListener('input', function(){changeItDefault(60, 114, reverbType.value)});
+    allParams.reverbDryWet.addEventListener('change', function(){changeItDefault(65, 126, allParams.reverbDryWet.value)});
+    allParams.reverbHiDamp.addEventListener('change', function(){changeItDefault(65, 123, allParams.reverbHiDamp.value)});
+    allParams.reverbLoDamp.addEventListener('change', function(){changeItDefault(65, 124, allParams.reverbLoDamp.value)});
+    allParams.reverbPreDelay.addEventListener('change', function(){changeItDefault(65, 125, allParams.reverbPreDelay.value)});
+    allParams.reverbTime.addEventListener('change', function(){changeItDefault(65, 121, allParams.reverbTime.value)});
+    allParams.reverbTone.addEventListener('change', function(){changeItDefault(65, 122, allParams.reverbTone.value)});
+    allParams.reverbType.addEventListener('change', function(){changeItDefault(60, 114, allParams.reverbType.value)});
 
     // POST-FX    
-    postFXType.addEventListener('input', function(){changeItDefault(60, 127, postFXType.value)});
-    postFXPreset.addEventListener('input', function(){changeItDefault(60, 0, postFXPreset.value)});
-    postFXMix.addEventListener('input', function(){changeItDefault(65, 113, postFXMix.value)});
-    postFXParam1.addEventListener('input', function(){changeItDefault(65, 114, postFXParam1.value)});
-    postFXParam2.addEventListener('input', function(){changeItDefault(65, 115, postFXParam2.value)});
-    postFXParam3.addEventListener('input', function(){changeItDefault(60, 48, postFXParam3.value)});
-    postFXParam4.addEventListener('input', function(){changeItDefault(60, 64, postFXParam4.value)});
-    postFXParam5.addEventListener('input', function(){changeItDefault(60, 80, postFXParam5.value)});
-    postFXSidechainType.addEventListener('input', function(){changeItDefault(60, 115, postFXSidechainType.value)});
+    allParams.postFXType.addEventListener('change', function(){changeItDefault(60, 127, allParams.postFXType.value)});
+    allParams.postFXPreset.addEventListener('change', function(){changeItDefault(60, 0, allParams.postFXPreset.value)});
+    allParams.postFXMix.addEventListener('change', function(){changeItDefault(65, 113, allParams.postFXMix.value)});
+    allParams.postFXParam1.addEventListener('change', function(){changeItDefault(65, 114, allParams.postFXParam1.value)});
+    allParams.postFXParam2.addEventListener('change', function(){changeItDefault(65, 115, allParams.postFXParam2.value)});
+    allParams.postFXParam3.addEventListener('change', function(){changeItDefault(60, 48, allParams.postFXParam3.value)});
+    allParams.postFXParam4.addEventListener('change', function(){changeItDefault(60, 64, allParams.postFXParam4.value)});
+    allParams.postFXParam5.addEventListener('change', function(){changeItDefault(60, 80, allParams.postFXParam5.value)});
+    allParams.postFXSidechainType.addEventListener('change', function(){changeItDefault(60, 115, allParams.postFXSidechainType.value)});
 
     // LFOs    
-    lfo1Gain.addEventListener('input', function(){changeItDefault(65, 11, lfo1Gain.value)});
-    lfo1Rate.addEventListener('input', function(){changeItDefault(65, 05, lfo1Rate.value)});
-    lfo1Phase.addEventListener('input', function(){changeItDefault(63, 48, lfo1Phase.value)});
-    lfo2Gain.addEventListener('input', function(){changeItDefault(65, 12, lfo2Gain.value)});
-    lfo2Rate.addEventListener('input', function(){changeItDefault(65, 06, lfo2Gain.value)});
-    lfo2Phase.addEventListener('input', function(){changeItDefault(63, 49, lfo2Gain.value)});
-    lfo3Gain.addEventListener('input', function(){changeItDefault(65, 13, lfo3Gain.value)});
-    lfo3Rate.addEventListener('input', function(){changeItDefault(65, 07, lfo3Gain.value)});
-    lfo3Phase.addEventListener('input', function(){changeItDefault(63, 50, lfo3Gain.value)});
-    lfo4Gain.addEventListener('input', function(){changeItDefault(65, 14, lfo4Gain.value)});
-    lfo4Rate.addEventListener('input', function(){changeItDefault(65, 08, lfo4Gain.value)});
-    lfo4Phase.addEventListener('input', function(){changeItDefault(63, 51, lfo4Gain.value)});
-    lfo5Gain.addEventListener('input', function(){changeItDefault(65, 15, lfo5Gain.value)});
-    lfo5Rate.addEventListener('input', function(){changeItDefault(65, 09, lfo5Gain.value)});
-    lfo5Phase.addEventListener('input', function(){changeItDefault(63, 52, lfo5Gain.value)});
+    allParams.lfo1Gain.addEventListener('change', function(){changeItDefault(65, 11, allParams.lfo1Gain.value)});
+    allParams.lfo1Rate.addEventListener('change', function(){changeItDefault(65, 05, allParams.lfo1Rate.value)});
+    allParams.lfo1Phase.addEventListener('change', function(){changeItDefault(63, 48, allParams.lfo1Phase.value)});
+    allParams.lfo2Gain.addEventListener('change', function(){changeItDefault(65, 12, allParams.lfo2Gain.value)});
+    allParams.lfo2Rate.addEventListener('change', function(){changeItDefault(65, 06, allParams.lfo2Gain.value)});
+    allParams.lfo2Phase.addEventListener('change', function(){changeItDefault(63, 49, allParams.lfo2Gain.value)});
+    allParams.lfo3Gain.addEventListener('change', function(){changeItDefault(65, 13, allParams.lfo3Gain.value)});
+    allParams.lfo3Rate.addEventListener('change', function(){changeItDefault(65, 07, allParams.lfo3Gain.value)});
+    allParams.lfo3Phase.addEventListener('change', function(){changeItDefault(63, 50, allParams.lfo3Gain.value)});
+    allParams.lfo4Gain.addEventListener('change', function(){changeItDefault(65, 14, allParams.lfo4Gain.value)});
+    allParams.lfo4Rate.addEventListener('change', function(){changeItDefault(65, 08, allParams.lfo4Gain.value)});
+    allParams.lfo4Phase.addEventListener('change', function(){changeItDefault(63, 51, allParams.lfo4Gain.value)});
+    allParams.lfo5Gain.addEventListener('change', function(){changeItDefault(65, 15, allParams.lfo5Gain.value)});
+    allParams.lfo5Rate.addEventListener('change', function(){changeItDefault(65, 09, allParams.lfo5Gain.value)});
+    allParams.lfo5Phase.addEventListener('change', function(){changeItDefault(63, 52, allParams.lfo5Gain.value)});
 
     // ENVELOPE 1
-    env1Att.addEventListener('input', function(){changeItDefault(65, 17, env1Att.value)});
-    env1Hold.addEventListener('input', function(){changeItDefault(65, 22, env1Hold.value)});
-    env1Dec.addEventListener('input', function(){changeItDefault(65, 27, env1Dec.value)});
-    env1Sus.addEventListener('input', function(){changeItDefault(65, 32, env1Sus.value)});
-    env1Rel.addEventListener('input', function(){changeItDefault(65, 37, env1Rel.value)});
-    env1AttCurve.addEventListener('input', function(){changeItDefault(63, 112, env1AttCurve.value)});
-    env1DecCurve.addEventListener('input', function(){changeItDefault(63, 117, env1DecCurve.value)});
-    env1RelCurve.addEventListener('input', function(){changeItDefault(63, 122, env1RelCurve.value)});
+    allParams.env1Att.addEventListener('change', function(){changeItDefault(65, 17, allParams.env1Att.value)});
+    allParams.env1Hold.addEventListener('change', function(){changeItDefault(65, 22, allParams.env1Hold.value)});
+    allParams.env1Dec.addEventListener('change', function(){changeItDefault(65, 27, allParams.env1Dec.value)});
+    allParams.env1Sus.addEventListener('change', function(){changeItDefault(65, 32, allParams.env1Sus.value)});
+    allParams.env1Rel.addEventListener('change', function(){changeItDefault(65, 37, allParams.env1Rel.value)});
+    allParams.env1AttCurve.addEventListener('change', function(){changeItDefault(63, 112, allParams.env1AttCurve.value)});
+    allParams.env1DecCurve.addEventListener('change', function(){changeItDefault(63, 117, allParams.env1DecCurve.value)});
+    allParams.env1RelCurve.addEventListener('change', function(){changeItDefault(63, 122, allParams.env1RelCurve.value)});
 
     // ENVELOPE 2
-    env2Att.addEventListener('input', function(){changeItDefault(65, 18, env2Att.value)});
-    env2Hold.addEventListener('input', function(){changeItDefault(65, 23, env2Hold.value)});
-    env2Dec.addEventListener('input', function(){changeItDefault(65, 28, env2Dec.value)});
-    env2Sus.addEventListener('input', function(){changeItDefault(65, 33, env2Sus.value)});
-    env2Rel.addEventListener('input', function(){changeItDefault(65, 38, env2Rel.value)});
-    env2AttCurve.addEventListener('input', function(){changeItDefault(63, 113, env2AttCurve.value)});
-    env2DecCurve.addEventListener('input', function(){changeItDefault(63, 118, env2DecCurve.value)});
-    env2RelCurve.addEventListener('input', function(){changeItDefault(63, 123, env2RelCurve.value)});
+    allParams.env2Att.addEventListener('change', function(){changeItDefault(65, 18, allParams.env2Att.value)});
+    allParams.env2Hold.addEventListener('change', function(){changeItDefault(65, 23, allParams.env2Hold.value)});
+    allParams.env2Dec.addEventListener('change', function(){changeItDefault(65, 28, allParams.env2Dec.value)});
+    allParams.env2Sus.addEventListener('change', function(){changeItDefault(65, 33, allParams.env2Sus.value)});
+    allParams.env2Rel.addEventListener('change', function(){changeItDefault(65, 38, allParams.env2Rel.value)});
+    allParams.env2AttCurve.addEventListener('change', function(){changeItDefault(63, 113, allParams.env2AttCurve.value)});
+    allParams.env2DecCurve.addEventListener('change', function(){changeItDefault(63, 118, allParams.env2DecCurve.value)});
+    allParams.env2RelCurve.addEventListener('change', function(){changeItDefault(63, 123, allParams.env2RelCurve.value)});
 
     // ENVELOPE 3
-    env3Att.addEventListener('input', function(){changeItDefault(65, 19, env3Att.value)});
-    env3Hold.addEventListener('input', function(){changeItDefault(65, 24, env3Hold.value)});
-    env3Dec.addEventListener('input', function(){changeItDefault(65, 29, env3Dec.value)});
-    env3Sus.addEventListener('input', function(){changeItDefault(65, 34, env3Sus.value)});
-    env3Rel.addEventListener('input', function(){changeItDefault(65, 39, env3Rel.value)});
-    env3AttCurve.addEventListener('input', function(){changeItDefault(63, 114, env3AttCurve.value)});
-    env3DecCurve.addEventListener('input', function(){changeItDefault(63, 119, env3DecCurve.value)});
-    env3RelCurve.addEventListener('input', function(){changeItDefault(63, 124, env3RelCurve.value)});
+    allParams.env3Att.addEventListener('change', function(){changeItDefault(65, 19, allParams.env3Att.value)});
+    allParams.env3Hold.addEventListener('change', function(){changeItDefault(65, 24, allParams.env3Hold.value)});
+    allParams.env3Dec.addEventListener('change', function(){changeItDefault(65, 29, allParams.env3Dec.value)});
+    allParams.env3Sus.addEventListener('change', function(){changeItDefault(65, 34, allParams.env3Sus.value)});
+    allParams.env3Rel.addEventListener('change', function(){changeItDefault(65, 39, allParams.env3Rel.value)});
+    allParams.env3AttCurve.addEventListener('change', function(){changeItDefault(63, 114, allParams.env3AttCurve.value)});
+    allParams.env3DecCurve.addEventListener('change', function(){changeItDefault(63, 119, allParams.env3DecCurve.value)});
+    allParams.env3RelCurve.addEventListener('change', function(){changeItDefault(63, 124, allParams.env3RelCurve.value)});
 
     // ENVELOPE 4
-    env4Att.addEventListener('input', function(){changeItDefault(65, 20, env4Att.value)});
-    env4Hold.addEventListener('input', function(){changeItDefault(65, 25, env4Hold.value)});
-    env4Dec.addEventListener('input', function(){changeItDefault(65, 30, env4Dec.value)});
-    env4Sus.addEventListener('input', function(){changeItDefault(65, 35, env4Sus.value)});
-    env4Rel.addEventListener('input', function(){changeItDefault(65, 40, env4Rel.value)});
-    env4AttCurve.addEventListener('input', function(){changeItDefault(63, 115, env4AttCurve.value)});
-    env4DecCurve.addEventListener('input', function(){changeItDefault(63, 120, env4DecCurve.value)});
-    env4RelCurve.addEventListener('input', function(){changeItDefault(63, 125, env4RelCurve.value)});
+    allParams.env4Att.addEventListener('change', function(){changeItDefault(65, 20, allParams.env4Att.value)});
+    allParams.env4Hold.addEventListener('change', function(){changeItDefault(65, 25, allParams.env4Hold.value)});
+    allParams.env4Dec.addEventListener('change', function(){changeItDefault(65, 30, allParams.env4Dec.value)});
+    allParams.env4Sus.addEventListener('change', function(){changeItDefault(65, 35, allParams.env4Sus.value)});
+    allParams.env4Rel.addEventListener('change', function(){changeItDefault(65, 40, allParams.env4Rel.value)});
+    allParams.env4AttCurve.addEventListener('change', function(){changeItDefault(63, 115, allParams.env4AttCurve.value)});
+    allParams.env4DecCurve.addEventListener('change', function(){changeItDefault(63, 120, allParams.env4DecCurve.value)});
+    allParams.env4RelCurve.addEventListener('change', function(){changeItDefault(63, 125, allParams.env4RelCurve.value)});
 
     // ENVELOPE 5
-    env5Att.addEventListener('input', function(){changeItDefault(65, 21, env5Att.value)});
-    env5Hold.addEventListener('input', function(){changeItDefault(65, 26, env5Hold.value)});
-    env5Dec.addEventListener('input', function(){changeItDefault(65, 31, env5Dec.value)});
-    env5Sus.addEventListener('input', function(){changeItDefault(65, 36, env5Sus.value)});
-    env5Rel.addEventListener('input', function(){changeItDefault(65, 41, env5Rel.value)});
-    env5AttCurve.addEventListener('input', function(){changeItDefault(63, 116, env5AttCurve.value)});
-    env5DecCurve.addEventListener('input', function(){changeItDefault(63, 121, env5DecCurve.value)});
-    env5RelCurve.addEventListener('input', function(){changeItDefault(63, 126, env5RelCurve.value)});
+    allParams.env5Att.addEventListener('change', function(){changeItDefault(65, 21, allParams.env5Att.value)});
+    allParams.env5Hold.addEventListener('change', function(){changeItDefault(65, 26, allParams.env5Hold.value)});
+    allParams.env5Dec.addEventListener('change', function(){changeItDefault(65, 31, allParams.env5Dec.value)});
+    allParams.env5Sus.addEventListener('change', function(){changeItDefault(65, 36, allParams.env5Sus.value)});
+    allParams.env5Rel.addEventListener('change', function(){changeItDefault(65, 41, allParams.env5Rel.value)});
+    allParams.env5AttCurve.addEventListener('change', function(){changeItDefault(63, 116, allParams.env5AttCurve.value)});
+    allParams.env5DecCurve.addEventListener('change', function(){changeItDefault(63, 121, allParams.env5DecCurve.value)});
+    allParams.env5RelCurve.addEventListener('change', function(){changeItDefault(63, 126, allParams.env5RelCurve.value)});
 
     // MOD MATRIX
-    modMatrix1Depth.addEventListener('input', function(){changeItDefault(65, 64, modMatrix1Depth.value)});
-    modMatrix2Depth.addEventListener('input', function(){changeItDefault(65, 65, modMatrix2Depth.value)});
-    modMatrix3Depth.addEventListener('input', function(){changeItDefault(65, 66, modMatrix3Depth.value)});
-    modMatrix4Depth.addEventListener('input', function(){changeItDefault(65, 67, modMatrix4Depth.value)});
-    modMatrix5Depth.addEventListener('input', function(){changeItDefault(65, 68, modMatrix5Depth.value)});
-    modMatrix6Depth.addEventListener('input', function(){changeItDefault(65, 69, modMatrix6Depth.value)});
-    modMatrix7Depth.addEventListener('input', function(){changeItDefault(65, 70, modMatrix7Depth.value)});
-    modMatrix8Depth.addEventListener('input', function(){changeItDefault(65, 71, modMatrix8Depth.value)});
-    modMatrix9Depth.addEventListener('input', function(){changeItDefault(65, 72, modMatrix9Depth.value)});
-    modMatrix10Depth.addEventListener('input', function(){changeItDefault(65, 73, modMatrix10Depth.value)});
-    modMatrix11Depth.addEventListener('input', function(){changeItDefault(65, 74, modMatrix11Depth.value)});
-    modMatrix12Depth.addEventListener('input', function(){changeItDefault(65, 75, modMatrix12Depth.value)});
-    modMatrix13Depth.addEventListener('input', function(){changeItDefault(65, 76, modMatrix13Depth.value)});
-    modMatrix14Depth.addEventListener('input', function(){changeItDefault(65, 77, modMatrix14Depth.value)});
-    modMatrix15Depth.addEventListener('input', function(){changeItDefault(65, 78, modMatrix15Depth.value)});
-    modMatrix16Depth.addEventListener('input', function(){changeItDefault(65, 79, modMatrix16Depth.value)});
-    modMatrix17Depth.addEventListener('input', function(){changeItDefault(65, 80, modMatrix17Depth.value)});
-    modMatrix18Depth.addEventListener('input', function(){changeItDefault(65, 81, modMatrix18Depth.value)});
-    modMatrix19Depth.addEventListener('input', function(){changeItDefault(65, 82, modMatrix19Depth.value)});
-    modMatrix20Depth.addEventListener('input', function(){changeItDefault(65, 83, modMatrix20Depth.value)});
-    modMatrix21Depth.addEventListener('input', function(){changeItDefault(65, 84, modMatrix21Depth.value)});
-    modMatrix22Depth.addEventListener('input', function(){changeItDefault(65, 85, modMatrix22Depth.value)});
-    modMatrix23Depth.addEventListener('input', function(){changeItDefault(65, 86, modMatrix23Depth.value)});
-    modMatrix24Depth.addEventListener('input', function(){changeItDefault(65, 87, modMatrix24Depth.value)});
-    modMatrix25Depth.addEventListener('input', function(){changeItDefault(65, 88, modMatrix25Depth.value)});
-    modMatrix26Depth.addEventListener('input', function(){changeItDefault(65, 89, modMatrix26Depth.value)});
-    modMatrix27Depth.addEventListener('input', function(){changeItDefault(65, 90, modMatrix27Depth.value)});
-    modMatrix28Depth.addEventListener('input', function(){changeItDefault(65, 91, modMatrix28Depth.value)});
-    modMatrix29Depth.addEventListener('input', function(){changeItDefault(65, 92, modMatrix29Depth.value)});
-    modMatrix30Depth.addEventListener('input', function(){changeItDefault(65, 93, modMatrix30Depth.value)});
-    modMatrix31Depth.addEventListener('input', function(){changeItDefault(65, 94, modMatrix31Depth.value)});
-    modMatrix32Depth.addEventListener('input', function(){changeItDefault(65, 95, modMatrix32Depth.value)});
+    allParams.modMatrix1Depth.addEventListener('change', function(){changeItDefault(65, 64, allParams.modMatrix1Depth.value)});
+    allParams.modMatrix2Depth.addEventListener('change', function(){changeItDefault(65, 65, allParams.modMatrix2Depth.value)});
+    allParams.modMatrix3Depth.addEventListener('change', function(){changeItDefault(65, 66, allParams.modMatrix3Depth.value)});
+    allParams.modMatrix4Depth.addEventListener('change', function(){changeItDefault(65, 67, allParams.modMatrix4Depth.value)});
+    allParams.modMatrix5Depth.addEventListener('change', function(){changeItDefault(65, 68, allParams.modMatrix5Depth.value)});
+    allParams.modMatrix6Depth.addEventListener('change', function(){changeItDefault(65, 69, allParams.modMatrix6Depth.value)});
+    allParams.modMatrix7Depth.addEventListener('change', function(){changeItDefault(65, 70, allParams.modMatrix7Depth.value)});
+    allParams.modMatrix8Depth.addEventListener('change', function(){changeItDefault(65, 71, allParams.modMatrix8Depth.value)});
+    allParams.modMatrix9Depth.addEventListener('change', function(){changeItDefault(65, 72, allParams.modMatrix9Depth.value)});
+    allParams.modMatrix10Depth.addEventListener('change', function(){changeItDefault(65, 73, allParams.modMatrix10Depth.value)});
+    allParams.modMatrix11Depth.addEventListener('change', function(){changeItDefault(65, 74, allParams.modMatrix11Depth.value)});
+    allParams.modMatrix12Depth.addEventListener('change', function(){changeItDefault(65, 75, allParams.modMatrix12Depth.value)});
+    allParams.modMatrix13Depth.addEventListener('change', function(){changeItDefault(65, 76, allParams.modMatrix13Depth.value)});
+    allParams.modMatrix14Depth.addEventListener('change', function(){changeItDefault(65, 77, allParams.modMatrix14Depth.value)});
+    allParams.modMatrix15Depth.addEventListener('change', function(){changeItDefault(65, 78, allParams.modMatrix15Depth.value)});
+    allParams.modMatrix16Depth.addEventListener('change', function(){changeItDefault(65, 79, allParams.modMatrix16Depth.value)});
+    allParams.modMatrix17Depth.addEventListener('change', function(){changeItDefault(65, 80, allParams.modMatrix17Depth.value)});
+    allParams.modMatrix18Depth.addEventListener('change', function(){changeItDefault(65, 81, allParams.modMatrix18Depth.value)});
+    allParams.modMatrix19Depth.addEventListener('change', function(){changeItDefault(65, 82, allParams.modMatrix19Depth.value)});
+    allParams.modMatrix20Depth.addEventListener('change', function(){changeItDefault(65, 83, allParams.modMatrix20Depth.value)});
+    allParams.modMatrix21Depth.addEventListener('change', function(){changeItDefault(65, 84, allParams.modMatrix21Depth.value)});
+    allParams.modMatrix22Depth.addEventListener('change', function(){changeItDefault(65, 85, allParams.modMatrix22Depth.value)});
+    allParams.modMatrix23Depth.addEventListener('change', function(){changeItDefault(65, 86, allParams.modMatrix23Depth.value)});
+    allParams.modMatrix24Depth.addEventListener('change', function(){changeItDefault(65, 87, allParams.modMatrix24Depth.value)});
+    allParams.modMatrix25Depth.addEventListener('change', function(){changeItDefault(65, 88, allParams.modMatrix25Depth.value)});
+    allParams.modMatrix26Depth.addEventListener('change', function(){changeItDefault(65, 89, allParams.modMatrix26Depth.value)});
+    allParams.modMatrix27Depth.addEventListener('change', function(){changeItDefault(65, 90, allParams.modMatrix27Depth.value)});
+    allParams.modMatrix28Depth.addEventListener('change', function(){changeItDefault(65, 91, allParams.modMatrix28Depth.value)});
+    allParams.modMatrix29Depth.addEventListener('change', function(){changeItDefault(65, 92, allParams.modMatrix29Depth.value)});
+    allParams.modMatrix30Depth.addEventListener('change', function(){changeItDefault(65, 93, allParams.modMatrix30Depth.value)});
+    allParams.modMatrix31Depth.addEventListener('change', function(){changeItDefault(65, 94, allParams.modMatrix31Depth.value)});
+    allParams.modMatrix32Depth.addEventListener('change', function(){changeItDefault(65, 95, allParams.modMatrix32Depth.value)});
 
 
+    // COMPOSITIONAL TOOLS
 
+    const paramToRandomize = document.getElementById('random-choice-1')
+    for (index in allParams) {
+      paramToRandomize.options[paramToRandomize.options.length] = new Option(index);
+    }
+    
+    selectedParam = '';
+    function selectParam() {
+      return selectedParam = paramToRandomize.options[paramToRandomize.selectedIndex].text;
+    }
+    paramToRandomize.addEventListener('change', selectParam);
 
+    let startStopRandom;
 
+    function startEndRandom(param, x, speed) {
+      console.log(speed)
+      if (x == 'start') {
+        startStopRandom = setInterval(randomizer, speed, param);
+      } else {
+        clearInterval(startStopRandom)
+      }
+    }
+
+    function randomizer(param) {
+      param.value = Math.floor(Math.random() * Math.floor(param.max))
+      const evt = new Event('change');
+      param.dispatchEvent(evt);
+    }
+
+    
+
+    const startStop = document.getElementById('start-stop-random');
+    const randomSpeed = document.getElementById('rand-speed');
+    document.getElementById('rand-butt')
+      .addEventListener('click', function(){
+        startEndRandom(allParams[selectedParam], startStop.options[startStop.selectedIndex].value, randomSpeed.value)
+      });
 
 
 
   }
+
 });
+
+
