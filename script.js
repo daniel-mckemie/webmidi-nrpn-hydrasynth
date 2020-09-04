@@ -42,26 +42,26 @@ WebMidi.enable(function (err) {
       let nrpnArray = [0,0,0,0]; // CCs [99,98,6,38]
       // Listen to NRPN message on all channels
       
-      // input.addListener('controlchange', 'all',
-      //   function (e) {
-      //     if (e.controller.number === 99) {
-      //       nrpnArray[0] = e.value;
-      //       changePage(nrpnArray);
-      //     }
-      //     if (e.controller.number === 98) {
-      //       nrpnArray[1] = e.value;
-      //       changePage(nrpnArray);
-      //     }
-      //     if (e.controller.number === 6) {
-      //       nrpnArray[2] = e.value;
-      //       changePage(nrpnArray);
-      //     }
-      //     if (e.controller.number === 38) {
-      //       nrpnArray[3] = e.value;
-      //       changePage(nrpnArray);
-      //     }          
-      //   }          
-      // );
+      input.addListener('controlchange', 'all',
+        function (e) {
+          if (e.controller.number === 99) {
+            nrpnArray[0] = e.value;
+            changePage(nrpnArray);
+          }
+          if (e.controller.number === 98) {
+            nrpnArray[1] = e.value;
+            changePage(nrpnArray);
+          }
+          if (e.controller.number === 6) {
+            nrpnArray[2] = e.value;
+            changePage(nrpnArray);
+          }
+          if (e.controller.number === 38) {
+            nrpnArray[3] = e.value;
+            changePage(nrpnArray);
+          }          
+        }          
+      );
 
       function calculate(x, y) {
         let newParam = (x << 7) + (y & 0xff);
@@ -1454,17 +1454,23 @@ WebMidi.enable(function (err) {
 
 
       const sketchSpeed = document.getElementById('sketch-speed'); 
-      const loopToggle = document.getElementById('loop');     
-      document.getElementById('send-button').addEventListener('click', function () {
-        sendArrayX(allParams[selectedParams[1]], sketchArrayX, sketchSpeed.value, loopToggle.value)
-        sendArrayY(allParams[selectedParams[2]], sketchArrayY, sketchSpeed.value, loopToggle.value)
+      const loopToggle = document.getElementById('loop');
+      const sendButton = document.getElementById('send-button');
+      const clearButton = document.getElementById('clear-button');
+
+      sendButton.addEventListener('click', function () {
+        sendArrayX(allParams[selectedParams[1]], sketchArrayX, sketchSpeed.value, loopToggle.checked);
+        sendArrayY(allParams[selectedParams[2]], sketchArrayY, sketchSpeed.value, loopToggle.checked);        
+
       })
-      document.getElementById('clear-button').addEventListener('click', function () {
-        clearCanvas(canvas, ctx)
+      clearButton.addEventListener('click', function () {
+        clearCanvas(canvas, ctx);
+        sendButton.disabled = false;
+
       });
 
 
-      function sendArrayX(paramX, valuesX, speed, loopX) {
+      function sendArrayX(paramX, valuesX, speed, loopX) {        
         if (paramX) {
           valuesX.sort(function (a, b) {
             return a - b
@@ -1474,13 +1480,22 @@ WebMidi.enable(function (err) {
             setTimeout(function () {
               console.log(newValuesX[i])
               paramX.value = newValuesX[i];
-              // const evt = new Event('change');
-              // paramX.dispatchEvent(evt);
+              const evt = new Event('change');
+              paramX.dispatchEvent(evt);
             }, i * speed);                      
-          }          
-        }              
+          }
+          if (loopX == true) {
+            sendButton.disabled = true;
+            function restartArray() {
+              sendArrayX(allParams[selectedParams[1]], sketchArrayX, sketchSpeed.value, loopToggle.checked)              
+            }
+            setTimeout(restartArray, (speed * newValuesX.length))
+          }
+        }
       }
-      function sendArrayY(paramY, valuesY, speed) {
+                          
+      
+      function sendArrayY(paramY, valuesY, speed, loopY) {
         if (paramY) {
           valuesY.sort(function (a, b) {
             return a - b
@@ -1492,10 +1507,85 @@ WebMidi.enable(function (err) {
               paramY.value = newValuesY[i];
               const evt = new Event('change');
               paramY.dispatchEvent(evt);
-            }, i * speed);
+            }, i * speed);            
+          }
+          if (loopY == true) {
+            function restartArray() {
+              sendArrayX(allParams[selectedParams[1]], sketchArrayY, sketchSpeed.value, loopToggle.checked)
+            }
+            setTimeout(restartArray, 2000)
           }
         }
       }
+
+      const pitchInfo = document.getElementById('pitch-info');
+      const velInfo = document.getElementById('vel-info');
+      const durInfo = document.getElementById('dur-info');
+
+      document.getElementById('send-note').addEventListener('click', function(){
+        sendNote(pitchInfo.value, velInfo.value, durInfo.value)})
+
+      function sendNote(pitch, vel, dur) {
+        console.log(pitch, vel, dur)                
+        output.playNote(pitch, 1, {duration: dur, velocity: vel});
+          
+      }
+      
+     
+
+
+      
+      document
+        .querySelector("#filedrop input")
+        .addEventListener("change", (e) => {
+          //get the files
+          const files = e.target.files;
+          if (files.length > 0) {
+            const file = files[0];            
+            parseFile(file);
+          }
+        });
+
+
+      let currentMidi = null;
+
+      function parseFile(file) {
+        //read the file
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const midi = new Midi(e.target.result);
+          document.querySelector(
+            "#results-text"
+          ).value = JSON.stringify(midi, undefined, 2);
+          document
+            .querySelector("tone-play-toggle")
+            .removeAttribute("disabled");
+          currentMidi = midi;
+          console.log(currentMidi);          
+          for (let i = 0; i < currentMidi.tracks[0].notes.length; i++) {
+            setTimeout(function () {
+              sendNote(currentMidi.tracks[0].notes[i].midi,
+                currentMidi.tracks[0].notes[i].velocity,
+                currentMidi.tracks[0].notes[i].durationTicks)
+            }, currentMidi.tracks[0].notes[i].ticks)
+          }
+        };
+        reader.readAsArrayBuffer(file);
+      }
+
+
+      
+      
+
+
+
+
+
+
+
+
+
+      
 
     ////////////////////////////////////////////////////////////////////////////////
 

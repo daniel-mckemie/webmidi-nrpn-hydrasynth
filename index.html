@@ -468,53 +468,72 @@
     </div>
     <br />
 
+    <div class="col">
+      <div class="row">
+        <h2>Composition Tools</h2>
+        <select class="param-list">
+          <option value="" selected disabled hidden>Parameter to Randomize</option>
+        </select>
+        <select id="start-stop-random" name"start-stop">
+          <option value="start">Start</option>
+          <option value="stop">Stop</option>
+        </select>
+        <input id="rand-speed" type="number" placeholder="speed" min="1">
+        <input id="rand-butt" type="button" value="Start/Stop Randomize!">
+      </div>
+      <br />
 
-    <div class="row">
-      <h2>Composition Tools</h2>
-      <select class="param-list">
-        <option value="" selected disabled hidden>Parameter to Randomize</option>
-      </select>
-      <select id="start-stop-random" name"start-stop">
-        <option value="start">Start</option>
-        <option value="stop">Stop</option>
-      </select>
-      <input id="rand-speed" type="number" placeholder="speed" min="1">
-      <input id="rand-butt" type="button" value="Start/Stop Randomize!">
-    </div>
-    <br />
-
-    <div id="sketchpadapp">
-      <div class="leftside">
-        Draw a contour and send to a parameter. Send the X values one place, and the Y values another. 
-        Determine the speed at which the values you plot will cycle.<br /><br />                  
+      <div id="sketchpadapp">
+        <div class="leftside">
+          Draw a contour and send to a parameter. Send the X values one place, and the Y values another.
+          Determine the speed at which the values you plot will cycle.<br /><br />
           <select class="param-list" id="sketch-x-choice">
             <option value="" selected disabled hidden>Send X to Parameter</option>
-          </select>          
+          </select>
           <select class="param-list" id="sketch-y-choice">
             <option value="" selected disabled hidden>Send Y to Parameter</option>
-          </select>          
+          </select>
           <input id="sketch-speed" type="number" placeholder="speed" min="1">
-          <input type="checkbox" id="loop"> Loop(TBD)
+          <input type="checkbox" id="loop"> Loop
           <input type="button" value="Send Values" id="send-button"><br /><br /><br />
-          
-        
-        <input type="submit" value="Clear Sketchpad" id="clear-button">
+          <input type="submit" value="Clear Sketchpad" id="clear-button">
+        </div>
+        <div class="rightside">
+          <canvas id="sketchpad" height="300" width="400">
+          </canvas>
+        </div>
       </div>
-      <div class="rightside">
-        <canvas id="sketchpad" height="300" width="400">
-        </canvas>
-      </div>  
-          
+    </div>    
+
+    <div class="col">
+      <input id="pitch-info" type="text" placeholder="Pitch">
+      <input id="vel-info" type="number" min="0" max="127" placeholder="Velocity">
+      <input id="dur-info" type="number" placeholder="Duration">
+      <input id="send-note" type="button" value="Send Note">      
     </div>
 
-
+    
+      <div class="col">
+        <tone-content class="row">
+          <p>
+            Upload a file to parse into JSON and send it out the MIDI port...
+          </p>
+          <div id=filedrop>            
+            <input type="file" accept="audio/midi" />            
+          </div>
+          <textarea id="results-text" placeholder="json output..."></textarea>
+          <tone-play-toggle disabled></tone-play-toggle>
+        </tone-content>
+      </div>
+    
 
     <div class="flex-grid">
       <div class="row" id="info"></div>
     </div>
 
   </div>
-  <script src="./libs/webmidi.min.js"></script>
+  <script src="./libs/webmidi.min.js"></script>  
+  <script src="https://unpkg.com/@tonejs/midi"></script>
   <script src="./script.js"></script>
 </body>
 

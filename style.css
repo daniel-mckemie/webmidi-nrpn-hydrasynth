@@ -74,3 +74,12 @@ input[type=number] {
     padding:5px;
     clear:both;
 }
+
+textarea {
+	font-family: monospace;
+	height: 50vh;
+	width: 33%;	
+	position: relative;
+	float: left;
+}
+
